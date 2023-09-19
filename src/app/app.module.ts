@@ -11,10 +11,12 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
 import {NgOptimizedImage} from "@angular/common";
 import {MatStepperModule} from "@angular/material/stepper";
+import {StepperContentComponent} from './harvestings/components/stepper-content/stepper-content.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StepperContentComponent
   ],
   imports: [
     BrowserModule,
@@ -30,4 +32,5 @@ import {MatStepperModule} from "@angular/material/stepper";
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

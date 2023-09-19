@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-horizontal-stepper [linear]="true" [@.disable]="true">
+    <ng-template matStepperIcon="done" let-index="index">
+      {{ calculateStepperLabel(index) }}
+    </ng-template>
+    <ng-template matStepperIcon="number" let-index="index">
+      {{ calculateStepperLabel(index) }}
+    </ng-template>
+    <mat-step *ngFor="let phase of phases" [editable]="false">
+      <ng-template matStepLabel><span class="stepper-label">{{ phase.message }}</span></ng-template>
+      <p>Records of harvest, started on </p>
+      <button mat-button matStepperNext>End phase</button>
+      <button mat-button> + Create new record</button>
+    </mat-step>
+  </mat-horizontal-stepper>
+</mat-card>
