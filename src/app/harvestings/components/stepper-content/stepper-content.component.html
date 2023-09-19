@@ -8,9 +8,17 @@
     </ng-template>
     <mat-step *ngFor="let phase of phases" [editable]="false">
       <ng-template matStepLabel><span class="stepper-label">{{ phase.message }}</span></ng-template>
-      <p>Records of harvest, started on </p>
-      <button mat-button matStepperNext>End phase</button>
-      <button mat-button> + Create new record</button>
+      <h2>Records of harvest {{''}}, started on {{''}}</h2>
+      <app-button-primary text="End phase"
+                          buttonColor="var(--red)"
+                          buttonTextColor="var(--white)"
+                          buttonBorderColor="var(--red)"
+                          [useStepperNext]="true"></app-button-primary>
+      <app-button-primary text=" + Create new record"
+                          buttonColor="#F4F5F9"
+                          buttonTextColor="var(--primary-green)"
+                          buttonBorderColor="var(--primary-green)"
+                          [useStepperNext]="false"></app-button-primary>
     </mat-step>
   </mat-horizontal-stepper>
 </mat-card>

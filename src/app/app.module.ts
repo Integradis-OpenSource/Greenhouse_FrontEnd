@@ -12,11 +12,13 @@ import {MatCardModule} from "@angular/material/card";
 import {NgOptimizedImage} from "@angular/common";
 import {MatStepperModule} from "@angular/material/stepper";
 import {StepperContentComponent} from './harvestings/components/stepper-content/stepper-content.component';
+import { ButtonPrimaryComponent } from './harvestings/components/button-primary/button-primary.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StepperContentComponent
+    StepperContentComponent,
+    ButtonPrimaryComponent
   ],
   imports: [
     BrowserModule,

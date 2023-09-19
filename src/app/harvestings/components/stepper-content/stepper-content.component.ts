@@ -3,10 +3,9 @@ import { Component  } from '@angular/core';
 @Component({
   selector: 'app-stepper-content',
   templateUrl: './stepper-content.component.html',
-  styleUrls: ['./stepper-content.component.css']
+  styleUrls: ['./stepper-content.component.css'],
 })
 export class StepperContentComponent {
-
   phases = [
     { label: '0', message: 'Stock' },
     { label: '1', message: 'Preparation area' },
@@ -17,7 +16,6 @@ export class StepperContentComponent {
     { label: '4.3', message: 'Induction' },
     { label: '4.4', message: 'Harvest' },
   ];
-
   calculateStepperLabel(index: number): string {
     if (index === 0) {
       return '0';
