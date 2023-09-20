@@ -11,22 +11,28 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
 import {NgOptimizedImage} from "@angular/common";
 import {MatStepperModule} from "@angular/material/stepper";
+import {RouterOutlet} from "@angular/router";
+import { ToolbarContentComponent } from './profiles/components/toolbar-content/toolbar-content.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ToolbarContentComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    LayoutModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-    NgOptimizedImage,
-    MatStepperModule,
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        LayoutModule,
+        MatButtonModule,
+        MatIconModule,
+        MatCardModule,
+        NgOptimizedImage,
+        MatStepperModule,
+        RouterOutlet,
+        MatToolbarModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

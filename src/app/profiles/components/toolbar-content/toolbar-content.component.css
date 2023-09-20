@@ -1,0 +1,20 @@
+.mat-toolbar {
+  background: inherit;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #4D6443;
+  color: #F8F8F8;
+}
+
+.mat-toolbar button {
+  font-family: var(--font-primary);
+}
+
+.mat-toolbar .greenhouse{
+  vertical-align: center;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
