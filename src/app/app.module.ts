@@ -14,11 +14,15 @@ import {MatStepperModule} from "@angular/material/stepper";
 import {RouterOutlet} from "@angular/router";
 import { ToolbarContentComponent } from './shared/components/toolbar-content/toolbar-content.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
+import { DashboardCardComponent } from './dashboard/components/dashboard-card/dashboard-card.component';
+import { DashboardContentComponent } from './dashboard/components/dashboard-content/dashboard-content.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ToolbarContentComponent
+    ToolbarContentComponent,
+    DashboardCardComponent,
+    DashboardContentComponent
   ],
     imports: [
         BrowserModule,
