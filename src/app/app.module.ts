@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {InformationComponent} from "./profiles/components/information/information.component";
 import {ProfileInformationComponent} from "./profiles/components/profile-information/profile-information.component";
-import { MainContentComponent } from './profiles/components/main-content/main-content.component';
+import { ProfileContentComponent } from './profiles/components/profile-content/profile-content.component';
 import {AvatarComponent} from "./profiles/components/avatar/avatar.component";
 
 @NgModule({
@@ -14,7 +14,7 @@ import {AvatarComponent} from "./profiles/components/avatar/avatar.component";
     AppComponent,
     InformationComponent,
     ProfileInformationComponent,
-    MainContentComponent,
+    ProfileContentComponent,
     AvatarComponent
   ],
   imports: [
