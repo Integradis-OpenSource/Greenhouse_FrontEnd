@@ -1,5 +1,7 @@
 .division{
   border-top: 1px solid var(--primary-green);
+  margin-bottom: 8px;
+  margin-top: 8px;
 }
 .link-color{
   color:var(--secondary-green-1);
