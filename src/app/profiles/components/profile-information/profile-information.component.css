@@ -1,0 +1,10 @@
+.division{
+  border-top: 1px solid var(--primary-green);
+}
+.link-color{
+  color:var(--secondary-green-1);
+}
+
+.delete{
+  color: var(--red);
+}
