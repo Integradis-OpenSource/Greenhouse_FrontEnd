@@ -5,6 +5,9 @@
   z-index: 1;
   background-color: #4D6443;
   color: #F8F8F8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .mat-toolbar button {
@@ -17,4 +20,24 @@
 
 .example-spacer {
   flex: 1 1 auto;
+}
+
+.mat-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.mat-button .mat-button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.mat-button img {
+  margin-bottom: 8px; /* Espacio opcional entre la imagen y el texto */
 }
