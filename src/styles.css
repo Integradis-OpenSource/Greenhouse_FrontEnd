@@ -10,7 +10,7 @@
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: var(--font-primary); }
+body { margin: 0; font-family: var(--font-primary); background-color: var(--primary-white);}
 :root {
   --primary-green: #4D6443;
   --primary-white:#E1E8EC;
