@@ -1,0 +1,122 @@
+{
+  "stock": [
+    {
+      "author":"Winston Smith",
+      "day": "2",
+      "date": "15/09/2023",
+      "time": "10:00",
+      "hay": 128,
+      "corn": 300,
+      "guano": 100,
+      "cotton_seed_cake": 500,
+      "soybean_meal":400,
+      "gypsum": 356,
+      "urea": 780,
+      "ammonium_sulphate": 125
+    }
+  ],
+
+  "preparation_area":[
+    {
+      "author":"Winston Smith",
+      "day": "2",
+      "date": "15/09/2023",
+      "time": "10:00",
+      "activities": "Premixing",
+      "temperature": 30,
+      "comment": ""
+    }
+  ],
+
+  "bunker":[
+    {
+      "author":"Winston Smith",
+      "day": "2",
+      "date": "15/09/2023",
+      "time": "10:00",
+      "thermocouple_one": 525,
+      "thermocouple_two": 481,
+      "thermocouple_three": 490,
+      "average_thermocouple": 498.67,
+      "frequency": "50"
+    }
+  ],
+
+  "tunnel":[
+    {
+      "author":"Winston Smith",
+      "day": "2",
+      "date": "15/09/2023",
+      "time": "10:00",
+      "grow_room": 4,
+      "thermocouple_one": 525,
+      "thermocouple_two": 481,
+      "thermocouple_three": 490,
+      "average_thermocouple": 498.67,
+      "frequency": "50",
+      "room_temperature": 20.0,
+      "fresh_air": 30,
+      "recirculation": 50,
+      "comment": ""
+    }
+  ],
+
+  "grow_room_record":[
+    {
+      "author":"Winston Smith",
+      "day": "2",
+      "date": "15/09/2023",
+      "time": "10:00",
+      "grow_room": 4,
+      "air_temperature": 22.0,
+      "compost_temperature": "23-24",
+      "carbon_dioxide": 2319,
+      "air_hydrogen": 92,
+      "setting": 20.0,
+      "comment": "",
+      "process_type": "Incubation"
+    },
+    {
+      "author":"Winston Smith",
+      "day": "2",
+      "date": "15/09/2023",
+      "time": "10:00",
+      "grow_room": 4,
+      "air_temperature": 22.0,
+      "compost_temperature": "23-24",
+      "carbon_dioxide": 2319,
+      "air_hydrogen": 92,
+      "setting": 20.0,
+      "comment": "",
+      "process_type": "Casing"
+    },
+    {
+      "author":"Winston Smith",
+      "day": "2",
+      "date": "15/09/2023",
+      "time": "10:00",
+      "grow_room": 4,
+      "air_temperature": 22.0,
+      "compost_temperature": "23-24",
+      "carbon_dioxide": 2319,
+      "air_hydrogen": 92,
+      "setting": 20.0,
+      "comment": "",
+      "process_type": "Induction"
+    },
+    {
+      "author":"Winston Smith",
+      "day": "2",
+      "date": "15/09/2023",
+      "time": "10:00",
+      "grow_room": 4,
+      "air_temperature": 22.0,
+      "compost_temperature": "23-24",
+      "carbon_dioxide": 2319,
+      "air_hydrogen": 92,
+      "setting": 20.0,
+      "comment": "",
+      "process_type": "Harvest"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
+
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -23,9 +24,11 @@ import { DashboardContentComponent } from './dashboard/components/dashboard-cont
     ToolbarContentComponent,
     DashboardCardComponent,
     DashboardContentComponent
+
   ],
     imports: [
         BrowserModule,
+        AppRoutingModule,
         BrowserAnimationsModule,
         HttpClientModule,
         LayoutModule,
