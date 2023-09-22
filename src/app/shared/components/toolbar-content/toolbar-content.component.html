@@ -1,51 +1,36 @@
-<nav class="header relative flex flex-wrap items-center justify-between px-2 py-3 mb-3">
-  <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
-    <div class="w-full relative flex justify-between lg:w-auto  px-4 lg:static lg:block lg:justify-start">
-      <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap">
-        <a class="flex" href="/">
+<nav class="header relative flex flex-wrap items-center justify-between pt-3 mb-3">
+  <div class="container mx-auto flex flex-wrap items-center justify-between">
+    <div class="w-full relative flex justify-between lg:w-auto px-4 lg:static lg:block lg:justify-start">
+      <a class="font-bold leading-relaxed flex mr-4 py-2 whitespace-nowrap" href="/">
           <mat-icon><img alt="greenhouse" src="../../../../assets/logo-white.png" height="40" width="40"></mat-icon>
           <p>Greenhouse</p>
-        </a>
       </a>
-      <button class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" (click)="toggleNavbar()">
+      <button class="cursor-pointer leading-none rounded block lg:hidden outline-none focus:outline-none" type="button" (click)="toggleNavbar()">
         <i class="fa fa-bars"></i>
       </button>
     </div>
     <div [ngClass]="{'hidden': !showMenu, 'flex': showMenu}" class="lg:flex lg:flex-grow items-center">
       <ul class="flex flex-col lg:flex-row list-none ml-auto">
         <li class="nav-item">
-          <a class="px-3 py-2 flex items-center text-xs font-bold leading-snug cursor:pointer">
-            <span class="ml-2"><p>{{"Enterprise"}}</p></span>
+          <a class="px-3 py-2 flex items-center leading-snug cursor:pointer">
+            <span class="ml-2 flex"><p>{{"ES"}}</p><i class="material-icons">keyboard_arrow_down</i></span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="px-3 py-2 flex items-center text-xs font-bold leading-snug cursor:pointer">
-            <span class="ml-2"><p>{{"Profile"}}</p></span>
+          <a class="px-3 py-2 flex items-center font-bold leading-snug cursor:pointer">
+            <span class="ml-2 flex">
+              <img class="w-7 h-7 rounded-full border-2 border-b-white mr-2" [src]="" alt="Enterprise avatar">
+              <p>{{"Enterprise"}}</p></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="px-3 py-2 flex items-center font-bold leading-snug cursor:pointer">
+            <span class="ml-2 flex">
+              <img class="w-7 h-7 rounded-full border-2 border-b-white mr-2" [src]="" alt="Profile avatar">
+              <p>{{"Profile"}}</p></span>
           </a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-
-<!--
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <a class="flex">
-      <mat-icon><img alt="greenhouse" src="../../../../assets/logo-white.png" height="30" width="30"></mat-icon>
-      <p>Greenhouse</p>
-    </a>
-
-    <span class="example-spacer"></span>
-      <a class="pr-5"><p>EN</p></a>
-    <a class="flex pr-5">
-      <mat-icon><img alt="enterprise-icon" src="../../../../assets/logo-white.png" height="30" width="30"></mat-icon>
-      <p>enterprise_name</p>
-    </a>
-    <a class="flex pr-5">
-      <mat-icon><img alt="profile-icon" src="../../../../assets/logo-white.png" height="30" width="30"></mat-icon>
-      <p>username</p>
-    </a>
-  </mat-toolbar-row>
-</mat-toolbar>
--->
