@@ -12,11 +12,14 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
 import {NgOptimizedImage} from "@angular/common";
 import {MatStepperModule} from "@angular/material/stepper";
+import {StepperContentComponent} from './harvestings/components/stepper-content/stepper-content.component';
+import { ButtonPrimaryComponent } from './harvestings/components/button-primary/button-primary.component';
 import {RouterOutlet} from "@angular/router";
 import { ToolbarContentComponent } from './shared/components/toolbar-content/toolbar-content.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { DashboardCardComponent } from './dashboard/components/dashboard-card/dashboard-card.component';
 import { DashboardContentComponent } from './dashboard/components/dashboard-content/dashboard-content.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,6 @@ import { DashboardContentComponent } from './dashboard/components/dashboard-cont
     ToolbarContentComponent,
     DashboardCardComponent,
     DashboardContentComponent
-
   ],
     imports: [
         BrowserModule,
@@ -43,4 +45,5 @@ import { DashboardContentComponent } from './dashboard/components/dashboard-cont
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
