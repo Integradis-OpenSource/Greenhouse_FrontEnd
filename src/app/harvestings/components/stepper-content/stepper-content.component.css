@@ -12,10 +12,9 @@
 ::ng-deep .mat-step-header .mat-step-icon {
   background-color: #F4F5F9;
   color: var(--gray-2);
-  border-color: var(--gray-2);
   width: 24px;
   height: 24px;
-  border-style: solid;
+  border: solid 2px var(--gray-2);
   font-family: var(--font-primary);
   font-size: var(--small-text-regular-size);
 }
