@@ -1,12 +1,24 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HttpClientModule} from "@angular/common/http";
+import {LayoutModule} from "@angular/cdk/layout";
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
 import {NgOptimizedImage} from "@angular/common";
-import {MatButtonModule} from "@angular/material/button";
+import {MatStepperModule} from "@angular/material/stepper";
+import {StepperContentComponent} from './harvestings/components/stepper-content/stepper-content.component';
+import { ButtonPrimaryComponent } from './harvestings/components/button-primary/button-primary.component';
+import {RouterOutlet} from "@angular/router";
+import { ToolbarContentComponent } from './shared/components/toolbar-content/toolbar-content.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import { DashboardCardComponent } from './dashboard/components/dashboard-card/dashboard-card.component';
+import { DashboardContentComponent } from './dashboard/components/dashboard-content/dashboard-content.component';
 import {InformationComponent} from "./profiles/shared/components/information/information.component";
 import {ProfileInformationComponent} from "./profiles/users/components/profile-information/profile-information.component";
 import {ProfileContentComponent} from "./profiles/users/components/profile-content/profile-content.component";
@@ -19,6 +31,9 @@ import {EmployeesContentComponent} from "./profiles/employees/components/employe
 @NgModule({
   declarations: [
     AppComponent,
+    ToolbarContentComponent,
+    DashboardCardComponent,
+    DashboardContentComponent,
     InformationComponent,
     ProfileInformationComponent,
     ProfileContentComponent,
@@ -27,15 +42,22 @@ import {EmployeesContentComponent} from "./profiles/employees/components/employe
     OrganizationInformationComponent,
     EmployeesContentComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    NgOptimizedImage,
-    MatButtonModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        LayoutModule,
+        MatButtonModule,
+        MatIconModule,
+        MatCardModule,
+        NgOptimizedImage,
+        MatStepperModule,
+        RouterOutlet,
+        MatToolbarModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
