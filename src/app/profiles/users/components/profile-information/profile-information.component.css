@@ -3,6 +3,7 @@
   margin-bottom: 8px;
   margin-top: 8px;
 }
+
 .link-color{
   color:var(--secondary-green-1);
 }
@@ -12,16 +13,11 @@
 }
 
 .fields-text{
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 33px;
+  font-weight: var(--normal-text-regular-size);
 }
 
-a{
-  /* Small Text Regular */
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
+a {
+  font-family: var(--font-primary);
+  font-weight: var(--normal-text-regular-size);
   text-decoration: underline;
 }
