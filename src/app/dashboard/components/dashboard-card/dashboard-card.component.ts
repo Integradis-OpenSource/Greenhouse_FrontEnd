@@ -8,4 +8,5 @@ import {Component, Input} from '@angular/core';
 export class DashboardCardComponent {
   @Input() image: string = '';
   @Input() buttonText: string = '';
+  @Input() link: string = '';
 }

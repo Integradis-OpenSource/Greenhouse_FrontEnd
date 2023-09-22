@@ -40,7 +40,9 @@ import {EmployeesContentComponent} from "./profiles/employees/components/employe
     AvatarComponent,
     OrganizationContentComponent,
     OrganizationInformationComponent,
-    EmployeesContentComponent
+    EmployeesContentComponent,
+    StepperContentComponent,
+    ButtonPrimaryComponent,
   ],
     imports: [
         BrowserModule,
