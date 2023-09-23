@@ -1,0 +1,10 @@
+* {
+  font-family: var(--font-primary);
+}
+
+table th {
+  background-color: var(--primary-green);
+  color: var(--white);
+  font-size: var(--normal-text-regular-size);
+  font-weight: bold;
+}

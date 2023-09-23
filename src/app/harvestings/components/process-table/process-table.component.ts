@@ -28,7 +28,7 @@ export class ProcessTableComponent implements OnInit {
       },
       {
         columnDef: 'time',
-        header: 'time',
+        header: 'Time',
         cell: (element: ProcessEntry) => `${element.time}`,
       },
 

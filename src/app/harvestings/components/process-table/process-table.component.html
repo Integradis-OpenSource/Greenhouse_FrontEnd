@@ -3,7 +3,7 @@
   <input matInput (keyup)="applyFilter($event)" placeholder="Search entry" #input>
 </mat-form-field>
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table mb-5">
   <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
     <th mat-header-cell *matHeaderCellDef>
       {{column.header}}
