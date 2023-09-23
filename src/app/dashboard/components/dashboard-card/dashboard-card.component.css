@@ -7,5 +7,6 @@ button{
   color: var(--primary-white) !important;
   background: var(--primary-green);
   font-size: var(--medium-text-bold-size);
+  font-family: var(--font-primary);
   line-height: 1.2;
 }
