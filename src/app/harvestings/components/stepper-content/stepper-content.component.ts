@@ -1,4 +1,5 @@
 import { Component  } from '@angular/core';
+import {CommunicationService} from "../../services/communication.service";
 
 @Component({
   selector: 'app-stepper-content',
@@ -25,4 +26,12 @@ export class StepperContentComponent {
       return '4.' + (index - 3).toString();
     }
   }
+  constructor(private communicationService: CommunicationService) {
+  }
+
+  //Funcion aun no usada correctamente, al usarla debe de aparecer el popup
+  activeObject() {
+    this.communicationService.triggerShowPopupButtonClick();
+  }
+
 }
