@@ -34,6 +34,7 @@ import {EmployeesContentComponent} from "./profiles/employees/components/employe
 import { ProcessTableComponent } from './harvestings/components/process-table/process-table.component';
 import { ProcessLogComponent } from './harvestings/components/process-log/process-log.component';
 import { PopupWarningComponent } from './harvestings/components/popup-warning/popup-warning.component';
+import { PopupNewCropComponent } from './harvestings/components/popup-new-crop/popup-new-crop.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { PopupWarningComponent } from './harvestings/components/popup-warning/po
     ProcessTableComponent,
     ProcessLogComponent,
     PopupWarningComponent,
+    PopupNewCropComponent,
   ],
     imports: [
       BrowserModule,
