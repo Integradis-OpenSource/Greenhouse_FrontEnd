@@ -1,1 +1,22 @@
-<p>popup-new-crop works!</p>
+<button class="btn" (click)="activeObjectPopUpNewCrop()" mat-button color="black">Confirm</button>
+
+<div class="popup-container" *ngIf="popupVisible">
+  <div class="popup-content">
+    <div class="popup-header">
+      <h2>WARNING</h2>
+    </div>
+    <div class="popup-body">
+      <br>
+      <p style="text-align: center;">{{ popupText + date }}</p>
+    </div>
+    <div class="popup-footer">
+      <button class="btn yes-finish" (click)="closePopUpNewCrop()">Yes, start</button>
+      <button class="btn close" (click)="closePopUpNewCrop()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
