@@ -9,5 +9,8 @@ export class EventServiceService {
   activateObject() {
     this.addObjectSubject.next();
   }
+  activeObjectPopUpNewCrop(){
+    this.addObjectSubject.next();
+  }
 }
 
