@@ -13,7 +13,7 @@ import {MatCardModule} from "@angular/material/card";
 import {NgOptimizedImage} from "@angular/common";
 import {MatStepperModule} from "@angular/material/stepper";
 import {StepperContentComponent} from './harvestings/components/stepper-content/stepper-content.component';
-import { ButtonPrimaryComponent } from './harvestings/components/button-primary/button-primary.component';
+import { ButtonPrimaryComponent } from './shared/components/button-primary/button-primary.component';
 import {  RouterOutlet } from "@angular/router";
 import { ToolbarContentComponent } from './shared/components/toolbar-content/toolbar-content.component';
 import {  MatToolbarModule } from "@angular/material/toolbar";
@@ -32,6 +32,7 @@ import {OrganizationContentComponent} from "./profiles/organizations/components/
 import {OrganizationInformationComponent} from "./profiles/organizations/components/organization-information/organization-information.component";
 import {EmployeesContentComponent} from "./profiles/employees/components/employees-content/employees-content.component";
 import { ProcessTableComponent } from './harvestings/components/process-table/process-table.component';
+import { ProcessLogComponent } from './harvestings/components/process-log/process-log.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { ProcessTableComponent } from './harvestings/components/process-table/pr
     StepperContentComponent,
     ButtonPrimaryComponent,
     ProcessTableComponent,
+    ProcessLogComponent,
   ],
     imports: [
       BrowserModule,
