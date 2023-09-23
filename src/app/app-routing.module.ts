@@ -5,6 +5,7 @@ import {StepperContentComponent} from "./harvestings/components/stepper-content/
 import {ProfileContentComponent} from "./profiles/users/components/profile-content/profile-content.component";
 import { OrganizationContentComponent } from "./profiles/organizations/components/organization-content/organization-content.component";
 import {ProcessLogComponent} from "./harvestings/components/process-log/process-log.component";
+import {PopupWarningComponent} from "./harvestings/components/popup-warning/popup-warning.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'harvest', component: StepperContentComponent },
   { path: 'profile', component: ProfileContentComponent },
   { path: 'organization', component: OrganizationContentComponent },
+  {path:'popup',component:PopupWarningComponent}
 ];
 
 @NgModule({
