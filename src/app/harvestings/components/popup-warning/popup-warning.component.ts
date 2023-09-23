@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {EventServiceService} from "../../services/event.service";
 import { Router } from '@angular/router';
-
+import {CommunicationService} from "../../services/communication.service";
 
 @Component({
   selector: 'app-popup-warning',
@@ -12,8 +12,10 @@ export class PopupWarningComponent {
   @Input() popupText = 'This phase is completed, you will not be able to make any more records at this stage. Are you sure you want to continue?';
   popupVisible = false;
 
-  constructor(private interactionService: EventServiceService, private router: Router) {
-
+  constructor(private interactionService: EventServiceService, private router: Router,private communicationService: CommunicationService) {
+    this.communicationService.showPopupButtonClick$.subscribe(() => {
+      this.activeObject();
+    });
   }
 
 
