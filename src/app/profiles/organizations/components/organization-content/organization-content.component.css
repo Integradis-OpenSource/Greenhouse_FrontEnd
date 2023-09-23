@@ -1,7 +1,7 @@
 h1{
+  font-family: var(--font-primary);
   text-align: center;
-  font-size: var(--heading-1-size);
-  font-style: normal;
-  font-weight: 700;
+  font-size: var(--heading-2-size);
   line-height: 1.2;
+  font-weight: bold;
 }

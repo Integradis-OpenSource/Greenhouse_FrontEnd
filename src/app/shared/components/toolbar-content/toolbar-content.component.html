@@ -11,19 +11,19 @@
     </div>
     <div [ngClass]="{'hidden': !showMenu, 'flex': showMenu}" class="lg:flex lg:flex-grow items-center">
       <ul class="flex flex-col lg:flex-row list-none ml-auto">
-        <li class="nav-item">
-          <a class="px-3 py-2 flex items-center leading-snug cursor:pointer">
+        <li class="nav-item cursor-pointer">
+          <a class="px-3 py-2 flex items-center leading-snug">
             <span class="ml-2 flex"><p>{{"EN"}}</p><i class="material-icons">keyboard_arrow_down</i></span>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item cursor-pointer">
           <a class="px-3 py-2 flex items-center font-bold leading-snug">
             <span class="ml-2 flex" routerLink="/organization">
               <img class="w-7 h-7 rounded-full border-2 border-b-white mr-2" [src]="" alt="Organization avatar">
               <p>{{"Organization"}}</p></span>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item cursor-pointer">
           <a class="px-3 py-2 flex items-center font-bold leading-snug">
             <span class="ml-2 flex" routerLink="/profile">
               <img class="w-7 h-7 rounded-full border-2 border-b-white mr-2" [src]="" alt="Profile avatar">
