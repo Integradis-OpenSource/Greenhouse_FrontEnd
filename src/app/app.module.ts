@@ -33,6 +33,7 @@ import {OrganizationInformationComponent} from "./profiles/organizations/compone
 import {EmployeesContentComponent} from "./profiles/employees/components/employees-content/employees-content.component";
 import { ProcessTableComponent } from './harvestings/components/process-table/process-table.component';
 import { ProcessLogComponent } from './harvestings/components/process-log/process-log.component';
+import { PopupWarningComponent } from './harvestings/components/popup-warning/popup-warning.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { ProcessLogComponent } from './harvestings/components/process-log/proces
     ButtonPrimaryComponent,
     ProcessTableComponent,
     ProcessLogComponent,
+    PopupWarningComponent,
   ],
     imports: [
       BrowserModule,
