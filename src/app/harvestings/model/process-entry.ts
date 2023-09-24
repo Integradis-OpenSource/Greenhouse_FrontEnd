@@ -27,4 +27,5 @@ export interface ProcessEntry {
   carbonDioxide?: number;
   airHydrogen?: number;
   setting?: number;
+  processType?: string;
 }

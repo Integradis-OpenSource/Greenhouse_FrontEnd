@@ -9,7 +9,7 @@
     <mat-step *ngFor="let phase of phases" [editable]="false">
       <ng-template matStepLabel><span class="stepper-label">{{ phase.message }}</span></ng-template>
       <h2>Records of harvest {{''}}, started on {{''}}</h2>
-      <app-process-table></app-process-table>
+      <app-process-table [processType]="phase.endpoint"></app-process-table>
       <app-button-primary text="End phase"
                           buttonColor="var(--red)"
                           buttonTextColor="var(--white)"
