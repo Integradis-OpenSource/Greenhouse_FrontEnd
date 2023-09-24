@@ -20,6 +20,7 @@ import {  MatToolbarModule } from "@angular/material/toolbar";
 import {  MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 import { DashboardCardComponent } from './dashboard/components/dashboard-card/dashboard-card.component';
@@ -33,7 +34,9 @@ import {OrganizationInformationComponent} from "./profiles/organizations/compone
 import {EmployeesContentComponent} from "./profiles/employees/components/employees-content/employees-content.component";
 import { ProcessTableComponent } from './harvestings/components/process-table/process-table.component';
 import { ProcessLogComponent } from './harvestings/components/process-log/process-log.component';
-import {MatDialogModule} from "@angular/material/dialog";
+import { PopupWarningComponent } from './harvestings/components/popup-warning/popup-warning.component';
+import { PopupNewCropComponent } from './harvestings/components/popup-new-crop/popup-new-crop.component';
+import { PopupCropFinishedComponent } from './harvestings/components/popup-crop-finished/popup-crop-finished.component';
 import { ProcessInputDialogComponent } from './harvestings/components/process-input-dialog/process-input-dialog.component';
 import {FormsModule} from "@angular/forms";
 import { ProcessInputDialogTunnelComponent } from './harvestings/components/process-input-dialog-tunnel/process-input-dialog-tunnel.component';
@@ -59,6 +62,9 @@ import { ProcessInputDialogBunkerComponent } from './harvestings/components/proc
     ButtonPrimaryComponent,
     ProcessTableComponent,
     ProcessLogComponent,
+    PopupWarningComponent,
+    PopupNewCropComponent,
+    PopupCropFinishedComponent,
     ProcessInputDialogComponent,
     ProcessInputDialogTunnelComponent,
     ProcessInputDialogStockComponent,

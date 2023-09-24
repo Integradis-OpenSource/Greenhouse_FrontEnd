@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+
+import { Component  } from '@angular/core';
+import {CommunicationService} from "../../services/communication.service";
 import { MatDialog } from '@angular/material/dialog';
 import { ProcessInputDialogComponent } from '../process-input-dialog/process-input-dialog.component';
 import {ProcessInputDialogStockComponent} from "../process-input-dialog-stock/process-input-dialog-stock.component";
@@ -31,9 +33,16 @@ export class StepperContentComponent {
       return '4.' + (index - 3).toString();
     }
   }
+  constructor(private communicationService: CommunicationService, private dialog: MatDialog) {
+  }
+
+
+  activeObject() {
+    this.communicationService.triggerShowPopupButtonClick();
+  }
 
   record: string = '';
-  constructor(private dialog: MatDialog) {}
+
   openInputDialog(index: number): void {
     if (index === 0){
       const dialogRef = this.dialog.open(ProcessInputDialogStockComponent, {
@@ -50,3 +59,4 @@ export class StepperContentComponent {
     }
   }
 }
+
