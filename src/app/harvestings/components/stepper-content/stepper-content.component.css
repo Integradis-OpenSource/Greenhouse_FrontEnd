@@ -57,10 +57,6 @@ h2 {
   margin-bottom: 20px;
 }
 
-.button-group {
-  padding-left: 2rem;
-}
-
 @media (max-width: 768px) {
 
   ::ng-deep .mat-step-header .mat-step-label {
