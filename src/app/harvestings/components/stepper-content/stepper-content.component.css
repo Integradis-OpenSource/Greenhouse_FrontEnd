@@ -66,6 +66,12 @@ h2 {
   ::ng-deep .mat-horizontal-stepper-header {
     padding: 0 !important;
   }
+
+  .button-group {
+    padding: 0;
+    flex-shrink: 1;
+    text-align: center;
+  }
 }
 
 

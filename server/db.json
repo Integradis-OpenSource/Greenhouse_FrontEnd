@@ -8,11 +8,25 @@
       "hay": 128,
       "corn": 300,
       "guano": 100,
-      "cotton_seed_cake": 500,
-      "soybean_meal":400,
+      "cottonSeedCake": 500,
+      "soybeanMeal":400,
       "gypsum": 356,
       "urea": 780,
-      "ammonium_sulphate": 125
+      "ammoniumSulphate": 125
+    },
+    {
+      "author":"Winston Smith",
+      "day": "3",
+      "date": "16/09/2023",
+      "time": "10:00",
+      "hay": 128,
+      "corn": 300,
+      "guano": 100,
+      "cottonSeedCake": 500,
+      "soybeanMeal":400,
+      "gypsum": 356,
+      "urea": 780,
+      "ammoniumSulphate": 125
     }
   ],
 
@@ -34,11 +48,12 @@
       "day": "2",
       "date": "15/09/2023",
       "time": "10:00",
-      "thermocouple_one": 525,
-      "thermocouple_two": 481,
-      "thermocouple_three": 490,
-      "average_thermocouple": 498.67,
-      "frequency": "50"
+      "thermocoupleOne": 525,
+      "thermocoupleTwo": 481,
+      "thermocoupleThree": 490,
+      "averageThermocouple": 498.67,
+      "frequency": "50",
+      "comment": ""
     }
   ],
 
@@ -48,14 +63,14 @@
       "day": "2",
       "date": "15/09/2023",
       "time": "10:00",
-      "grow_room": 4,
-      "thermocouple_one": 525,
-      "thermocouple_two": 481,
-      "thermocouple_three": 490,
-      "average_thermocouple": 498.67,
+      "growRoom": 4,
+      "thermocoupleOne": 525,
+      "thermocoupleTwo": 481,
+      "thermocoupleThree": 490,
+      "averageThermocouple": 498.67,
       "frequency": "50",
-      "room_temperature": 20.0,
-      "fresh_air": 30,
+      "roomTemperature": 20.0,
+      "freshAir": 30,
       "recirculation": 50,
       "comment": ""
     }
@@ -67,56 +82,70 @@
       "day": "2",
       "date": "15/09/2023",
       "time": "10:00",
-      "grow_room": 4,
-      "air_temperature": 22.0,
-      "compost_temperature": "23-24",
-      "carbon_dioxide": 2319,
-      "air_hydrogen": 92,
+      "growRoom": 4,
+      "airTemperature": 22.0,
+      "compostTemperature": "23-24",
+      "carbonDioxide": 2319,
+      "airHydrogen": 92,
       "setting": 20.0,
       "comment": "",
-      "process_type": "Incubation"
+      "processType": "Incubation"
     },
     {
       "author":"Winston Smith",
       "day": "2",
       "date": "15/09/2023",
       "time": "10:00",
-      "grow_room": 4,
-      "air_temperature": 22.0,
-      "compost_temperature": "23-24",
-      "carbon_dioxide": 2319,
-      "air_hydrogen": 92,
+      "growRoom": 4,
+      "airTemperature": 22.0,
+      "compostTemperature": "23-24",
+      "carbonDioxide": 2319,
+      "airHydrogen": 92,
       "setting": 20.0,
       "comment": "",
-      "process_type": "Casing"
+      "processType": "Casing"
     },
     {
       "author":"Winston Smith",
       "day": "2",
       "date": "15/09/2023",
       "time": "10:00",
-      "grow_room": 4,
-      "air_temperature": 22.0,
-      "compost_temperature": "23-24",
-      "carbon_dioxide": 2319,
-      "air_hydrogen": 92,
+      "growRoom": 4,
+      "airTemperature": 22.0,
+      "compostTemperature": "23-24",
+      "carbonDioxide": 2319,
+      "airHydrogen": 92,
       "setting": 20.0,
       "comment": "",
-      "process_type": "Induction"
+      "processType": "Induction"
     },
     {
       "author":"Winston Smith",
       "day": "2",
       "date": "15/09/2023",
       "time": "10:00",
-      "grow_room": 4,
-      "air_temperature": 22.0,
-      "compost_temperature": "23-24",
-      "carbon_dioxide": 2319,
-      "air_hydrogen": 92,
+      "growRoom": 4,
+      "airTemperature": 22.0,
+      "compostTemperature": "23-24",
+      "carbonDioxide": 2319,
+      "airHydrogen": 92,
       "setting": 20.0,
       "comment": "",
-      "process_type": "Harvest"
+      "processType": "Harvest"
+    },
+    {
+      "author":"Winston Smith",
+      "day": "3",
+      "date": "15/09/2023",
+      "time": "10:00",
+      "growRoom": 4,
+      "airTemperature": 22.0,
+      "compostTemperature": "23-24",
+      "carbonDioxide": 2319,
+      "airHydrogen": 92,
+      "setting": 20.0,
+      "comment": "",
+      "processType": "Incubation"
     }
   ]
 }
