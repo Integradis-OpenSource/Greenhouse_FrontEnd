@@ -12,5 +12,10 @@ export class EventServiceService {
   activeObjectPopUpNewCrop(){
     this.addObjectSubject.next();
   }
+  activeObjectPopUpCropFinished(){
+    this.addObjectSubject.next();
+  }
+
+
 }
 
