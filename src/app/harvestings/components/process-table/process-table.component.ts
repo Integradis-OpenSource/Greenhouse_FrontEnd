@@ -40,16 +40,17 @@ export class ProcessTableComponent implements OnInit {
     constructor(private processApiService: ProcessEntriesService){
       this.processType = '';
       this.dataSource = new MatTableDataSource<ProcessEntry>();
+
     }
 
     getAllProcess() {
       this.processApiService.setResourceEndpoint(this.processType);
       this.processApiService.getAll().subscribe((response: any) => {
         this.dataSource.data = response;
-      });
-      this.addColumns()
-    }
 
+      });
+      this.addColumns();
+    }
     applyFilter(event: Event) {
       const filterValue = (event.target as HTMLInputElement).value;
       this.dataSource.filter = filterValue.trim().toLowerCase();

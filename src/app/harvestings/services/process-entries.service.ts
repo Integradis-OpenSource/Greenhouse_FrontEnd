@@ -7,7 +7,6 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class ProcessEntriesService extends BaseService<ProcessEntry> {
-
   constructor(http: HttpClient) {
     super(http)
   }

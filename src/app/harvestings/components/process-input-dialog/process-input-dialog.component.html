@@ -1,9 +1,7 @@
 <h1 mat-dialog-title>Create new record</h1>
-<div mat-dialog-content>
-  <mat-form-field>
-    <input matInput [(ngModel)]="userName" placeholder="Name">
-  </mat-form-field>
-</div>
+<mat-form-field>
+  <input matInput [(ngModel)]="userName" placeholder="Name">
+</mat-form-field>
 <div mat-dialog-actions>
   <button mat-button (click)="onCancelClick()">Cancel</button>
   <button mat-button [mat-dialog-close]="userName">Save</button>

@@ -1,0 +1,41 @@
+<h1 mat-dialog-title>Create new record</h1>
+<mat-form-field>
+    Name: <input matInput [(ngModel)]="userName" placeholder="Name">
+</mat-form-field>
+<mat-form-field>
+    Day: <input matInput [(ngModel)]="day" placeholder="Day">
+</mat-form-field>
+<mat-form-field>
+    Date: <input matInput [(ngModel)]="date" placeholder="Date">
+</mat-form-field>
+<mat-form-field>
+    Time: <input matInput [(ngModel)]="time" placeholder="Time">
+</mat-form-field>
+<mat-form-field>
+    Hay:<input matInput [(ngModel)]="hay" placeholder="Hay">
+</mat-form-field>
+<mat-form-field>
+    Corn: <input matInput [(ngModel)]="corn" placeholder="Corn">
+</mat-form-field>
+<mat-form-field>
+    Guano: <input matInput [(ngModel)]="guano" placeholder="Guano">
+</mat-form-field>
+<mat-form-field>
+    Cotton seed cake: <input matInput [(ngModel)]="cottonSeedCake" placeholder="Cotton seed cake">
+</mat-form-field>
+<mat-form-field>
+    Soybean meal: <input matInput [(ngModel)]="soybeanMeal" placeholder="Soybean meal">
+</mat-form-field>
+<mat-form-field>
+    Gypsum: <input matInput [(ngModel)]="gypsum" placeholder="Gypsum">
+</mat-form-field>
+<mat-form-field>
+    Urea: <input matInput [(ngModel)]="urea" placeholder="Urea">
+</mat-form-field>
+<mat-form-field>
+    Ammonium Sulphate: <input matInput [(ngModel)]="ammoniumSulphate" placeholder="Ammonium Sulphate">
+</mat-form-field>
+<div mat-dialog-actions>
+    <button mat-button (click)="onCancelClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="userName">Save</button>
+</div>

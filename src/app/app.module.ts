@@ -36,6 +36,10 @@ import { ProcessLogComponent } from './harvestings/components/process-log/proces
 import {MatDialogModule} from "@angular/material/dialog";
 import { ProcessInputDialogComponent } from './harvestings/components/process-input-dialog/process-input-dialog.component';
 import {FormsModule} from "@angular/forms";
+import { ProcessInputDialogTunnelComponent } from './harvestings/components/process-input-dialog-tunnel/process-input-dialog-tunnel.component';
+import { ProcessInputDialogStockComponent } from './harvestings/components/process-input-dialog-stock/process-input-dialog-stock.component';
+import { ProcessInputDialogPreparationAreaComponent } from './harvestings/components/process-input-dialog-preparation-area/process-input-dialog-preparation-area.component';
+import { ProcessInputDialogBunkerComponent } from './harvestings/components/process-input-dialog-bunker/process-input-dialog-bunker.component';
 
 
 @NgModule({
@@ -56,6 +60,10 @@ import {FormsModule} from "@angular/forms";
     ProcessTableComponent,
     ProcessLogComponent,
     ProcessInputDialogComponent,
+    ProcessInputDialogTunnelComponent,
+    ProcessInputDialogStockComponent,
+    ProcessInputDialogPreparationAreaComponent,
+    ProcessInputDialogBunkerComponent,
   ],
     imports: [
       BrowserModule,

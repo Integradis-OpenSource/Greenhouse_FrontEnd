@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ProcessInputDialogComponent } from '../process-input-dialog/process-input-dialog.component';
+import {ProcessInputDialogStockComponent} from "../process-input-dialog-stock/process-input-dialog-stock.component";
+import {ProcessInputDialogBunkerComponent} from "../process-input-dialog-bunker/process-input-dialog-bunker.component";
+import {ProcessInputDialogPreparationAreaComponent} from "../process-input-dialog-preparation-area/process-input-dialog-preparation-area.component";
+import {ProcessInputDialogTunnelComponent} from "../process-input-dialog-tunnel/process-input-dialog-tunnel.component";
 
 @Component({
   selector: 'app-stepper-content',
@@ -30,16 +34,19 @@ export class StepperContentComponent {
 
   record: string = '';
   constructor(private dialog: MatDialog) {}
-  openInputDialog(): void {
-    const dialogRef = this.dialog.open(ProcessInputDialogComponent, {
-      width: '300px',
-    });
+  openInputDialog(index: number): void {
+    if (index === 0){
+      const dialogRef = this.dialog.open(ProcessInputDialogStockComponent, {
+        width: '700px',
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('Recorded information:', result);
+        if (result) {
+          this.record = result;
+        }
+      });
+    }else{
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('Recorded information:', result);
-      if (result) {
-        this.record = result;
-      }
-    });
+    }
   }
 }
