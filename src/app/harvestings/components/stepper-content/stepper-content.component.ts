@@ -1,4 +1,6 @@
-import { Component  } from '@angular/core';
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ProcessInputDialogComponent } from '../process-input-dialog/process-input-dialog.component';
 
 @Component({
   selector: 'app-stepper-content',
@@ -24,5 +26,20 @@ export class StepperContentComponent {
     } else {
       return '4.' + (index - 3).toString();
     }
+  }
+
+  record: string = '';
+  constructor(private dialog: MatDialog) {}
+  openInputDialog(): void {
+    const dialogRef = this.dialog.open(ProcessInputDialogComponent, {
+      width: '300px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Recorded information:', result);
+      if (result) {
+        this.record = result;
+      }
+    });
   }
 }

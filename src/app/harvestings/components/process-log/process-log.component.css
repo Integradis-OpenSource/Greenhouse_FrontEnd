@@ -5,7 +5,7 @@ mat-card {
 }
 
 mat-card-title {
-  background-color: var(--primary-green);
+  background-color: var(--secondary-green-2);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -17,7 +17,7 @@ h2, h4 {
 
 h2 {
   color: var(--black);
-  font-size: var(--heading-1-size);
+  font-size: var(--heading-2-size);
   line-height: 49px;
 }
 

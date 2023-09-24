@@ -19,7 +19,10 @@
                           buttonColor="#F4F5F9"
                           buttonTextColor="var(--primary-green)"
                           buttonBorderColor="var(--primary-green)"
-                          [useStepperNext]="false"></app-button-primary>
+                          (click)="openInputDialog()"></app-button-primary>
+      <div *ngIf="record">
+        <p>Recorded info: {{ record }}</p>
+      </div>
     </mat-step>
   </mat-horizontal-stepper>
 </mat-card>

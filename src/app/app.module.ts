@@ -33,6 +33,9 @@ import {OrganizationInformationComponent} from "./profiles/organizations/compone
 import {EmployeesContentComponent} from "./profiles/employees/components/employees-content/employees-content.component";
 import { ProcessTableComponent } from './harvestings/components/process-table/process-table.component';
 import { ProcessLogComponent } from './harvestings/components/process-log/process-log.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import { ProcessInputDialogComponent } from './harvestings/components/process-input-dialog/process-input-dialog.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -52,6 +55,7 @@ import { ProcessLogComponent } from './harvestings/components/process-log/proces
     ButtonPrimaryComponent,
     ProcessTableComponent,
     ProcessLogComponent,
+    ProcessInputDialogComponent,
   ],
     imports: [
       BrowserModule,
@@ -68,7 +72,9 @@ import { ProcessLogComponent } from './harvestings/components/process-log/proces
       MatToolbarModule,
       MatTableModule,
       MatFormFieldModule,
-      MatInputModule
+      MatInputModule,
+      MatDialogModule,
+      FormsModule,
     ],
   providers: [],
   bootstrap: [AppComponent]
