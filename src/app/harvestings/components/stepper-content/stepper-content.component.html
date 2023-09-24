@@ -1,5 +1,5 @@
 <mat-card class="m-7">
-  <mat-horizontal-stepper [linear]="true" [@.disable]="true">
+  <mat-horizontal-stepper [linear]="true">
     <ng-template matStepperIcon="done" let-index="index">
       {{ calculateStepperLabel(index) }}
     </ng-template>
@@ -9,17 +9,21 @@
     <mat-step *ngFor="let phase of phases" [editable]="false">
       <ng-template matStepLabel><span class="stepper-label">{{ phase.message }}</span></ng-template>
       <h2>Records of harvest {{''}}, started on {{''}}</h2>
-      <app-process-table [processType]="phase.endpoint"></app-process-table>
-      <app-button-primary text="End phase"
-                          buttonColor="var(--red)"
-                          buttonTextColor="var(--white)"
-                          buttonBorderColor="var(--red)"
-                          [useStepperNext]="true"></app-button-primary>
-      <app-button-primary text=" + Create new record"
-                          buttonColor="#F4F5F9"
-                          buttonTextColor="var(--primary-green)"
-                          buttonBorderColor="var(--primary-green)"
-                          (click)="openInputDialog()"></app-button-primary>
+      <div class="overflow-scroll">
+        <app-process-table [processType]="phase.endpoint"></app-process-table>
+      </div>
+      <div class="button-group">
+        <app-button-primary text="End phase"
+                            buttonColor="var(--red)"
+                            buttonTextColor="var(--white)"
+                            buttonBorderColor="var(--red)"
+                            [useStepperNext]="true"></app-button-primary>
+        <app-button-primary text=" + Create new record"
+                            buttonColor="#F4F5F9"
+                            buttonTextColor="var(--primary-green)"
+                            buttonBorderColor="var(--primary-green)"
+                            (click)="openInputDialog()"></app-button-primary>
+      </div>
       <div *ngIf="record">
         <p>Recorded info: {{ record }}</p>
       </div>
