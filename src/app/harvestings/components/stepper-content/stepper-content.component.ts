@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+
+import { Component  } from '@angular/core';
+import {CommunicationService} from "../../services/communication.service";
 import { MatDialog } from '@angular/material/dialog';
 import { ProcessInputDialogComponent } from '../process-input-dialog/process-input-dialog.component';
 
@@ -27,9 +29,15 @@ export class StepperContentComponent {
       return '4.' + (index - 3).toString();
     }
   }
+  constructor(private communicationService: CommunicationService, private dialog: MatDialog) {
+  }
+
+  //Funcion aun no usada correctamente, al usarla debe de aparecer el popup
+  activeObject() {
+    this.communicationService.triggerShowPopupButtonClick();
+  }
 
   record: string = '';
-  constructor(private dialog: MatDialog) {}
   openInputDialog(): void {
     const dialogRef = this.dialog.open(ProcessInputDialogComponent, {
       width: '300px',

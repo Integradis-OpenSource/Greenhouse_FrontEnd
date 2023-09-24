@@ -20,7 +20,8 @@ import {  MatToolbarModule } from "@angular/material/toolbar";
 import {  MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
-
+import {MatDialogModule} from "@angular/material/dialog";
+import {FormsModule} from "@angular/forms";
 
 import { DashboardCardComponent } from './dashboard/components/dashboard-card/dashboard-card.component';
 import { DashboardContentComponent } from './dashboard/components/dashboard-content/dashboard-content.component';
@@ -33,9 +34,10 @@ import {OrganizationInformationComponent} from "./profiles/organizations/compone
 import {EmployeesContentComponent} from "./profiles/employees/components/employees-content/employees-content.component";
 import { ProcessTableComponent } from './harvestings/components/process-table/process-table.component';
 import { ProcessLogComponent } from './harvestings/components/process-log/process-log.component';
-import {MatDialogModule} from "@angular/material/dialog";
+import { PopupWarningComponent } from './harvestings/components/popup-warning/popup-warning.component';
+import { PopupNewCropComponent } from './harvestings/components/popup-new-crop/popup-new-crop.component';
+import { PopupCropFinishedComponent } from './harvestings/components/popup-crop-finished/popup-crop-finished.component';
 import { ProcessInputDialogComponent } from './harvestings/components/process-input-dialog/process-input-dialog.component';
-import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -55,6 +57,9 @@ import {FormsModule} from "@angular/forms";
     ButtonPrimaryComponent,
     ProcessTableComponent,
     ProcessLogComponent,
+    PopupWarningComponent,
+    PopupNewCropComponent,
+    PopupCropFinishedComponent,
     ProcessInputDialogComponent,
   ],
     imports: [
