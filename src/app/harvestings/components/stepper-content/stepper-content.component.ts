@@ -87,6 +87,7 @@ export class StepperContentComponent {
     }else{
       const dialogRef = this.dialog.open(ProcessInputDialogComponent, {
         width: '700px',
+        data: {processType: this.phases[index].endpoint}
       });
       dialogRef.afterClosed().subscribe(result => {
         console.log('Recorded information:', result);
