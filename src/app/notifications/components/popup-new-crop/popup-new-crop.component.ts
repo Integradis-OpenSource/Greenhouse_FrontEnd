@@ -15,7 +15,7 @@ export class PopupNewCropComponent {
   popupVisible = false;
   isButtonDisabled = false;
 
-  constructor(private interactionService: EventServiceService, private router: Router,private communicationService: CommunicationService) {
+  constructor(private interactionService: EventServiceService) {
 
   }
 

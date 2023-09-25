@@ -16,7 +16,7 @@ export class PopupCropFinishedComponent {
   notificationVisible = false;
 
 
-  constructor(private interactionService: EventServiceService, private router: Router,private communicationService: CommunicationService) {
+  constructor(private interactionService: EventServiceService) {
 
   }
 
