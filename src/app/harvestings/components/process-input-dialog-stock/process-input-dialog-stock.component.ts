@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import {ProcessEntriesService} from "../../services/process-entries.service";
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-process-input-dialog-stock',
