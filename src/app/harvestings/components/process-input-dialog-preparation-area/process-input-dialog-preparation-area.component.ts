@@ -16,10 +16,10 @@ export class ProcessInputDialogPreparationAreaComponent {
   temperature: number = 0;
   comment: string = '';
   constructor(
-    private stockService: ProcessEntriesService,
+    private preparationService: ProcessEntriesService,
     public dialogRef: MatDialogRef<ProcessInputDialogPreparationAreaComponent>
   ) {
-    this.stockService.setResourceEndpoint('preparation_area');
+    this.preparationService.setResourceEndpoint('preparation_area');
   }
   onCancelClick(): void {
     this.dialogRef.close();
@@ -34,7 +34,7 @@ export class ProcessInputDialogPreparationAreaComponent {
       temperature: this.temperature,
       comment: this.comment,
     };
-    this.stockService.create(formData).subscribe(
+    this.preparationService.create(formData).subscribe(
       (response) => {
         console.log('Data saved successfully:', response);
       },
