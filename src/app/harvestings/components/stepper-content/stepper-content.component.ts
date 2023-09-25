@@ -54,8 +54,46 @@ export class StepperContentComponent {
           this.record = result;
         }
       });
+    }else if(index === 1){
+      const dialogRef = this.dialog.open(ProcessInputDialogPreparationAreaComponent, {
+        width: '700px',
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('Recorded information:', result);
+        if (result) {
+          this.record = result;
+        }
+      });
+    }else if(index === 2){
+      const dialogRef = this.dialog.open(ProcessInputDialogBunkerComponent, {
+        width: '700px',
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('Recorded information:', result);
+        if (result) {
+          this.record = result;
+        }
+      });
+    }else if(index === 3){
+      const dialogRef = this.dialog.open(ProcessInputDialogTunnelComponent, {
+        width: '700px',
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('Recorded information:', result);
+        if (result) {
+          this.record = result;
+        }
+      });
     }else{
-
+      const dialogRef = this.dialog.open(ProcessInputDialogComponent, {
+        width: '700px',
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('Recorded information:', result);
+        if (result) {
+          this.record = result;
+        }
+      });
     }
   }
 }

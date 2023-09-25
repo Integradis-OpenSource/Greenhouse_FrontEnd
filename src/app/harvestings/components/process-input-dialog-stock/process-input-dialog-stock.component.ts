@@ -7,7 +7,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./process-input-dialog-stock.component.css']
 })
 export class ProcessInputDialogStockComponent {
-  userName: string = '';
+  author: string = '';
   day: number = 0;
   date: string = '';
   time: string = '';

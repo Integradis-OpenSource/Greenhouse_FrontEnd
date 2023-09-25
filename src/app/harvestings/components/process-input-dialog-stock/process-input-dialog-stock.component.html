@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>Create new record</h1>
 <mat-form-field>
-    Name: <input matInput [(ngModel)]="userName" placeholder="Name">
+    Author: <input matInput [(ngModel)]="author" placeholder="Author">
 </mat-form-field>
 <mat-form-field>
     Day: <input matInput [(ngModel)]="day" placeholder="Day">
@@ -33,9 +33,9 @@
     Urea: <input matInput [(ngModel)]="urea" placeholder="Urea">
 </mat-form-field>
 <mat-form-field>
-    Ammonium Sulphate: <input matInput [(ngModel)]="ammoniumSulphate" placeholder="Ammonium Sulphate">
+    Ammonium sulphate: <input matInput [(ngModel)]="ammoniumSulphate" placeholder="Ammonium Sulphate">
 </mat-form-field>
 <div mat-dialog-actions>
     <button mat-button (click)="onCancelClick()">Cancel</button>
-    <button mat-button [mat-dialog-close]="userName">Save</button>
+    <button mat-button [mat-dialog-close]="author">Save</button>
 </div>

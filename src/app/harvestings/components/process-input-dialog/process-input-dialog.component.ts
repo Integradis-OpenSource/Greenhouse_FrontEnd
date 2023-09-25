@@ -8,18 +8,17 @@ import { ProcessTableComponent } from "../process-table/process-table.component"
   styleUrls: ['./process-input-dialog.component.css']
 })
 export class ProcessInputDialogComponent {
-  userName: string = '';
+  author: string = '';
   day: number = 0;
   date: string = '';
   time: string = '';
-  hay: number = 0;
-  corn: number = 0;
-  guano: number = 0;
-  cotton_seed_cake: number = 0;
-  soybean_meal: number = 0;
-  gypsum: number = 0;
-  urea: number = 0;
-  Ammonium_Sulphate: number = 0;
+  growRoom: number = 0;
+  airTemperature: number = 0;
+  compostTemperature: string = '';
+  co2: number = 0;
+  h2: number = 0;
+  setting: number = 0;
+  comment: string = '';
   constructor(public dialogRef: MatDialogRef<ProcessInputDialogComponent>) {
   }
 
