@@ -2,7 +2,7 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {catchError, Observable, retry, throwError} from "rxjs";
 
 export class BaseService<T> {
-  basePath: string = 'http://localhost:3000/api/v1';
+  basePath: string = 'https://my-json-server.typicode.com/Integradis-OpenSource/Greenhouse';
   resourceEndpoint: string = '/resources';
 
   httpOptions = {
