@@ -1,0 +1,19 @@
+* {
+  font-family: var(--font-primary);
+}
+
+table th {
+  background-color: var(--primary-green);
+  color: var(--white);
+  font-size: var(--normal-text-regular-size);
+  font-weight: bold;
+}
+
+::ng-deep .mat-mdc-text-field-wrapper {
+  background-color: transparent !important;
+  color: var(--black) !important;
+}
+
+::ng-deep .mat-mdc-text-field-wrapper .mat-mdc-floating-label {
+  color: var(--black) !important;
+}

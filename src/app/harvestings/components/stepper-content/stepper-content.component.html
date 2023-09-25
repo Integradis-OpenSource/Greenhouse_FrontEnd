@@ -1,0 +1,33 @@
+<mat-card class="m-7">
+  <mat-horizontal-stepper [linear]="true">
+    <ng-template matStepperIcon="done" let-index="index">
+      {{ calculateStepperLabel(index) }}
+    </ng-template>
+    <ng-template matStepperIcon="number" let-index="index">
+      {{ calculateStepperLabel(index) }}
+    </ng-template>
+    <mat-step *ngFor="let phase of phases; let index = index" [editable]="false">
+      <ng-template matStepLabel><span class="stepper-label">{{ phase.message }}</span></ng-template>
+      <h2>Records of harvest {{ calculateStepperLabel(index) }}, started on {{ calculateStepperLabel(index) }}</h2>
+      <div class="overflow-scroll">
+        <app-process-table [processType]="phase.endpoint"></app-process-table>
+      </div>
+      <div class="button-group">
+        <app-button-primary text="End phase"
+                            buttonColor="var(--red)"
+                            buttonTextColor="var(--white)"
+                            buttonBorderColor="var(--red)"
+                            [useStepperNext]="true"></app-button-primary>
+        <app-button-primary text=" + Create new record"
+                            buttonColor="#F4F5F9"
+                            buttonTextColor="var(--primary-green)"
+                            buttonBorderColor="var(--primary-green)"
+                            (click)="openInputDialog(index)"></app-button-primary>
+      </div>
+      <div *ngIf="record">
+        <p>Recorded info: {{ record }}</p>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</mat-card>
+

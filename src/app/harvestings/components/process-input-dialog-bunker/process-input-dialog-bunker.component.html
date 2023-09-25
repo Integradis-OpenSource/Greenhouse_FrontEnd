@@ -1,0 +1,36 @@
+<h1 mat-dialog-title>Create new record</h1>
+<mat-form-field>
+    Author: <input matInput [(ngModel)]="author" placeholder="Author">
+</mat-form-field>
+<mat-form-field>
+    Day: <input matInput [(ngModel)]="day" placeholder="Day">
+</mat-form-field>
+<mat-form-field>
+    Date: <input matInput [(ngModel)]="date" placeholder="Date">
+</mat-form-field>
+<mat-form-field>
+    Time: <input matInput [(ngModel)]="time" placeholder="Time">
+</mat-form-field>
+<mat-form-field>
+    T1:<input matInput [(ngModel)]="t1" placeholder="T1">
+</mat-form-field>
+<mat-form-field>
+    T2: <input matInput [(ngModel)]="t2" placeholder="T2">
+</mat-form-field>
+<mat-form-field>
+    T3: <input matInput [(ngModel)]="t3" placeholder="T3">
+</mat-form-field>
+<mat-form-field>
+    TP: <input matInput [(ngModel)]="tp" placeholder="TP">
+</mat-form-field>
+<mat-form-field>
+    FREQ: <input matInput [(ngModel)]="freq" placeholder="FREQ">
+</mat-form-field>
+<mat-form-field>
+    Comment: <input matInput [(ngModel)]="comment" placeholder="Comment">
+</mat-form-field>
+<div mat-dialog-actions>
+    <button mat-button (click)="onCancelClick()">Cancel</button>
+    <button mat-button (click)="onSaveClick()">Save</button>
+</div>
+

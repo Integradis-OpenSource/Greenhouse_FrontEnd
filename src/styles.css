@@ -1,1 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'nunito';
+
+  src: url('https://fonts.googleapis.com/css?family=Nunito');
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: var(--font-primary); background-color: var(--primary-white);}
+:root {
+  --primary-green: #4D6443;
+  --primary-white:#E1E8EC;
+  --gray-1: #D9D9D9;
+  --gray-2:#8E8E8E;
+  --gray-3:#4D4D4D;
+  --black: #282828;
+  --white: #FFFFFF;
+  --secondary-brown: #8B6341;
+  --secondary-green-1: #4A845B;
+  --secondary-green-2:#5B7051;
+  --secondary-beige:#CBB99D;
+  --red: #FF3439;
+  --font-primary: nunito;
+  --heading-1-size: 52px;
+  --heading-2-size: 36px;
+  --heading-3-size: 24px;
+  --heading-4-size: 18px;
+  --large-text-bold-size: 24px;
+  --large-text-regular-size: 24px;
+  --medium-text-bold-size: 18px;
+  --medium-text-regular-size: 18px;
+  --normal-text-bold-size: 16px;
+  --normal-text-regular-size: 16px;
+  --small-text-bold-size: 14px;
+  --small-text-regular-size: 14px;
+}
+
+.box{
+  border-radius: 25px;
+  background-color: var(--white);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  width: 70%;
+  height: auto;
+  flex-shrink: 0;
+  margin: 0 auto;
+
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

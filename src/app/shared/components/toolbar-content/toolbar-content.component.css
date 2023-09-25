@@ -1,0 +1,16 @@
+.header {
+  background: inherit;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: var(--primary-green);
+  color: var(--white);
+  font-family: var(--font-primary);
+  font-size: var(--medium-text-regular-size);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+p {
+  font-size: var(--medium-text-regular-size);
+  color: var(--white);
+}

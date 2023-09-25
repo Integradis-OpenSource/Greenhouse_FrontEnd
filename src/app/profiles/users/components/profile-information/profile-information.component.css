@@ -1,0 +1,25 @@
+.division{
+  border-top: 1px solid var(--primary-green);
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.link-color{
+  color:var(--secondary-green-1);
+}
+
+.delete{
+  color: var(--red);
+}
+
+.fields-text{
+  font-family: var(--font-primary);
+  font-size: var(--heading-3-size);
+  font-weight: bold;
+}
+
+a {
+  font-family: var(--font-primary);
+  font-weight: var(--normal-text-regular-size);
+  text-decoration: underline;
+}

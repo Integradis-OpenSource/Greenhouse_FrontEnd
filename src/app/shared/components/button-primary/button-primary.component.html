@@ -1,0 +1,12 @@
+<button mat-button *ngIf="!useStepperNext"
+        [style.background-color]="buttonColor"
+        [style.color]="buttonTextColor"
+        [style.border-color]="buttonBorderColor">
+  {{ text }}
+</button>
+<button mat-button matStepperNext *ngIf="useStepperNext"
+        [style.background-color]="buttonColor"
+        [style.color]="buttonTextColor"
+        [style.border-color]="buttonBorderColor">
+  {{ text }}
+</button>

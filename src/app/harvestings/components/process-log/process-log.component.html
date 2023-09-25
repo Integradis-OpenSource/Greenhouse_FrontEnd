@@ -1,0 +1,24 @@
+<mat-card class="m-9">
+  <h4 class="text-center pt-4 uppercase">process log</h4>
+  <h2 class="text-center pb-5">Harvestings in progress</h2>
+  <mat-card-content>
+      <mat-card class="m-2">
+      <mat-card-title class="text-center">
+        <mat-form-field class="custom-mat-form-field">
+          <mat-label>Search harvest</mat-label>
+          <input matInput #input>
+        </mat-form-field>
+      </mat-card-title>
+
+      <mat-card-content class="text-center mt-4">
+        <app-button-primary text=" + Start new harvest"
+                            buttonColor="var(--primary-green)"
+                            buttonTextColor="var(--primary-white)"
+                            buttonBorderColor="var(--primary-green)"
+                            [useStepperNext]="false"
+                            routerLink="/harvest">
+        </app-button-primary>
+      </mat-card-content>
+      </mat-card>
+  </mat-card-content>
+</mat-card>
