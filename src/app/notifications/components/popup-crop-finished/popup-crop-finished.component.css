@@ -101,5 +101,80 @@
   color: black;
 }
 
+.popup-container-2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  padding:100px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.popup-body-2 h5 {
+  color: #626262;
 
+}
+.popup-body-2 p {
+  color: #626262;
+  font-size: 16px;
+  white-space: pre-wrap;
+  padding:10px;
+}
+
+.popup-content-2 {
+  position: relative;
+  background-color: #fff;
+
+  border-radius: 25px;
+  text-align: center;
+  padding-bottom:40px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.popup-content-2 img {
+  max-width: 100%;
+  max-height: 70vh;
+}
+
+
+.close-button img {
+  width: 24px;
+  height: 24px;
+  border: none;
+}
+
+.popup-header-2 {
+  background-color: #FF3439;
+  text-align: center;
+  padding:15px;
+  border-radius: 20px;
+  border-bottom-left-radius:0px;
+  border-bottom-right-radius:0px;
+
+}
+
+.popup-header-2 h2 {
+  color: white;
+  margin: 0;
+}
+
+.popup-footer-2 .btn {
+  margin-right: 50px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.popup-footer-2 .btn.yes-finish {
+  background-color: #FF3439;
+  color: white;
+}
+
+
+.popup-footer-2 .btn.close {
+  background-color: #D9D9D9 ;
+  color: black;
+}
 

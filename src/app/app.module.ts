@@ -34,9 +34,9 @@ import {OrganizationInformationComponent} from "./profiles/organizations/compone
 import {EmployeesContentComponent} from "./profiles/employees/components/employees-content/employees-content.component";
 import { ProcessTableComponent } from './harvestings/components/process-table/process-table.component';
 import { ProcessLogComponent } from './harvestings/components/process-log/process-log.component';
-import { PopupWarningComponent } from './harvestings/components/popup-warning/popup-warning.component';
-import { PopupNewCropComponent } from './harvestings/components/popup-new-crop/popup-new-crop.component';
-import { PopupCropFinishedComponent } from './harvestings/components/popup-crop-finished/popup-crop-finished.component';
+import { PopupWarningComponent } from './notifications/components/popup-warning/popup-warning.component';
+import { PopupNewCropComponent } from './notifications/components/popup-new-crop/popup-new-crop.component';
+import { PopupCropFinishedComponent } from './notifications/components/popup-crop-finished/popup-crop-finished.component';
 import { ProcessInputDialogComponent } from './harvestings/components/process-input-dialog/process-input-dialog.component';
 import {FormsModule} from "@angular/forms";
 import { ProcessInputDialogTunnelComponent } from './harvestings/components/process-input-dialog-tunnel/process-input-dialog-tunnel.component';

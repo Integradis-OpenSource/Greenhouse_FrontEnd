@@ -1,0 +1,43 @@
+<app-button-primary text=" + Start new harvest"
+                    buttonColor="var(--primary-green)"
+                    buttonTextColor="var(--primary-white)"
+                    buttonBorderColor="var(--primary-green"
+                    disabled = "isButtonDisabled"
+                    (click)="activeObjectPopUpNewCrop()"
+                    >
+
+</app-button-primary>
+
+<div class="popup-container" *ngIf="popupVisible">
+  <div class="popup-content">
+    <div class="popup-header">
+      <h2>WARNING</h2>
+    </div>
+    <div class="popup-body">
+      <br>
+      <p style="text-align: center;">{{ popupText }}<strong>{{ date | date:'medium' }} </strong></p>
+    </div>
+    <div class="popup-footer">
+      <app-button-primary style="margin:1.5rem;"
+                          text=" Yes, start"
+                          buttonColor="var(--secondary-green-1)"
+                          buttonTextColor="var(--primary-white)"
+                          buttonBorderColor="var(--secondary-green-1)"
+                          (click)="closePopUpNewCrop()"
+                          routerLink="/harvest"
+      ></app-button-primary>
+      <app-button-primary style="margin:1.5rem;"
+                          text=" Cancel"
+                          buttonColor="var(--gray-2)"
+                          buttonTextColor="var(--primary-white)"
+                          buttonBorderColor="var(--gray-2)"
+                          (click)="closePopUpNewCrop()"
+      ></app-button-primary>
+    </div>
+  </div>
+</div>
+
+
+
+
+

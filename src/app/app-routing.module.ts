@@ -5,9 +5,9 @@ import {StepperContentComponent} from "./harvestings/components/stepper-content/
 import {ProfileContentComponent} from "./profiles/users/components/profile-content/profile-content.component";
 import { OrganizationContentComponent } from "./profiles/organizations/components/organization-content/organization-content.component";
 import {ProcessLogComponent} from "./harvestings/components/process-log/process-log.component";
-import {PopupWarningComponent} from "./harvestings/components/popup-warning/popup-warning.component";
-import {PopupNewCropComponent} from "./harvestings/components/popup-new-crop/popup-new-crop.component";
-import {PopupCropFinishedComponent} from "./harvestings/components/popup-crop-finished/popup-crop-finished.component";
+import {PopupWarningComponent} from "./notifications/components/popup-warning/popup-warning.component";
+import {PopupNewCropComponent} from "./notifications/components/popup-new-crop/popup-new-crop.component";
+import {PopupCropFinishedComponent} from "./notifications/components/popup-crop-finished/popup-crop-finished.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
