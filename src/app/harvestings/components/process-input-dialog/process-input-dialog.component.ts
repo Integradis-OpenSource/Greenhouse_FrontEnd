@@ -1,6 +1,5 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { ProcessTableComponent } from "../process-table/process-table.component";
 
 @Component({
   selector: 'app-process-input-dialog',
