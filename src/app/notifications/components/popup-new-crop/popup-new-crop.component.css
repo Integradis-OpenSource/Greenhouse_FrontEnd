@@ -1,4 +1,5 @@
 .popup-container {
+  z-index: 9;
   position: fixed;
   top: 0;
   left: 0;
@@ -11,12 +12,11 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 .popup-body h5 {
-  color: #626262; /* Cambiar el color del texto */
-  /* Cambiar el tamaño de fuente del texto */
+  color: #626262;
 }
 .popup-body p {
-  color: #626262; /* Cambiar el color del texto */
-  font-size: 16px; /* Cambiar el tamaño de fuente del texto */
+  color: #626262;
+  font-size: 16px;
   white-space: pre-wrap; /* Permite ajustar el texto en varias líneas */
   padding:10px;
 }
@@ -28,7 +28,7 @@
   border-radius: 25px;
   text-align: center;
   padding-bottom:40px;
-  max-width: 600px; /* Ajusta el ancho máximo según tus preferencias */
+  max-width: 600px;
   margin: 0 auto; /* Centra horizontalmente el cuadro */
 }
 
@@ -53,13 +53,9 @@
 
 .btn {
   text-align: center;
-  background-color: #4A845B;
   color: white;
   font-size: 20px;
-  margin-top: 1rem;
-  padding: 1.5rem;
-  border-radius: 20px;
-  border: none;
+  margin-top: 0.5rem;
   transition: all 0.2s;
 }
 
