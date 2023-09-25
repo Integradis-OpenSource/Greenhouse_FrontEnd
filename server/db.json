@@ -1,7 +1,8 @@
 {
   "stock": [
     {
-      "author":"Winston Smith",
+      "id": 1,
+      "author": "Winston Smith",
       "day": "2",
       "date": "15/09/2023",
       "time": "10:00",
@@ -9,13 +10,14 @@
       "corn": 300,
       "guano": 100,
       "cottonSeedCake": 500,
-      "soybeanMeal":400,
+      "soybeanMeal": 400,
       "gypsum": 356,
       "urea": 780,
       "ammoniumSulphate": 125
     },
     {
-      "author":"Winston Smith",
+      "id": 2,
+      "author": "Winston Smith",
       "day": "3",
       "date": "16/09/2023",
       "time": "10:00",
@@ -23,16 +25,16 @@
       "corn": 300,
       "guano": 100,
       "cottonSeedCake": 500,
-      "soybeanMeal":400,
+      "soybeanMeal": 400,
       "gypsum": 356,
       "urea": 780,
       "ammoniumSulphate": 125
     }
   ],
-
-  "preparation_area":[
+  "preparation_area": [
     {
-      "author":"Winston Smith",
+      "id": 1,
+      "author": "Winston Smith",
       "day": "2",
       "date": "15/09/2023",
       "time": "10:00",
@@ -41,10 +43,10 @@
       "comment": ""
     }
   ],
-
-  "bunker":[
+  "bunker": [
     {
-      "author":"Winston Smith",
+      "id": 1,
+      "author": "Winston Smith",
       "day": "2",
       "date": "15/09/2023",
       "time": "10:00",
@@ -56,10 +58,10 @@
       "comment": ""
     }
   ],
-
-  "tunnel":[
+  "tunnel": [
     {
-      "author":"Winston Smith",
+      "id": 1,
+      "author": "Winston Smith",
       "day": "2",
       "date": "15/09/2023",
       "time": "10:00",
@@ -69,81 +71,85 @@
       "thermocoupleThree": 490,
       "averageThermocouple": 498.67,
       "frequency": "50",
-      "roomTemperature": 20.0,
+      "roomTemperature": 20,
       "freshAir": 30,
       "recirculation": 50,
       "comment": ""
     }
   ],
-
-  "grow_room_record":[
+  "grow_room_record": [
     {
-      "author":"Winston Smith",
+      "id": 1,
+      "author": "Winston Smith",
       "day": "2",
       "date": "15/09/2023",
       "time": "10:00",
       "growRoom": 4,
-      "airTemperature": 22.0,
+      "airTemperature": 22,
       "compostTemperature": "23-24",
       "carbonDioxide": 2319,
       "airHydrogen": 92,
-      "setting": 20.0,
+      "setting": 20,
       "comment": "",
       "processType": "Incubation"
     },
     {
-      "author":"Winston Smith",
+      "id": 2,
+      "author": "Winston Smith",
       "day": "2",
       "date": "15/09/2023",
       "time": "10:00",
       "growRoom": 4,
-      "airTemperature": 22.0,
+      "airTemperature": 22,
       "compostTemperature": "23-24",
       "carbonDioxide": 2319,
       "airHydrogen": 92,
-      "setting": 20.0,
+      "setting": 20,
       "comment": "",
       "processType": "Casing"
     },
     {
-      "author":"Winston Smith",
+      "id": 3,
+      "author": "Winston Smith",
       "day": "2",
       "date": "15/09/2023",
       "time": "10:00",
       "growRoom": 4,
-      "airTemperature": 22.0,
+      "airTemperature": 22,
       "compostTemperature": "23-24",
       "carbonDioxide": 2319,
       "airHydrogen": 92,
-      "setting": 20.0,
+      "setting": 20,
       "comment": "",
       "processType": "Induction"
     },
     {
-      "author":"Winston Smith",
+      "id": 4,
+      "author": "Winston Smith",
       "day": "2",
       "date": "15/09/2023",
       "time": "10:00",
       "growRoom": 4,
-      "airTemperature": 22.0,
+      "airTemperature": 22,
       "compostTemperature": "23-24",
       "carbonDioxide": 2319,
       "airHydrogen": 92,
-      "setting": 20.0,
+      "setting": 20,
       "comment": "",
       "processType": "Harvest"
     },
     {
-      "author":"Winston Smith",
+      "id": 5,
+      "author": "Winston Smith",
       "day": "3",
       "date": "15/09/2023",
       "time": "10:00",
       "growRoom": 4,
-      "airTemperature": 22.0,
+      "airTemperature": 22,
       "compostTemperature": "23-24",
       "carbonDioxide": 2319,
       "airHydrogen": 92,
-      "setting": 20.0,
+      "setting": 20,
       "comment": "",
       "processType": "Incubation"
     }
