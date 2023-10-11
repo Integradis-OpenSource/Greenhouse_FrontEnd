@@ -12,10 +12,10 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
 import {NgOptimizedImage} from "@angular/common";
 import {MatStepperModule} from "@angular/material/stepper";
-import {StepperContentComponent} from './harvestings/components/stepper-content/stepper-content.component';
-import { ButtonPrimaryComponent } from './shared/components/button-primary/button-primary.component';
+import {StepperContentComponent} from './greenhouse/components/stepper-content/stepper-content.component';
+import { ButtonPrimaryComponent } from './greenhouse/components/button-primary/button-primary.component';
 import {  RouterOutlet } from "@angular/router";
-import { ToolbarContentComponent } from './shared/components/toolbar-content/toolbar-content.component';
+import { ToolbarContentComponent } from './public/components/toolbar-content/toolbar-content.component';
 import {  MatToolbarModule } from "@angular/material/toolbar";
 import {  MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from "@angular/material/form-field";
@@ -23,20 +23,20 @@ import { MatInputModule } from "@angular/material/input";
 import {MatDialogModule} from "@angular/material/dialog";
 
 
-import { DashboardCardComponent } from './dashboard/components/dashboard-card/dashboard-card.component';
-import { DashboardContentComponent } from './dashboard/components/dashboard-content/dashboard-content.component';
-import {InformationComponent} from "./profiles/shared/components/information/information.component";
+import { DashboardCardComponent } from './greenhouse/components/dashboard-card/dashboard-card.component';
+import { DashboardComponent } from './greenhouse/pages/dashboard/dashboard.component';
+import {InformationComponent} from "./greenhouse/components/information/information.component";
 import {ProfileInformationComponent} from "./profiles/users/components/profile-information/profile-information.component";
 import {ProfileContentComponent} from "./profiles/users/components/profile-content/profile-content.component";
-import {AvatarComponent} from "./profiles/shared/components/avatar/avatar.component";
-import {OrganizationContentComponent} from "./profiles/organizations/components/organization-content/organization-content.component";
-import {OrganizationInformationComponent} from "./profiles/organizations/components/organization-information/organization-information.component";
-import {EmployeesContentComponent} from "./profiles/employees/components/employees-content/employees-content.component";
-import { ProcessTableComponent } from './harvestings/components/process-table/process-table.component';
-import { ProcessLogComponent } from './harvestings/components/process-log/process-log.component';
-import { PopupWarningComponent } from './notifications/components/popup-warning/popup-warning.component';
-import { PopupNewCropComponent } from './notifications/components/popup-new-crop/popup-new-crop.component';
-import { PopupCropFinishedComponent } from './notifications/components/popup-crop-finished/popup-crop-finished.component';
+import {AvatarComponent} from "./greenhouse/components/avatar/avatar.component";
+import {OrganizationContentComponent} from "./greenhouse/pages/organization-content/organization-content.component";
+import {OrganizationInformationComponent} from "./greenhouse/pages/organization-information/organization-information.component";
+import {EmployeesContentComponent} from "./greenhouse/pages/employees-content/employees-content.component";
+import { ProcessTableComponent } from './greenhouse/components/process-table/process-table.component';
+import { HarvestingInProgressComponent } from './greenhouse/pages/harvesting-in-progress/harvesting-in-progress.component';
+import { PopupWarningComponent } from './greenhouse/components/popup-warning/popup-warning.component';
+import { PopupNewCropComponent } from './greenhouse/components/popup-new-crop/popup-new-crop.component';
+import { PopupCropFinishedComponent } from './greenhouse/components/popup-crop-finished/popup-crop-finished.component';
 import { ProcessInputDialogComponent } from './harvestings/components/process-input-dialog/process-input-dialog.component';
 import {FormsModule} from "@angular/forms";
 import { ProcessInputDialogTunnelComponent } from './harvestings/components/process-input-dialog-tunnel/process-input-dialog-tunnel.component';
@@ -50,7 +50,7 @@ import { ProcessInputDialogBunkerComponent } from './harvestings/components/proc
     AppComponent,
     ToolbarContentComponent,
     DashboardCardComponent,
-    DashboardContentComponent,
+    DashboardComponent,
     InformationComponent,
     ProfileInformationComponent,
     ProfileContentComponent,
@@ -61,7 +61,7 @@ import { ProcessInputDialogBunkerComponent } from './harvestings/components/proc
     StepperContentComponent,
     ButtonPrimaryComponent,
     ProcessTableComponent,
-    ProcessLogComponent,
+    HarvestingInProgressComponent,
     PopupWarningComponent,
     PopupNewCropComponent,
     PopupCropFinishedComponent,

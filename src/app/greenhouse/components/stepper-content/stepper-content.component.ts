@@ -2,11 +2,11 @@
 import { Component  } from '@angular/core';
 import {CommunicationService} from "../../services/communication.service";
 import { MatDialog } from '@angular/material/dialog';
-import { ProcessInputDialogComponent } from '../process-input-dialog/process-input-dialog.component';
-import {ProcessInputDialogStockComponent} from "../process-input-dialog-stock/process-input-dialog-stock.component";
-import {ProcessInputDialogBunkerComponent} from "../process-input-dialog-bunker/process-input-dialog-bunker.component";
-import {ProcessInputDialogPreparationAreaComponent} from "../process-input-dialog-preparation-area/process-input-dialog-preparation-area.component";
-import {ProcessInputDialogTunnelComponent} from "../process-input-dialog-tunnel/process-input-dialog-tunnel.component";
+import { ProcessInputDialogComponent } from '../../../harvestings/components/process-input-dialog/process-input-dialog.component';
+import {ProcessInputDialogStockComponent} from "../../../harvestings/components/process-input-dialog-stock/process-input-dialog-stock.component";
+import {ProcessInputDialogBunkerComponent} from "../../../harvestings/components/process-input-dialog-bunker/process-input-dialog-bunker.component";
+import {ProcessInputDialogPreparationAreaComponent} from "../../../harvestings/components/process-input-dialog-preparation-area/process-input-dialog-preparation-area.component";
+import {ProcessInputDialogTunnelComponent} from "../../../harvestings/components/process-input-dialog-tunnel/process-input-dialog-tunnel.component";
 
 @Component({
   selector: 'app-stepper-content',

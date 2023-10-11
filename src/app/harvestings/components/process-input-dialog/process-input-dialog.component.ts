@@ -1,6 +1,6 @@
 import {Component, Inject, Input} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {ProcessEntriesService} from "../../services/process-entries.service";
+import {ProcessEntriesService} from "../../../greenhouse/services/process-entries.service";
 
 @Component({
   selector: 'app-process-input-dialog',

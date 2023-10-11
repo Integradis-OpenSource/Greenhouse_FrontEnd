@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
-import {EventServiceService} from "../../../harvestings/services/event.service";
+import {EventServiceService} from "../../services/event.service";
 import { Router } from '@angular/router';
-import {CommunicationService} from "../../../harvestings/services/communication.service";
+import {CommunicationService} from "../../services/communication.service";
 
 @Component({
   selector: 'app-popup-warning',

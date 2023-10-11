@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProcessLogComponent } from './process-log.component';
+import { HarvestingInProgressComponent } from './harvesting-in-progress.component';
 
 describe('ProcessLogComponent', () => {
-  let component: ProcessLogComponent;
-  let fixture: ComponentFixture<ProcessLogComponent>;
+  let component: HarvestingInProgressComponent;
+  let fixture: ComponentFixture<HarvestingInProgressComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ProcessLogComponent]
+      declarations: [HarvestingInProgressComponent]
     });
-    fixture = TestBed.createComponent(ProcessLogComponent);
+    fixture = TestBed.createComponent(HarvestingInProgressComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
