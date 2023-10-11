@@ -1,7 +1,6 @@
 import { Component,Input } from '@angular/core';
 import {EventServiceService} from "../../services/event.service";
-import { Router } from '@angular/router';
-import {CommunicationService} from "../../services/communication.service";
+
 @Component({
   selector: 'app-popup-crop-finished',
   templateUrl: './popup-crop-finished.component.html',

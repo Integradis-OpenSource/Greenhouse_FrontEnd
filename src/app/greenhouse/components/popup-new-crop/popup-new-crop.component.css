@@ -71,9 +71,7 @@
   background-color: #4A845B;
   text-align: center;
   padding:15px;
-  border-radius: 20px;
-  border-bottom-left-radius:0px;
-  border-bottom-right-radius:0px;
+  border-radius: 20px 20px 0 0;
 
 }
 

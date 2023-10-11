@@ -26,8 +26,6 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { DashboardCardComponent } from './greenhouse/components/dashboard-card/dashboard-card.component';
 import { DashboardComponent } from './greenhouse/pages/dashboard/dashboard.component';
 import {InformationComponent} from "./greenhouse/components/information/information.component";
-import {ProfileInformationComponent} from "./profiles/users/components/profile-information/profile-information.component";
-import {ProfileContentComponent} from "./profiles/users/components/profile-content/profile-content.component";
 import {AvatarComponent} from "./greenhouse/components/avatar/avatar.component";
 import {OrganizationContentComponent} from "./greenhouse/pages/organization-content/organization-content.component";
 import {OrganizationInformationComponent} from "./greenhouse/pages/organization-information/organization-information.component";
@@ -43,6 +41,10 @@ import { ProcessInputDialogTunnelComponent } from './harvestings/components/proc
 import { ProcessInputDialogStockComponent } from './harvestings/components/process-input-dialog-stock/process-input-dialog-stock.component';
 import { ProcessInputDialogPreparationAreaComponent } from './harvestings/components/process-input-dialog-preparation-area/process-input-dialog-preparation-area.component';
 import { ProcessInputDialogBunkerComponent } from './harvestings/components/process-input-dialog-bunker/process-input-dialog-bunker.component';
+import {
+  ProfileInformationComponent
+} from "./greenhouse/components/profile-information/profile-information.component";
+import {ProfileContentComponent} from "./greenhouse/pages/profile-content/profile-content.component";
 
 
 @NgModule({
