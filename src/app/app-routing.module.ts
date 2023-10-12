@@ -5,6 +5,7 @@ import {StepperContentComponent} from "./greenhouse/components/stepper-content/s
 import { OrganizationContentComponent } from "./greenhouse/pages/organization-content/organization-content.component";
 import {HarvestingInProgressComponent} from "./greenhouse/pages/harvesting-in-progress/harvesting-in-progress.component";
 import {ProfileContentComponent} from "./greenhouse/pages/profile-content/profile-content.component";
+import {PageNotFoundComponent} from "./public/pages/page-not-found/page-not-found.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'harvest', component: StepperContentComponent },
   { path: 'profile', component: ProfileContentComponent },
   { path: 'organization', component: OrganizationContentComponent },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
