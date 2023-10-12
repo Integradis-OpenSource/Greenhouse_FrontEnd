@@ -6,9 +6,11 @@ import { OrganizationContentComponent } from "./greenhouse/pages/organization-co
 import {HarvestingInProgressComponent} from "./greenhouse/pages/harvesting-in-progress/harvesting-in-progress.component";
 import {ProfileContentComponent} from "./greenhouse/pages/profile-content/profile-content.component";
 import {PageNotFoundComponent} from "./public/pages/page-not-found/page-not-found.component";
+import {LoginComponent} from "./public/pages/login/login.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login',  component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'harvesting-in-progress', component: HarvestingInProgressComponent },
   { path: 'harvest', component: StepperContentComponent },

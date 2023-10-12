@@ -57,6 +57,10 @@ h2 {
   margin-bottom: 20px;
 }
 
+mat-horizontal-stepper {
+  border-radius: 20px !important;
+}
+
 @media (max-width: 768px) {
 
   ::ng-deep .mat-step-header .mat-step-label {
