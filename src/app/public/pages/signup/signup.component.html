@@ -1,1 +1,88 @@
-<p>signup works!</p>
+<div class="max-w-xl mx-auto select-none">
+  <mat-card class="card py-5 px-2 md:px-5">
+    <mat-card-content>
+      <div class="mb-5 text-center md:text-left">
+        <h2>Welcome to Greenhouse</h2>
+        <p>To use the application, please login or register a company</p>
+      </div>
+      <div class="flex mb-5 justify-content-center md:justify-content-start">
+        <div class="state-color">
+          <div class="mx-5">
+            <p class="cursor-pointer" routerLink="/login">Login</p>
+          </div>
+        </div>
+        <div class="state-color active-label">
+          <div class="mx-5">
+            <p class="cursor-pointer" routerLink="/signup">Register a company</p>
+          </div>
+        </div>
+      </div>
+
+      <form>
+        <div>
+          <mat-form-field class="mb-3 example-full-width">
+            <input matInput name="ruc" required [(ngModel)]="company">
+            <mat-label>Company Name</mat-label>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field class="mb-3 example-full-width">
+            <input matInput name="ruc" required [(ngModel)]="ruc">
+            <mat-label>RUC</mat-label>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field class="mb-3 example-full-width">
+            <input matInput type="email" name="email" placeholder="Email" required [(ngModel)]="email">
+            <mat-label>Email</mat-label>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field class="mb-3 example-full-width">
+            <input matInput name="firstName" required [(ngModel)]="firstName">
+            <mat-label>First name of the registrant</mat-label>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field class="mb-3 example-full-width">
+            <input matInput name="lastName" required [(ngModel)]="lastName">
+            <mat-label>Last name of the registrant</mat-label>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field class="mb-3 example-full-width">
+            <input matInput type="password" name="password" required [(ngModel)]="password">
+            <mat-label>Password</mat-label>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field class="mb-3 example-full-width">
+            <input matInput type="password" name="passwordConfirm" required [(ngModel)]="passwordConfirm">
+            <mat-label>Confirm Password</mat-label>
+          </mat-form-field>
+        </div>
+
+        <mat-checkbox class="mb-3" [(ngModel)]="acceptedPrivacyPolicy" color="primary" [style.color]="acceptedPrivacyPolicy ? 'var(--primary-green)' : ''">
+          I've read and accept the <a class="text-blue-500 text-sm underline"> Terms and Conditions </a>
+          and <a class="text-blue-500 text-sm underline"> Privacy Policy </a>
+        </mat-checkbox>
+
+        <div class="text-center mb-5">
+          <app-button-primary
+            [text]="'Signup'"
+            [buttonColor]="'var(--primary-green)'"
+            [buttonTextColor]="'var(--primary-white)'"
+            [buttonBorderColor]="'var(--primary-green)'"
+            [type]="'submit'">
+          </app-button-primary>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

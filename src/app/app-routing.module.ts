@@ -7,10 +7,12 @@ import {HarvestingInProgressComponent} from "./greenhouse/pages/harvesting-in-pr
 import {ProfileContentComponent} from "./greenhouse/pages/profile-content/profile-content.component";
 import {PageNotFoundComponent} from "./public/pages/page-not-found/page-not-found.component";
 import {LoginComponent} from "./public/pages/login/login.component";
+import {SignupComponent} from "./public/pages/signup/signup.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login',  component: LoginComponent },
+  { path: 'signup',  component: SignupComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'harvesting-in-progress', component: HarvestingInProgressComponent },
   { path: 'harvest', component: StepperContentComponent },

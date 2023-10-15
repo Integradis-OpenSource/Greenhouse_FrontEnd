@@ -1,5 +1,6 @@
 * {
   font-family: var(--font-primary);
+  font-size: var(--normal-text-regular-size);
 }
 
 .card {
@@ -30,4 +31,12 @@ input[type="radio"] {
   color: var(--primary-green);
   font-weight: bold;
   border-bottom: 2px solid var(--primary-green);
+}
+
+.active-label p {
+  color: var(--primary-green);
+}
+
+.example-full-width {
+  width: 100%;
 }

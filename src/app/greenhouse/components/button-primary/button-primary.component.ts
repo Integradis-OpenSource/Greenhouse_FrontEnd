@@ -11,6 +11,7 @@ export class ButtonPrimaryComponent {
   @Input() buttonTextColor: string;
   @Input() useStepperNext: boolean;
   @Input() buttonBorderColor: string;
+  @Input() type: string;
 
   constructor() {
     this.text = "";
@@ -18,5 +19,6 @@ export class ButtonPrimaryComponent {
     this.buttonTextColor = "";
     this.useStepperNext = false;
     this.buttonBorderColor = "";
+    this.type = "button";
   }
 }

@@ -46,6 +46,7 @@ import {ProfileContentComponent} from "./greenhouse/pages/profile-content/profil
 import { PageNotFoundComponent } from './public/pages/page-not-found/page-not-found.component';
 import { LoginComponent } from './public/pages/login/login.component';
 import { SignupComponent } from './public/pages/signup/signup.component';
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 
 @NgModule({
@@ -78,23 +79,24 @@ import { SignupComponent } from './public/pages/signup/signup.component';
     SignupComponent,
   ],
     imports: [
-      BrowserModule,
-      AppRoutingModule,
-      BrowserAnimationsModule,
-      HttpClientModule,
-      LayoutModule,
-      MatButtonModule,
-      MatIconModule,
-      MatCardModule,
-      NgOptimizedImage,
-      MatStepperModule,
-      RouterOutlet,
-      MatToolbarModule,
-      MatTableModule,
-      MatFormFieldModule,
-      MatInputModule,
-      MatDialogModule,
-      FormsModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        LayoutModule,
+        MatButtonModule,
+        MatIconModule,
+        MatCardModule,
+        NgOptimizedImage,
+        MatStepperModule,
+        RouterOutlet,
+        MatToolbarModule,
+        MatTableModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDialogModule,
+        FormsModule,
+        MatCheckboxModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

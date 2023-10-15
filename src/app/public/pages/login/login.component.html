@@ -1,24 +1,56 @@
-<div class="max-w-xl mx-auto">
+<div class="max-w-xl mx-auto select-none">
   <mat-card class="card py-5 px-2 md:px-5">
     <mat-card-content>
-      <div class="mb-3 text-center md:text-left">
+      <div class="mb-5 text-center md:text-left">
         <h2>Welcome to Greenhouse</h2>
         <p>To use the application, please login or register a company</p>
       </div>
       <div class="flex mb-5 justify-content-center md:justify-content-start">
         <div class="state-color active-label">
-          <input id="login" type="radio" name="login-signup">
-          <div class="mr-5">
-            <label class="cursor-pointer" for="login">Login</label>
+          <div class="mx-5">
+            <p class="cursor-pointer" routerLink="/login">Login</p>
           </div>
         </div>
         <div class="state-color">
-          <input id="signup" type="radio" name="login-signup">
-          <div>
-            <label class="cursor-pointer" for="signup">Register a company</label>
+          <div class="mx-5">
+            <p class="cursor-pointer" routerLink="/signup">Register a company</p>
           </div>
         </div>
       </div>
+
+      <form>
+        <div>
+          <mat-form-field class="mb-3 example-full-width">
+            <input matInput type="email" name="email" placeholder="Email" required [(ngModel)]="email">
+            <mat-label>Email</mat-label>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field class="mb-3 example-full-width">
+            <input matInput type="password" name="password" required [(ngModel)]="password">
+            <mat-label>Password</mat-label>
+          </mat-form-field>
+        </div>
+
+        <mat-checkbox class="mb-3" [(ngModel)]="rememberMe" color="primary" [style.color]="rememberMe ? 'var(--primary-green)' : ''">Remember me</mat-checkbox>
+
+        <div class="text-center mb-5">
+          <app-button-primary
+            [text]="'Login'"
+            [buttonColor]="'var(--primary-green)'"
+            [buttonTextColor]="'var(--primary-white)'"
+            [buttonBorderColor]="'var(--primary-green)'"
+            [type]="'submit'">
+          </app-button-primary>
+        </div>
+        <div class="text-center">
+          <a class="text-blue-500 text-sm underline" routerLink="/password-reset">
+            Forgot my password
+          </a>
+        </div>
+      </form>
+
 
     </mat-card-content>
   </mat-card>
