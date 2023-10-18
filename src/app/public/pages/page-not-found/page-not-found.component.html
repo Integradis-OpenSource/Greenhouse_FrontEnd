@@ -1,5 +1,5 @@
 <div class="center">
-  <h1>Page Not Found</h1>
-  <p>The path <b>{{ invalidUrl }}</b> is not valid.</p>
-  <button mat-button (click)="onNavigateHome()">Return</button>
+  <h1>{{ 'page-not-found.page_not_found' | translate }}</h1>
+  <p>{{ 'page-not-found.the_path' | translate }} <b>{{ invalidUrl }}</b> {{ 'page-not-found.is_not_valid' | translate }}.</p>
+  <button mat-button (click)="onNavigateHome()">{{ 'page-not-found.return' | translate }}</button>
 </div>
