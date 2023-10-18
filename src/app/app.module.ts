@@ -53,6 +53,7 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import { LanguageSelectionComponent } from './public/components/language-selection/language-selection.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatSelectModule} from "@angular/material/select";
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -113,7 +114,8 @@ export function createTranslateLoader(http: HttpClient) {
     MatDialogModule,
     FormsModule,
     MatCheckboxModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
