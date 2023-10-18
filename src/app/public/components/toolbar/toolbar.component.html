@@ -14,20 +14,20 @@
       <ul class="flex flex-col lg:flex-row list-none ml-auto">
         <li class="nav-item cursor-pointer">
           <a class="px-3 py-2 flex items-center leading-snug">
-            <span class="ml-2 flex">{{"EN"}}<i class="material-icons">keyboard_arrow_down</i></span>
+            <app-language-selection></app-language-selection>
           </a>
         </li>
         <li class="nav-item cursor-pointer">
           <a class="px-3 py-2 flex items-center font-bold leading-snug">
             <span class="ml-2 flex" routerLink="/organization">
               <img class="w-7 h-7 rounded-full border-2 border-b-white mr-2" [src]="" alt="Organization avatar">
-              {{"Organization"}}</span>
+              {{organization_name}}</span>
           </a>
         </li>
         <li class="nav-item cursor-pointer">
           <a class="px-3 py-2 flex items-center font-bold leading-snug">
             <span class="ml-2 flex" routerLink="/profile">
-              <img class="w-7 h-7 rounded-full border-2 border-b-white mr-2" [src]="" alt="Profile avatar">{{"Profile"}}</span>
+              <img class="w-7 h-7 rounded-full border-2 border-b-white mr-2" [src]="" alt="Profile avatar">{{user_name}}</span>
           </a>
         </li>
       </ul>

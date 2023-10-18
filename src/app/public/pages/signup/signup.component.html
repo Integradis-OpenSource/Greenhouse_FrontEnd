@@ -8,12 +8,12 @@
       <div class="flex mb-5 justify-content-center md:justify-content-start">
         <div class="state-color">
           <div class="mx-5">
-            <p class="cursor-pointer" routerLink="/login">Login</p>
+            <p class="cursor-pointer" routerLink="/login">{{ 'login-signup.login' | translate }}</p>
           </div>
         </div>
         <div class="state-color active-label">
           <div class="mx-5">
-            <p class="cursor-pointer" routerLink="/signup">Register a company</p>
+            <p class="cursor-pointer" routerLink="/signup">{{ 'login-signup.signup' | translate }}</p>
           </div>
         </div>
       </div>
@@ -22,60 +22,64 @@
         <div>
           <mat-form-field class="mb-3 example-full-width">
             <input matInput name="ruc" required [(ngModel)]="company">
-            <mat-label>Company Name</mat-label>
+            <mat-label>{{ 'login-signup.company_name' | translate }}</mat-label>
           </mat-form-field>
         </div>
 
         <div>
           <mat-form-field class="mb-3 example-full-width">
             <input matInput name="ruc" required [(ngModel)]="ruc">
-            <mat-label>RUC</mat-label>
+            <mat-label>{{ 'login-signup.ruc' | translate }}</mat-label>
           </mat-form-field>
         </div>
 
         <div>
           <mat-form-field class="mb-3 example-full-width">
-            <input matInput type="email" name="email" placeholder="Email" required [(ngModel)]="email">
-            <mat-label>Email</mat-label>
+            <input matInput type="email" name="email" required
+                   [(ngModel)]="email">
+            <mat-label>{{ 'login-signup.email' | translate }}</mat-label>
           </mat-form-field>
         </div>
 
         <div>
           <mat-form-field class="mb-3 example-full-width">
             <input matInput name="firstName" required [(ngModel)]="firstName">
-            <mat-label>First name of the registrant</mat-label>
+            <mat-label>{{ 'login-signup.first_name' | translate }}</mat-label>
           </mat-form-field>
         </div>
 
         <div>
           <mat-form-field class="mb-3 example-full-width">
             <input matInput name="lastName" required [(ngModel)]="lastName">
-            <mat-label>Last name of the registrant</mat-label>
+            <mat-label>{{ 'login-signup.last_name' | translate }}</mat-label>
           </mat-form-field>
         </div>
 
         <div>
           <mat-form-field class="mb-3 example-full-width">
             <input matInput type="password" name="password" required [(ngModel)]="password">
-            <mat-label>Password</mat-label>
+            <mat-label>{{ 'login-signup.password' | translate }}</mat-label>
           </mat-form-field>
         </div>
 
         <div>
           <mat-form-field class="mb-3 example-full-width">
             <input matInput type="password" name="passwordConfirm" required [(ngModel)]="passwordConfirm">
-            <mat-label>Confirm Password</mat-label>
+            <mat-label>{{ 'login-signup.password_confirm' | translate }}</mat-label>
           </mat-form-field>
         </div>
 
-        <mat-checkbox class="mb-3" [(ngModel)]="acceptedPrivacyPolicy" color="primary" [style.color]="acceptedPrivacyPolicy ? 'var(--primary-green)' : ''">
-          I've read and accept the <a class="text-blue-500 text-sm underline"> Terms and Conditions </a>
-          and <a class="text-blue-500 text-sm underline"> Privacy Policy </a>
+        <mat-checkbox class="mb-3 text-sm" [(ngModel)]="acceptedPrivacyPolicy" color="primary"
+                      [style.color]="acceptedPrivacyPolicy ? 'var(--primary-green)' : ''">
+          {{ 'login-signup.agree_with_terms' | translate }} <a
+          class="text-blue-500 text-sm underline"> {{'login-signup.terms_and_conditions' | translate }} </a>
+          {{'login-signup.and' | translate }} <a
+          class="text-blue-500 text-sm underline"> {{'login-signup.privacy_policy' | translate }} </a>
         </mat-checkbox>
 
         <div class="text-center mb-5">
           <app-button-primary
-            [text]="'Signup'"
+            [text]="'login-signup.signup' | translate"
             [buttonColor]="'var(--primary-green)'"
             [buttonTextColor]="'var(--primary-white)'"
             [buttonBorderColor]="'var(--primary-green)'"

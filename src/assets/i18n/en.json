@@ -1,0 +1,43 @@
+{
+  "login-signup": {
+    "welcome": "Welcome to Greenhouse",
+    "welcome_description": "To use the application, please login or register a company",
+    "login": "Login",
+    "signup": "Register company",
+    "company_name": "Company name",
+    "ruc": "TIN",
+    "first_name": "Name of the registrant",
+    "last_name": "Last name of the registrant",
+    "email": "Email",
+    "password": "Password",
+    "password_confirm": "Confirm password",
+    "remember_me": "Remember me",
+    "forgot_my_password": "Forgot my password",
+    "agree_with_terms": "I've read and accept the ",
+    "terms_and_conditions": "Terms and Conditions",
+    "and": "and",
+    "privacy_policy": "Privacy Policy"
+  },
+  "page-not-found": {
+    "page_not_found": "Page Not Found",
+    "the_path": "The path",
+    "is_not_valid": "is not valid",
+    "return": "Return"
+  },
+  "dashboard": {
+    "dashboard": "Dashboard",
+    "crops_in_progress": "Crops in progress",
+    "my_company": "My company",
+    "statistical_reports": "Statistical reports",
+    "crops_archive": "Harvesting archive"
+  },
+  "pop-up": {
+    "warning": "Warning"
+  },
+  "crops-in-progress": {
+    "process_log": "Process log",
+    "crops_in_progress": "Crops in progress",
+    "start_new_crop": "Start new crop",
+    "search_crop": "Search crop"
+  }
+}

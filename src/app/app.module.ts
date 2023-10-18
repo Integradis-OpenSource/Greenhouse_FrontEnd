@@ -48,6 +48,17 @@ import { LoginComponent } from './public/pages/login/login.component';
 import { SignupComponent } from './public/pages/signup/signup.component';
 import {MatCheckboxModule} from "@angular/material/checkbox";
 
+import {HttpClient} from "@angular/common/http";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import { LanguageSelectionComponent } from './public/components/language-selection/language-selection.component';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatSelectModule} from "@angular/material/select";
+
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -77,27 +88,35 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     PageNotFoundComponent,
     LoginComponent,
     SignupComponent,
+    LanguageSelectionComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        LayoutModule,
-        MatButtonModule,
-        MatIconModule,
-        MatCardModule,
-        NgOptimizedImage,
-        MatStepperModule,
-        RouterOutlet,
-        MatToolbarModule,
-        MatTableModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatDialogModule,
-        FormsModule,
-        MatCheckboxModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'en', loader: {
+        provide: TranslateLoader, useFactory: (createTranslateLoader), deps: [HttpClient]
+      }
+    }),
+    LayoutModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    NgOptimizedImage,
+    MatStepperModule,
+    RouterOutlet,
+    MatToolbarModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule,
+    FormsModule,
+    MatCheckboxModule,
+    MatButtonToggleModule,
+    MatSelectModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
