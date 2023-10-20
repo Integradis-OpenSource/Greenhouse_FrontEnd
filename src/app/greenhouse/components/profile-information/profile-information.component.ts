@@ -16,8 +16,9 @@ export class ProfileInformationComponent implements OnInit{
     this.getUser();
   }
 
-  private getUser(id: string = '1'){
-    this.userService.getById(this.user.id).subscribe((user: User) => {
+  private getUser(){
+    this.userService.setResourceEndpoint('users');
+    this.userService.getById('1').subscribe((user: User) => {
       this.user = user;
       console.log(this.user)
     });
