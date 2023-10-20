@@ -1,17 +1,25 @@
-import {Component} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { User } from '../../model/user';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-profile-information',
   templateUrl: './profile-information.component.html',
   styleUrls: ['./profile-information.component.css']
 })
-export class ProfileInformationComponent {
-  field: string = '';
-  value: string = '';
-  type: string = '';
-  Name : string = "Winston Smith";
-  Email: string = "winstonsmith@peruagro.com";
-  Organization: string = "Peru Agro J&V S.A.C";
-  Role: string = "Administrador";
-  Password: string = "sgtews"
+
+export class ProfileInformationComponent implements OnInit{
+  @Input() user: User = new User();
+  constructor(private userService: UserService) {}
+
+  ngOnInit(): void{
+    this.getUser();
+  }
+
+  private getUser(id: string = '1'){
+    this.userService.getById(this.user.id).subscribe((user: User) => {
+      this.user = user;
+      console.log(this.user)
+    });
+  }
 }
