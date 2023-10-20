@@ -17,6 +17,13 @@
       "password": "123456"
     }
   ],
+  "business":[
+    {
+      "id": "1",
+      "name": "Peru Agro J&V SAC",
+      "ruc": "20600995741"
+    }
+  ],
   "stock": [
     {
       "id": 1,
