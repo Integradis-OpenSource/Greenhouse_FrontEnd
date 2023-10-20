@@ -1,4 +1,22 @@
 {
+  "users": [
+    {
+      "id": "1",
+      "name": "Winston Smith",
+      "email": "winstonsmith@peruagro.com",
+      "organization": "Peru Agro J&V SAC",
+      "role": "Administrator",
+      "password": "123456"
+    },
+    {
+      "id": "2",
+      "name": "John Doe",
+      "email": "johndoe@peruagro.com",
+      "organization": "Peru Agro J&V SAC",
+      "role": "Administrator",
+      "password": "123456"
+    }
+  ],
   "stock": [
     {
       "id": 1,
