@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Business } from '../../model/business';
-import { BusinessService } from '../../services/business.service';
+import { Company } from '../../model/company';
+import { CompanyService } from '../../services/company.service';
 
 @Component({
   selector: 'app-organization-information',
@@ -8,18 +8,18 @@ import { BusinessService } from '../../services/business.service';
   styleUrls: ['./organization-information.component.css']
 })
 export class OrganizationInformationComponent  implements OnInit{
-  @Input() business : Business = new Business();
+  @Input() company : Company = new Company();
 
-  constructor(private businessService: BusinessService) { }
+  constructor(private companyService: CompanyService) { }
 
   ngOnInit(): void {
-    this.getBussines();
+    this.getCompany();
   }
-  getBussines(){
-    this.businessService.setResourceEndpoint('business');
-    this.businessService.getById('1').subscribe((business: Business) => {
-      this.business = business;
-      console.log(this.business)
+  getCompany(){
+    this.companyService.setResourceEndpoint('company');
+    this.companyService.getById('1').subscribe((company: Company) => {
+      this.company = company;
+      console.log(this.company)
     });
   }
 }

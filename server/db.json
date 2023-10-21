@@ -1,69 +1,209 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "Winston Smith",
-      "email": "winstonsmith@peruagro.com",
-      "organization": "Peru Agro J&V SAC",
-      "role": "Administrator",
+      "id": 1,
+      "company_id": 1,
+      "image": "https://schoolworkhelper.net/wp-content/uploads/2011/07/Winston-Smith.gif",
+      "first_name": "Winston",
+      "last_name": "Smith",
+      "email": "winstonsmith@gmail.com",
       "password": "123456"
     },
     {
-      "id": "2",
-      "name": "John Doe",
-      "email": "johndoe@peruagro.com",
-      "organization": "Peru Agro J&V SAC",
-      "role": "Administrator",
-      "password": "123456"
+      "id": 2,
+      "company_id": 2,
+      "image": "https://example.com/user2.jpg",
+      "first_name": "Alice",
+      "last_name": "Johnson",
+      "email": "alicejohnson@gmail.com",
+      "password": "password123"
+    },
+    {
+      "id": 3,
+      "company_id": 1,
+      "image": "https://example.com/user3.jpg",
+      "first_name": "Bob",
+      "last_name": "Anderson",
+      "email": "bobanderson@gmail.com",
+      "password": "securepass"
+    },
+    {
+      "id": 4,
+      "company_id": 2,
+      "image": "https://example.com/user4.jpg",
+      "first_name": "Eva",
+      "last_name": "Smith",
+      "email": "evasmith@gmail.com",
+      "password": "newpassword"
+    },
+    {
+      "id": 5,
+      "company_id": 1,
+      "image": "https://example.com/user5.jpg",
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "johndoe@gmail.com",
+      "password": "mysecret"
+    },
+    {
+      "id": 6,
+      "company_id": 3,
+      "image": "https://example.com/user6.jpg",
+      "first_name": "Mary",
+      "last_name": "Wilson",
+      "email": "marywilson@gmail.com",
+      "password": "marypass"
+    },
+    {
+      "id": 7,
+      "company_id": 3,
+      "image": "https://example.com/user7.jpg",
+      "first_name": "Daniel",
+      "last_name": "Brown",
+      "email": "danielbrown@gmail.com",
+      "password": "danielsecret"
+    },
+    {
+      "id": 8,
+      "company_id": 4,
+      "image": "https://example.com/user8.jpg",
+      "first_name": "Sophia",
+      "last_name": "Martinez",
+      "email": "sophiamartinez@gmail.com",
+      "password": "sophiapassword"
+    },
+    {
+      "id": 9,
+      "company_id": 5,
+      "image": "https://example.com/user9.jpg",
+      "first_name": "David",
+      "last_name": "Garcia",
+      "email": "davidgarcia@gmail.com",
+      "password": "davidpass"
+    },
+    {
+      "id": 10,
+      "company_id": 4,
+      "image": "https://example.com/user10.jpg",
+      "first_name": "Olivia",
+      "last_name": "Rodriguez",
+      "email": "oliviarodriguez@gmail.com",
+      "password": "oliviapass"
     }
   ],
-  "business":[
+  "companies": [
     {
-      "id": "1",
-      "name": "Peru Agro J&V SAC",
-      "ruc": "20600995741"
+      "id": 1,
+      "company_name": "Peru Agro J&V S.A.C",
+      "ruc": "20611429976",
+      "image": "https://us.123rf.com/450wm/elenagarder/elenagarder1710/elenagarder171000422/87214294-icono-de-vector-de-color-fino-de-champignon-estilo-lineal-aislado-de-las-verduras-de-la-seta-para.jpg?ver=6",
+      "owner_id": 1,
+      "users": [
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "id": 2,
+      "company_name": "Venta de Hierbas Soto S.A.C",
+      "ruc": "30602479447",
+      "image": "",
+      "owner_id": 2,
+      "users": [
+        2,
+        4
+      ]
+    }
+  ],
+  "crops": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "start_date": "14/08/2023",
+      "end_date": "",
+      "phase": "4.2",
+      "state": "active"
+    },
+    {
+      "id": 2,
+      "organization_id": 1,
+      "start_date": "16/08/2023",
+      "end_date": "",
+      "phase": "2",
+      "state": "active"
+    },
+    {
+      "id": 3,
+      "organization_id": 1,
+      "start_date": "17/08/2023",
+      "end_date": "",
+      "phase": "1",
+      "state": "finished"
+    },
+    {
+      "id": 4,
+      "organization_id": 1,
+      "start_date": "19/10/2023",
+      "end_date": "",
+      "phase": "1",
+      "state": "active"
     }
   ],
   "stock": [
     {
       "id": 1,
-      "author": "Winston Smith",
-      "day": "2",
-      "date": "15/09/2023",
-      "time": "10:00",
-      "hay": 128,
-      "corn": 300,
-      "guano": 100,
-      "cottonSeedCake": 500,
-      "soybeanMeal": 400,
-      "gypsum": 356,
-      "urea": 780,
-      "ammoniumSulphate": 125
+      "crop_id": 1,
+      "author": "Alice Johnson",
+      "day": "3",
+      "date": "14/08/2023",
+      "time": "10:30",
+      "hay": 130,
+      "corn": 320,
+      "guano": 110,
+      "cottonSeedCake": 510,
+      "soybeanMeal": 420,
+      "gypsum": 360,
+      "urea": 800,
+      "ammoniumSulphate": 130
     },
     {
       "id": 2,
-      "author": "Winston Smith",
-      "day": "3",
-      "date": "16/09/2023",
-      "time": "10:00",
-      "hay": 128,
-      "corn": 300,
-      "guano": 100,
-      "cottonSeedCake": 500,
-      "soybeanMeal": 400,
-      "gypsum": 356,
-      "urea": 780,
-      "ammoniumSulphate": 125
+      "crop_id": 1,
+      "author": "Bob Anderson",
+      "day": "4",
+      "date": "15/08/2023",
+      "time": "11:00",
+      "hay": 135,
+      "corn": 325,
+      "guano": 115,
+      "cottonSeedCake": 515,
+      "soybeanMeal": 425,
+      "gypsum": 365,
+      "urea": 805,
+      "ammoniumSulphate": 135
     }
   ],
   "preparation_area": [
     {
       "id": 1,
+      "crop_id": 1,
       "author": "Winston Smith",
       "day": "2",
-      "date": "15/09/2023",
+      "date": "15/08/2023",
       "time": "10:00",
-      "activities": "Premixing",
+      "activities": "Premezcla de insumos",
+      "temperature": 30,
+      "comment": ""
+    },
+    {
+      "id": 2,
+      "crop_id": 1,
+      "author": "Alice Johnson",
+      "day": "2",
+      "date": "17/08/2023",
+      "time": "09:00",
+      "activities": "Premezcla de insumos",
       "temperature": 30,
       "comment": ""
     }
@@ -71,74 +211,92 @@
   "bunker": [
     {
       "id": 1,
-      "author": "Winston Smith",
-      "day": "2",
-      "date": "15/09/2023",
-      "time": "10:00",
-      "thermocoupleOne": 525,
-      "thermocoupleTwo": 481,
-      "thermocoupleThree": 490,
-      "averageThermocouple": 498.67,
-      "frequency": "50",
+      "crop_id": 1,
+      "author": "Eva Smith",
+      "day": "3",
+      "date": "16/08/2023",
+      "time": "09:30",
+      "t1": 520,
+      "t2": 490,
+      "t3": 435,
+      "tp": 480,
+      "frequency": 55,
+      "comment": ""
+    },
+    {
+      "id": 2,
+      "crop_id": 1,
+      "author": "Mary Wilson",
+      "day": "4",
+      "date": "17/08/2023",
+      "time": "10:30",
+      "t1": 535,
+      "t2": 505,
+      "t3": 450,
+      "tp": 495,
+      "frequency": 60,
       "comment": ""
     }
   ],
   "tunnel": [
     {
       "id": 1,
-      "author": "Winston Smith",
+      "crop_id": 1,
+      "author": "Eva Smith",
       "day": "2",
-      "date": "15/09/2023",
-      "time": "10:00",
-      "growRoom": 4,
-      "thermocoupleOne": 525,
-      "thermocoupleTwo": 481,
-      "thermocoupleThree": 490,
-      "averageThermocouple": 498.67,
-      "frequency": "50",
-      "roomTemperature": 20,
-      "freshAir": 30,
-      "recirculation": 50,
-      "comment": ""
+      "date": "16/08/2023",
+      "time": "11:30",
+      "t1": 545,
+      "t2": 495,
+      "t3": 500,
+      "tp": 515,
+      "ta": 55,
+      "frequency": 60,
+      "comment": "."
     }
   ],
   "grow_room_record": [
     {
       "id": 1,
-      "author": "Winston Smith",
-      "day": "2",
-      "date": "15/09/2023",
+      "crop_id": 1,
+      "author": "Eva Smith",
+      "day": "6",
+      "date": "19/08/2023",
       "time": "10:00",
-      "growRoom": 4,
-      "airTemperature": 22,
-      "compostTemperature": "23-24",
-      "carbonDioxide": 2319,
-      "airHydrogen": 92,
-      "setting": 20,
+      "growRoom": 3,
+      "airTemperature": 23,
+      "compostTemperature": "24-25",
+      "carbonDioxide": 2419,
+      "airHydrogen": 94,
+      "setting": 23,
       "comment": "",
-      "processType": "Incubation"
+      "processType": "Incubation",
+      "apiId": "v1"
     },
     {
-      "id": 2,
+      "id": 1,
+      "crop_id": 1,
       "author": "Winston Smith",
-      "day": "2",
-      "date": "15/09/2023",
-      "time": "10:00",
-      "growRoom": 4,
+      "day": "6",
+      "date": "20/08/2023",
+      "time": "11:30",
+      "growRoom": 3,
       "airTemperature": 22,
       "compostTemperature": "23-24",
       "carbonDioxide": 2319,
       "airHydrogen": 92,
       "setting": 20,
       "comment": "",
-      "processType": "Casing"
+      "processType": "Casing",
+      "apiId": "v1"
     },
     {
       "id": 3,
+      "crop_id": 1,
       "author": "Winston Smith",
-      "day": "2",
-      "date": "15/09/2023",
-      "time": "10:00",
+      "day": "7",
+      "date": "21/08/2023",
+      "time": "12:00",
       "growRoom": 4,
       "airTemperature": 22,
       "compostTemperature": "23-24",
@@ -146,14 +304,16 @@
       "airHydrogen": 92,
       "setting": 20,
       "comment": "",
-      "processType": "Induction"
+      "processType": "Induction",
+      "apiId": "v1"
     },
     {
       "id": 4,
+      "crop_id": 1,
       "author": "Winston Smith",
-      "day": "2",
-      "date": "15/09/2023",
-      "time": "10:00",
+      "day": "8",
+      "date": "22/08/2023",
+      "time": "13:30",
       "growRoom": 4,
       "airTemperature": 22,
       "compostTemperature": "23-24",
@@ -161,14 +321,16 @@
       "airHydrogen": 92,
       "setting": 20,
       "comment": "",
-      "processType": "Harvest"
+      "processType": "Harvest",
+      "apiId": "v1"
     },
     {
       "id": 5,
+      "crop_id": 1,
       "author": "Winston Smith",
-      "day": "3",
-      "date": "15/09/2023",
-      "time": "10:00",
+      "day": "9",
+      "date": "23/08/2023",
+      "time": "10:10",
       "growRoom": 4,
       "airTemperature": 22,
       "compostTemperature": "23-24",
@@ -176,7 +338,8 @@
       "airHydrogen": 92,
       "setting": 20,
       "comment": "",
-      "processType": "Incubation"
+      "processType": "Harvest",
+      "apiId": "v1"
     }
   ]
 }
