@@ -9,5 +9,4 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
   rememberMe: boolean = false;
-
 }

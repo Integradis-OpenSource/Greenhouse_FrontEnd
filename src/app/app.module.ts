@@ -26,10 +26,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { DashboardCardComponent } from './greenhouse/components/dashboard-card/dashboard-card.component';
 import { DashboardComponent } from './greenhouse/pages/dashboard/dashboard.component';
 import {InformationComponent} from "./greenhouse/components/information/information.component";
-import {AvatarComponent} from "./greenhouse/components/avatar/avatar.component";
-import {OrganizationContentComponent} from "./greenhouse/pages/organization-content/organization-content.component";
-import {OrganizationInformationComponent} from "./greenhouse/pages/organization-information/organization-information.component";
-import {EmployeesContentComponent} from "./greenhouse/pages/employees-content/employees-content.component";
+import {AvatarComponent} from "./profiles/components/avatar/avatar.component";
 import { ProcessTableComponent } from './greenhouse/components/process-table/process-table.component';
 import { HarvestingInProgressComponent } from './greenhouse/pages/harvesting-in-progress/harvesting-in-progress.component';
 import { PopupWarningComponent } from './greenhouse/components/popup-warning/popup-warning.component';
@@ -41,8 +38,6 @@ import { ProcessInputDialogTunnelComponent } from './harvestings/components/proc
 import { ProcessInputDialogStockComponent } from './harvestings/components/process-input-dialog-stock/process-input-dialog-stock.component';
 import { ProcessInputDialogPreparationAreaComponent } from './harvestings/components/process-input-dialog-preparation-area/process-input-dialog-preparation-area.component';
 import { ProcessInputDialogBunkerComponent } from './harvestings/components/process-input-dialog-bunker/process-input-dialog-bunker.component';
-import { ProfileInformationComponent } from "./greenhouse/components/profile-information/profile-information.component";
-import {ProfileContentComponent} from "./greenhouse/pages/profile-content/profile-content.component";
 import { PageNotFoundComponent } from './public/pages/page-not-found/page-not-found.component';
 import { LoginComponent } from './public/pages/login/login.component';
 import { SignupComponent } from './public/pages/signup/signup.component';
@@ -54,6 +49,8 @@ import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import { LanguageSelectionComponent } from './public/components/language-selection/language-selection.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatSelectModule} from "@angular/material/select";
+import { UserProfileComponent } from './profiles/pages/user-profile/user-profile.component';
+import { CompanyProfileComponent } from './profiles/pages/company-profile/company-profile.component';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -67,12 +64,7 @@ export function createTranslateLoader(http: HttpClient) {
     DashboardCardComponent,
     DashboardComponent,
     InformationComponent,
-    ProfileInformationComponent,
-    ProfileContentComponent,
     AvatarComponent,
-    OrganizationContentComponent,
-    OrganizationInformationComponent,
-    EmployeesContentComponent,
     StepperContentComponent,
     ButtonPrimaryComponent,
     ProcessTableComponent,
@@ -89,6 +81,8 @@ export function createTranslateLoader(http: HttpClient) {
     LoginComponent,
     SignupComponent,
     LanguageSelectionComponent,
+    UserProfileComponent,
+    CompanyProfileComponent,
   ],
   imports: [
     BrowserModule,

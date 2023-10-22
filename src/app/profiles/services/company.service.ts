@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BaseService } from 'src/app/shared/services/base.service';
+import { BaseService } from '../../shared/services/base.service';
 import { Company } from '../model/company';
 import { HttpClient } from '@angular/common/http';
 
@@ -8,11 +8,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CompanyService extends BaseService<Company> {
 
-  constructor(htpp: HttpClient) {
-    super(htpp);
-  }
-
-  setResourceEndpoint(endpoint: string) {
-    this.resourceEndpoint = `/${endpoint}`;
+  constructor(http: HttpClient) {
+    super(http);
+    this.resourceEndpoint = "/companies";
   }
 }

@@ -29,7 +29,15 @@
     "crops_in_progress": "Cultivos en progreso",
     "my_company": "Mi empresa",
     "statistical_reports": "Reportes estadísticos",
-    "crops_archive": "Archivo de cultivos"
+    "crops_archive": "Archivo de cultivos",
+    "recent_records": "Registros recientes",
+    "crop_id": "ID del cultivo",
+    "author": "Autor",
+    "start_date": "Fecha de inicio del cultivo",
+    "phase": "Fase actual",
+    "record_date": "Fecha de publicación del registro",
+    "record_time": "Hora de publicación del registro",
+    "comment": "Observación"
   },
   "pop-up": {
     "warning": "Atención"
@@ -39,5 +47,30 @@
     "crops_in_progress": "Cultivos en progreso",
     "start_new_crop": "Comenzar nuevo cultivo",
     "search_crop": "Buscar cultivo"
+  },
+  "user-profile": {
+    "my_profile": "Mi perfil",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "account": "Cuenta",
+    "change_name": "Cambiar nombre",
+    "change_email": "Cambiar correo electrónico",
+    "change_password": "Cambiar contraseña",
+    "delete_account": "Borrar cuenta",
+    "change_profile_picture": "Cambiar foto de perfil"
+  },
+  "company_profile": {
+    "my_company": "Mi empresa",
+    "company_name": "Razón social",
+    "ruc": "RUC",
+    "company": "Empresa",
+    "change_company_name": "Cambiar razón social",
+    "change_ruc": "Cambiar RUC",
+    "delete_company": "Borrar empresa",
+    "change_profile_picture": "Cambiar foto de la empresa",
+    "employees": "Trabajadores",
+    "invite_employee": "Invitar a un trabajador",
+    "view_more": "Ver más"
   }
 }
