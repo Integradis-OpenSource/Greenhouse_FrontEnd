@@ -1,19 +1,21 @@
 <div>
   <mat-card class="card">
     <mat-card-title>
-      <h2 class="p-4">Dashboard</h2>
+      <h2 class="p-4">{{ 'dashboard.dashboard' | translate }}</h2>
     </mat-card-title>
     <mat-card-content>
       <div class="grid md:grid-cols-12 gap-4 pb-5 justify-items-center mr-4 ml-4 ">
-        <app-dashboard-card class="col-span-3" [image]="'assets/dashboard/process-state.png'" [buttonText]="'Harvesting in progress'" [link]="'/harvesting-in-progress'"></app-dashboard-card>
-        <app-dashboard-card class="col-span-3" [image]="'assets/dashboard/enterprise.png'" [buttonText]="'My organization'" [link]="'/organization'"></app-dashboard-card>
-        <app-dashboard-card class="col-span-3" [image]="'assets/dashboard/reports.png'" [buttonText]="'Statistical reports'"></app-dashboard-card>
-        <app-dashboard-card class="col-span-3" [image]="'assets/dashboard/history.png'" [buttonText]="'Harvest archive'"></app-dashboard-card>
+        <app-dashboard-card class="col-span-3" [image]="'assets/dashboard/process-state.png'" [buttonText]="'dashboard.crops_in_progress' | translate" [link]="'/harvesting-in-progress'"></app-dashboard-card>
+        <app-dashboard-card class="col-span-3" [image]="'assets/dashboard/enterprise.png'" [buttonText]="'dashboard.my_company' | translate" [link]="'/company'"></app-dashboard-card>
+        <app-dashboard-card class="col-span-3" [image]="'assets/dashboard/reports.png'" [buttonText]="'dashboard.statistical_reports' | translate"></app-dashboard-card>
+        <app-dashboard-card class="col-span-3" [image]="'assets/dashboard/history.png'" [buttonText]="'dashboard.crops_archive' | translate"></app-dashboard-card>
 
       </div>
+<app-dashboard-table></app-dashboard-table>
     </mat-card-content>
 
   </mat-card>
 
 </div>
+
 

@@ -1,5 +1,6 @@
 export interface ProcessEntry {
   author: string;
+  crop_id: number;
   day: number;
   date:  string;
   time: string;
