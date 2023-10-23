@@ -51,6 +51,7 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatSelectModule} from "@angular/material/select";
 import { UserProfileComponent } from './profiles/pages/user-profile/user-profile.component';
 import { CompanyProfileComponent } from './profiles/pages/company-profile/company-profile.component';
+import { DashboardTableComponent } from './greenhouse/components/dashboard-table/dashboard-table.component';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -83,6 +84,7 @@ export function createTranslateLoader(http: HttpClient) {
     LanguageSelectionComponent,
     UserProfileComponent,
     CompanyProfileComponent,
+    DashboardTableComponent,
   ],
   imports: [
     BrowserModule,
