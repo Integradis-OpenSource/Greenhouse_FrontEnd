@@ -14,10 +14,11 @@ export interface ProcessEntry {
   activities?: string;
   temperature?: number;
   comment?: string;
-  thermocoupleOne?: number;
-  thermocoupleTwo?: number;
-  thermocoupleThree?: number;
-  averageThermocouple?: number;
+  t1?: number;
+  t2?: number;
+  t3?: number;
+  tp?: number;
+  ta?: number;
   growRoom?: number;
   frequency?: number;
   freshAir?: number;

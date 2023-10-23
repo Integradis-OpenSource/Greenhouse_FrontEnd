@@ -120,22 +120,22 @@ export class ProcessTableComponent implements OnInit {
       this.columns.push({
         columnDef: 'thermocouple_one',
         header: 'T1',
-        cell: (element: ProcessEntry) => `${element.thermocoupleOne}`,
+        cell: (element: ProcessEntry) => `${element.t1}`,
       });
       this.columns.push({
         columnDef: 'thermocouple_two',
         header: 'T2',
-        cell: (element: ProcessEntry) => `${element.thermocoupleTwo}`,
+        cell: (element: ProcessEntry) => `${element.t2}`,
       });
       this.columns.push({
         columnDef: 'thermocouple_three',
         header: 'T3',
-        cell: (element: ProcessEntry) => `${element.thermocoupleThree}`,
+        cell: (element: ProcessEntry) => `${element.t3}`,
       });
       this.columns.push({
         columnDef: 'average_thermocouple',
         header: 'TP',
-        cell: (element: ProcessEntry) => `${element.averageThermocouple}`,
+        cell: (element: ProcessEntry) => `${element.tp}`,
       });
       this.columns.push({
         columnDef: 'frequency',
@@ -157,22 +157,27 @@ export class ProcessTableComponent implements OnInit {
       this.columns.push({
         columnDef: 'thermocouple_one',
         header: 'T1',
-        cell: (element: ProcessEntry) => `${element.thermocoupleOne}`,
+        cell: (element: ProcessEntry) => `${element.t1}`,
       });
       this.columns.push({
         columnDef: 'thermocouple_two',
         header: 'T2',
-        cell: (element: ProcessEntry) => `${element.thermocoupleTwo}`,
+        cell: (element: ProcessEntry) => `${element.t2}`,
       });
       this.columns.push({
         columnDef: 'thermocouple_three',
         header: 'T3',
-        cell: (element: ProcessEntry) => `${element.thermocoupleThree}`,
+        cell: (element: ProcessEntry) => `${element.t3}`,
       });
       this.columns.push({
         columnDef: 'average_thermocouple',
         header: 'TP',
-        cell: (element: ProcessEntry) => `${element.averageThermocouple}`,
+        cell: (element: ProcessEntry) => `${element.tp}`,
+      });
+      this.columns.push({
+        columnDef: 'room_temperature',
+        header: 'TA',
+        cell: (element: ProcessEntry) => `${element.ta}`,
       });
       this.columns.push({
         columnDef: 'comment',
