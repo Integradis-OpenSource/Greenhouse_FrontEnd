@@ -29,4 +29,5 @@ export interface ProcessEntry {
   airHydrogen?: number;
   setting?: number;
   processType?: string;
+  [key: string]: any;
 }

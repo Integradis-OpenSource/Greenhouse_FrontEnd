@@ -47,187 +47,36 @@ export class ProcessTableComponent implements OnInit {
       this.processApiService.setResourceEndpoint(this.processType);
       this.processApiService.getAll().subscribe((response: any) => {
         this.dataSource.data = response;
-
+        console.log('Data inside',this.dataSource.data);
+        this.addColumns(this.dataSource.data)
       });
-      this.addColumns();
     }
     applyFilter(event: Event) {
       const filterValue = (event.target as HTMLInputElement).value;
       this.dataSource.filter = filterValue.trim().toLowerCase();
     }
 
-  addColumns() {
-    if (this.processType === 'stock') {
-      this.columns.push({
-        columnDef: 'hay',
-        header: 'Hay',
-        cell: (element: ProcessEntry) => `${element.hay}`,
-      });
-      this.columns.push({
-        columnDef: 'corn',
-        header: 'Corn',
-        cell: (element: ProcessEntry) => `${element.corn}`,
-      });
-      this.columns.push({
-        columnDef: 'guano',
-        header: 'Guano',
-        cell: (element: ProcessEntry) => `${element.guano}`,
-      });
-      this.columns.push({
-        columnDef: 'cottonSeedCake',
-        header: 'Cotton Seed Cake',
-        cell: (element: ProcessEntry) => `${element.cottonSeedCake}`,
-      });
-      this.columns.push({
-        columnDef: 'soybeanMeal',
-        header: 'Soybean Meal',
-        cell: (element: ProcessEntry) => `${element.soybeanMeal}`,
-      });
-      this.columns.push({
-        columnDef: 'gypsum',
-        header: 'Gypsum',
-        cell: (element: ProcessEntry) => `${element.gypsum}`,
-      });
-      this.columns.push({
-        columnDef: 'urea',
-        header: 'Urea',
-        cell: (element: ProcessEntry) => `${element.urea}`,
-      });
-      this.columns.push({
-        columnDef: 'ammoniumSulphate',
-        header: 'Ammonium Sulphate',
-        cell: (element: ProcessEntry) => `${element.ammoniumSulphate}`,
-      });
-    }
-    else if (this.processType === 'preparation_area') {
-      this.columns.push({
-        columnDef: 'activities',
-        header: 'Activities',
-        cell: (element: ProcessEntry) => `${element.activities}`,
-      });
-      this.columns.push({
-        columnDef: 'temperature',
-        header: 'T°',
-        cell: (element: ProcessEntry) => `${element.temperature}`,
-      });
-      this.columns.push({
-        columnDef: 'comment',
-        header: 'Comment',
-        cell: (element: ProcessEntry) => `${element.comment}`,
-      });
-    }
-    else if (this.processType === 'bunker') {
-      this.columns.push({
-        columnDef: 'thermocouple_one',
-        header: 'T1',
-        cell: (element: ProcessEntry) => `${element.t1}`,
-      });
-      this.columns.push({
-        columnDef: 'thermocouple_two',
-        header: 'T2',
-        cell: (element: ProcessEntry) => `${element.t2}`,
-      });
-      this.columns.push({
-        columnDef: 'thermocouple_three',
-        header: 'T3',
-        cell: (element: ProcessEntry) => `${element.t3}`,
-      });
-      this.columns.push({
-        columnDef: 'average_thermocouple',
-        header: 'TP',
-        cell: (element: ProcessEntry) => `${element.tp}`,
-      });
-      this.columns.push({
-        columnDef: 'frequency',
-        header: 'FREQ',
-        cell: (element: ProcessEntry) => `${element.frequency}`,
-      });
-      this.columns.push({
-        columnDef: 'comment',
-        header: 'Comment',
-        cell: (element: ProcessEntry) => `${element.comment}`,
-      });
-    }
-    else if (this.processType === 'tunnel') {
-      this.columns.push({
-        columnDef: 'grow_room',
-        header: 'Grow Room',
-        cell: (element: ProcessEntry) => `${element.growRoom}`,
-      });
-      this.columns.push({
-        columnDef: 'thermocouple_one',
-        header: 'T1',
-        cell: (element: ProcessEntry) => `${element.t1}`,
-      });
-      this.columns.push({
-        columnDef: 'thermocouple_two',
-        header: 'T2',
-        cell: (element: ProcessEntry) => `${element.t2}`,
-      });
-      this.columns.push({
-        columnDef: 'thermocouple_three',
-        header: 'T3',
-        cell: (element: ProcessEntry) => `${element.t3}`,
-      });
-      this.columns.push({
-        columnDef: 'average_thermocouple',
-        header: 'TP',
-        cell: (element: ProcessEntry) => `${element.tp}`,
-      });
-      this.columns.push({
-        columnDef: 'room_temperature',
-        header: 'TA',
-        cell: (element: ProcessEntry) => `${element.ta}`,
-      });
-      this.columns.push({
-        columnDef: 'comment',
-        header: 'Comment',
-        cell: (element: ProcessEntry) => `${element.comment}`,
-      });
-    }
-    else if (this.processType === 'grow_room_record?processType=Incubation' || this.processType === 'grow_room_record?processType=Casing'
-      || this.processType === 'grow_room_record?processType=Induction' || this.processType === 'grow_room_record?processType=Harvest') {
-      this.columns.push({
-        columnDef: 'grow_room',
-        header: 'Grow Room',
-        cell: (element: ProcessEntry) => `${element.growRoom}`,
-      });
-      this.columns.push({
-        columnDef: 'air_temperature',
-        header: 'Air Temperature',
-        cell: (element: ProcessEntry) => `${element.airTemperature}`,
-      });
-      this.columns.push({
-        columnDef: 'compost_temperature',
-        header: 'Compost Temperature',
-        cell: (element: ProcessEntry) => `${element.compostTemperature}`,
-      });
-      this.columns.push({
-        columnDef: 'carbon_dioxide',
-        header: 'CO2',
-        cell: (element: ProcessEntry) => `${element.carbonDioxide}`,
-      });
-      this.columns.push({
-        columnDef: 'air_hydrogen',
-        header: 'H2',
-        cell: (element: ProcessEntry) => `${element.airHydrogen}`,
-      });
-      this.columns.push({
-        columnDef: 'setting',
-        header: 'Setting',
-        cell: (element: ProcessEntry) => `${element.setting}`,
-      });
-      this.columns.push({
-        columnDef: 'comment',
-        header: 'Comment',
-        cell: (element: ProcessEntry) => `${element.comment}`,
-      });
-    }
+  addColumns(response: any) {
+    let processEntry = response[0];
+    console.log('Process Entry', processEntry);
+    let keys = Object.keys(processEntry);
+    console.log('Keys', keys);
+    keys.forEach((key) => {
+      if (key !== 'id' && key !== '__v' && key !== 'processType' && key !== 'apiId' && key !== 'crop_id' && key !== 'author' && key !== 'day' && key !== 'date' && key !== 'time') {
+        console.log('Key', key);
+        this.columns.push({
+          columnDef: key,
+          header: key,
+          cell: (element: ProcessEntry) => `${element[key]}`,
+        });
+      }
+    });
+    this.displayedColumns = this.columns.map(c => c.columnDef);
   }
 
 
     ngOnInit() {
       this.getAllProcess();
-      this.displayedColumns = this.columns.map(c => c.columnDef);
+      //this.displayedColumns = this.columns.map(c => c.columnDef);
     }
 }
