@@ -26,7 +26,6 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { DashboardCardComponent } from './greenhouse/components/dashboard-card/dashboard-card.component';
 import { DashboardComponent } from './greenhouse/pages/dashboard/dashboard.component';
 import {InformationComponent} from "./greenhouse/components/information/information.component";
-import {AvatarComponent} from "./profiles/components/avatar/avatar.component";
 import { ProcessTableComponent } from './greenhouse/components/process-table/process-table.component';
 import { HarvestingInProgressComponent } from './greenhouse/pages/harvesting-in-progress/harvesting-in-progress.component';
 import { PopupWarningComponent } from './greenhouse/components/popup-warning/popup-warning.component';
@@ -65,7 +64,6 @@ export function createTranslateLoader(http: HttpClient) {
     DashboardCardComponent,
     DashboardComponent,
     InformationComponent,
-    AvatarComponent,
     StepperContentComponent,
     ButtonPrimaryComponent,
     ProcessTableComponent,
