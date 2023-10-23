@@ -58,15 +58,17 @@ export class ProcessTableComponent implements OnInit {
 
   addColumns(response: any) {
     let processEntry = response[0];
-    console.log('Process Entry', processEntry);
     let keys = Object.keys(processEntry);
-    console.log('Keys', keys);
+    const formatHeader = (key: string) => {
+      return key.replace(/([A-Z])/g, ' $1').trim().replace(/^\w/, (c) => c.toUpperCase());
+    };
+
     keys.forEach((key) => {
       if (key !== 'id' && key !== '__v' && key !== 'processType' && key !== 'apiId' && key !== 'crop_id' && key !== 'author' && key !== 'day' && key !== 'date' && key !== 'time') {
         console.log('Key', key);
         this.columns.push({
           columnDef: key,
-          header: key,
+          header: formatHeader(key),
           cell: (element: ProcessEntry) => `${element[key]}`,
         });
       }
