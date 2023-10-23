@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'harvesting-in-progress', component: HarvestingInProgressComponent },
   { path: 'harvest', component: StepperContentComponent },
   { path: 'profile', component: UserProfileComponent },
-  { path: 'organization', component: CompanyProfileComponent },
+  { path: 'company', component: CompanyProfileComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
