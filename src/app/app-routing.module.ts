@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'signup',  component: SignupComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'harvesting-in-progress', component: HarvestingInProgressComponent },
-  { path: 'harvest', component: StepperContentComponent },
+  { path: 'harvest/:id/:phase', component: StepperContentComponent },
   { path: 'profile', component: UserProfileComponent },
   { path: 'company', component: CompanyProfileComponent },
   { path: '**', component: PageNotFoundComponent },

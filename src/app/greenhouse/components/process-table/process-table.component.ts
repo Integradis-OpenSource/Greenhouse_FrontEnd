@@ -44,10 +44,10 @@ export class ProcessTableComponent implements OnInit {
     }
 
     getAllProcess() {
+      console.log('Process type',this.processType);
       this.processApiService.setResourceEndpoint(this.processType);
       this.processApiService.getAll().subscribe((response: any) => {
         this.dataSource.data = response;
-        console.log('Data inside',this.dataSource.data);
         this.addColumns(this.dataSource.data)
       });
     }
@@ -65,7 +65,6 @@ export class ProcessTableComponent implements OnInit {
 
     keys.forEach((key) => {
       if (key !== 'id' && key !== '__v' && key !== 'processType' && key !== 'apiId' && key !== 'crop_id' && key !== 'author' && key !== 'day' && key !== 'date' && key !== 'time') {
-        console.log('Key', key);
         this.columns.push({
           columnDef: key,
           header: formatHeader(key),

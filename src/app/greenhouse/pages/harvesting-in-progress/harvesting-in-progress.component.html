@@ -26,7 +26,7 @@
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowSelect(row)"></tr>
         </table>
       <mat-card-content class="text-center mt-4">
         <app-popup-new-crop></app-popup-new-crop>
