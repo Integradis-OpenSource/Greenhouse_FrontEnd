@@ -26,5 +26,5 @@
                       buttonBorderColor="var(--primary-green)"
   ></app-button-primary>
   <app-popup-warning *ngIf="step !== '4.4'" [phase]="phase" [cropId]="cropId"></app-popup-warning>
-  <app-popup-crop-finished *ngIf="step === '4.4'"></app-popup-crop-finished>
+  <app-popup-crop-finished *ngIf="step === '4.4'" [cropId]="cropId"></app-popup-crop-finished>
 </div>
