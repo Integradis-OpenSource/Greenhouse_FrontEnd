@@ -61,6 +61,10 @@ mat-horizontal-stepper {
   border-radius: 20px !important;
 }
 
+::ng-deep .mat-horizontal-stepper-header{
+  pointer-events: none !important;
+}
+
 @media (max-width: 768px) {
 
   ::ng-deep .mat-step-header .mat-step-label {
