@@ -37,6 +37,7 @@ export class ProcessTableComponent implements OnInit {
   record: string = '';
   showDialog: boolean = false;
   dialogFields: Array<string> = [];
+  inputField: string = '';
   dialogFieldValues: { [key: string]: string } = {};
     displayedColumns: Array<String> = [];
     @Input( ) cropId: number = 0;
@@ -89,9 +90,12 @@ export class ProcessTableComponent implements OnInit {
   }
 
   saveRecord() {
-    // Aquí puedes procesar y guardar el valor del input
-    console.log('Recorded information:', this.record);
+    // Process and save the data
+    console.log('Recorded information:', this.inputField);
     this.showDialog = false;
+
+    // If you want to reset the input field after saving
+    this.inputField = '';
   }
 
   cancelDialog() {
