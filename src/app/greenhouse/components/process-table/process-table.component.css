@@ -17,3 +17,9 @@ table th {
 ::ng-deep .mat-mdc-text-field-wrapper .mat-mdc-floating-label {
   color: var(--black) !important;
 }
+
+.button-group {
+  padding: 0;
+  flex-shrink: 1;
+  text-align: left;
+}

@@ -34,13 +34,14 @@ export class ProcessTableComponent implements OnInit {
 
     ];
     displayedColumns: Array<String> = [];
-
+    @Input( ) cropId: number = 0;
     @Input() processType :string;
+    @Input() phase: string = '';
+    @Input() step: string = '';
 
     constructor(private processApiService: ProcessEntriesService){
       this.processType = '';
       this.dataSource = new MatTableDataSource<ProcessEntry>();
-
     }
 
     getAllProcess() {
@@ -78,6 +79,6 @@ export class ProcessTableComponent implements OnInit {
 
     ngOnInit() {
       this.getAllProcess();
-      //this.displayedColumns = this.columns.map(c => c.columnDef);
+      console.log('Fase',this.phase);
     }
 }

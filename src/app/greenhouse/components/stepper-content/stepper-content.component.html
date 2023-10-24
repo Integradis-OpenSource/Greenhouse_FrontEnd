@@ -9,21 +9,8 @@
     <mat-step *ngFor="let phase of phases; let index = index" [editable]="false">
       <ng-template matStepLabel><span class="stepper-label">{{ phase.message }}</span></ng-template>
       <h2>Records of harvest {{ calculateStepperLabel(index) }}, started on {{ calculateStepperLabel(index) }}</h2>
-      <div class="overflow-scroll">
-        <app-process-table [processType]="phase.endpoint"></app-process-table>
-      </div>
-      <div class="button-group">
-
-        <app-popup-warning *ngIf="phase.label !== '4.4'"></app-popup-warning>
-        <app-popup-crop-finished *ngIf="phase.label === '4.4'"></app-popup-crop-finished>
-        <app-button-primary text=" + Create new record"
-                            buttonColor="#F4F5F9"
-                            buttonTextColor="var(--primary-green)"
-                            buttonBorderColor="var(--primary-green)"
-                            (click)="openInputDialog(index)"></app-button-primary>
-      </div>
-      <div *ngIf="record">
-        <p>Recorded info: {{ record }}</p>
+      <div>
+        <app-process-table [processType]="phase.endpoint" [phase]="nextStep" [cropId]="cropId" [step]="phase.label"></app-process-table>
       </div>
     </mat-step>
   </mat-horizontal-stepper>

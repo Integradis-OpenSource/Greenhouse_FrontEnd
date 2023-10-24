@@ -1,12 +1,4 @@
-
 import {Component, OnInit} from '@angular/core';
-import {CommunicationService} from "../../services/communication.service";
-import { MatDialog } from '@angular/material/dialog';
-import { ProcessInputDialogComponent } from '../../../harvestings/components/process-input-dialog/process-input-dialog.component';
-import {ProcessInputDialogStockComponent} from "../../../harvestings/components/process-input-dialog-stock/process-input-dialog-stock.component";
-import {ProcessInputDialogBunkerComponent} from "../../../harvestings/components/process-input-dialog-bunker/process-input-dialog-bunker.component";
-import {ProcessInputDialogPreparationAreaComponent} from "../../../harvestings/components/process-input-dialog-preparation-area/process-input-dialog-preparation-area.component";
-import {ProcessInputDialogTunnelComponent} from "../../../harvestings/components/process-input-dialog-tunnel/process-input-dialog-tunnel.component";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
@@ -16,6 +8,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class StepperContentComponent implements OnInit{
   activeStep: number = 0;
+  nextStep: any;
   cropId: number = 0;
   phase: string = '';
   phases = [
@@ -37,7 +30,7 @@ export class StepperContentComponent implements OnInit{
       return '4.' + (index - 3).toString();
     }
   }
-  constructor(private communicationService: CommunicationService, private dialog: MatDialog, private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -56,9 +49,6 @@ export class StepperContentComponent implements OnInit{
       this.phases[7].endpoint = `grow_room_record?processType=Harvest&&crop_id=${this.cropId}`;
     });
   }
-  activeObject() {
-    this.communicationService.triggerShowPopupButtonClick();
-  }
 
   setCurrentStep(): void {
     const data: { [key: string]: number } = {
@@ -72,70 +62,30 @@ export class StepperContentComponent implements OnInit{
       'Harvest': 7,
     }
 
-    // Check if this.phase exists as a property in the data object
     if (data.hasOwnProperty(this.phase)) {
       this.activeStep = data[this.phase];
+      this.setNextStep();
     } else {
-      // Handle the case where this.phase doesn't match any property
       console.error(`Unknown phase: ${this.phase}`);
-      // You might want to set a default value for this.activeStep here
     }
   }
 
-  record: string = '';
-
-  openInputDialog(index: number): void {
-    if (index === 0){
-      const dialogRef = this.dialog.open(ProcessInputDialogStockComponent, {
-        width: '700px',
-      });
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('Recorded information:', result);
-        if (result) {
-          this.record = result;
-        }
-      });
-    }else if(index === 1){
-      const dialogRef = this.dialog.open(ProcessInputDialogPreparationAreaComponent, {
-        width: '700px',
-      });
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('Recorded information:', result);
-        if (result) {
-          this.record = result;
-        }
-      });
-    }else if(index === 2){
-      const dialogRef = this.dialog.open(ProcessInputDialogBunkerComponent, {
-        width: '700px',
-      });
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('Recorded information:', result);
-        if (result) {
-          this.record = result;
-        }
-      });
-    }else if(index === 3){
-      const dialogRef = this.dialog.open(ProcessInputDialogTunnelComponent, {
-        width: '700px',
-      });
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('Recorded information:', result);
-        if (result) {
-          this.record = result;
-        }
-      });
-    }else{
-      const dialogRef = this.dialog.open(ProcessInputDialogComponent, {
-        width: '700px',
-        data: {processType: this.phases[index].endpoint}
-      });
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('Recorded information:', result);
-        if (result) {
-          this.record = result;
-        }
-      });
+  setNextStep(): void {
+    this.nextStep = this.activeStep + 1;
+    const data: { [key: number]: string } = {
+      0: 'Stock',
+      1: 'Preparation area',
+      2: 'Bunker',
+      3: 'Tunnel',
+      4: 'Incubation',
+      5: 'Casing',
+      6: 'Induction',
+      7: 'Harvest',
+    }
+    if (data.hasOwnProperty(this.nextStep)) {
+      this.nextStep = data[this.nextStep];
+    } else {
+      console.error(`Unknown phase: ${this.phase}`);
     }
   }
 }
