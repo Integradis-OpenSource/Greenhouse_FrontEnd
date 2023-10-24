@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ProcessEntry} from "../../model/process-entry";
 import {ProcessEntriesService} from "../../services/process-entries.service";
 import {MatTableDataSource} from "@angular/material/table";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-process-table',
@@ -33,15 +34,21 @@ export class ProcessTableComponent implements OnInit {
       },
 
     ];
+  record: string = '';
+  showDialog: boolean = false;
+  dialogFields: Array<string> = [];
+  dialogFieldValues: { [key: string]: string } = {};
     displayedColumns: Array<String> = [];
     @Input( ) cropId: number = 0;
     @Input() processType :string;
     @Input() phase: string = '';
     @Input() step: string = '';
 
-    constructor(private processApiService: ProcessEntriesService){
+    constructor(private processApiService: ProcessEntriesService, private dialog: MatDialog){
       this.processType = '';
       this.dataSource = new MatTableDataSource<ProcessEntry>();
+      this.dialogFields = [];
+      this.dialogFieldValues = {};
     }
 
     getAllProcess() {
@@ -76,7 +83,20 @@ export class ProcessTableComponent implements OnInit {
     this.displayedColumns = this.columns.map(c => c.columnDef);
   }
 
+  openInputDialog(): void {
+    this.dialogFields = this.columns.map(column => column.columnDef);
+    this.showDialog = true;
+  }
 
+  saveRecord() {
+    // Aquí puedes procesar y guardar el valor del input
+    console.log('Recorded information:', this.record);
+    this.showDialog = false;
+  }
+
+  cancelDialog() {
+    this.showDialog = false;
+  }
     ngOnInit() {
       this.getAllProcess();
       console.log('Fase',this.phase);
