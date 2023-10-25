@@ -4,6 +4,7 @@ import {CropsService} from "../../services/crops.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {Router} from "@angular/router";
 import {MatPaginator} from "@angular/material/paginator";
+import {MatSort} from "@angular/material/sort";
 
 @Component({
   selector: 'app-harvesting-in-progress',
@@ -15,10 +16,12 @@ export class HarvestingInProgressComponent implements AfterViewInit, OnInit {
   displayedColumns: string[] = ["id","start_date","phase"]
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort:MatSort;
 
   constructor (private cropsApi : CropsService, private router: Router){
     this.dataSource = new MatTableDataSource<Crop>();
     this.paginator = {} as MatPaginator;
+    this.sort = {} as MatSort;
   }
 
   getCrops(){
@@ -39,5 +42,6 @@ export class HarvestingInProgressComponent implements AfterViewInit, OnInit {
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 }
