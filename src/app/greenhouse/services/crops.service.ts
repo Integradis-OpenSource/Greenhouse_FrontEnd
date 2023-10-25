@@ -7,9 +7,13 @@ import {BaseService} from "../../shared/services/base.service";
   providedIn: 'root'
 })
 export class CropsService extends BaseService<Crop> {
-
   constructor(http: HttpClient) {
     super(http)
-    this.resourceEndpoint = "/crops"
+    this.resourceEndpoint = "/crops";
+  }
+
+  setResourceEndpoint(endpoint: string) {
+    const cropString = "/crops";
+    this.resourceEndpoint = `${cropString}/${endpoint}`;
   }
 }

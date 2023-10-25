@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {CropsService} from "../../services/crops.service";
 
 @Component({
   selector: 'app-stepper-content',
@@ -11,6 +12,7 @@ export class StepperContentComponent implements OnInit{
   nextStep: any;
   cropId: number = 0;
   phase: string = '';
+  date: string = '';
   phases = [
     { label: '0', message: 'Stock', endpoint: '' },
     { label: '1', message: 'Preparation area', endpoint: '' },
@@ -30,7 +32,7 @@ export class StepperContentComponent implements OnInit{
       return '4.' + (index - 3).toString();
     }
   }
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private cropService: CropsService) {
   }
 
   ngOnInit(): void {
@@ -47,6 +49,11 @@ export class StepperContentComponent implements OnInit{
       this.phases[5].endpoint = `grow_room_record?processType=Casing&&crop_id=${this.cropId}`;
       this.phases[6].endpoint = `grow_room_record?processType=Induction&&crop_id=${this.cropId}`;
       this.phases[7].endpoint = `grow_room_record?processType=Harvest&&crop_id=${this.cropId}`;
+    });
+    this.cropService.setResourceEndpoint(this.cropId.toString());
+    this.cropService.getList().subscribe((response: any) => {
+      this.date = response.start_date;
+      console.log(response);
     });
   }
 
