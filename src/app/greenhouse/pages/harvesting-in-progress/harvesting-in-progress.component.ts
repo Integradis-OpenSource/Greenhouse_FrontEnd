@@ -1,20 +1,24 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {Crop} from "../../model/crop";
 import {CropsService} from "../../services/crops.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {Router} from "@angular/router";
+import {MatPaginator} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-harvesting-in-progress',
   templateUrl: './harvesting-in-progress.component.html',
   styleUrls: ['./harvesting-in-progress.component.css']
 })
-export class HarvestingInProgressComponent implements OnInit {
+export class HarvestingInProgressComponent implements AfterViewInit, OnInit {
   dataSource: MatTableDataSource<Crop>;
   displayedColumns: string[] = ["id","start_date","phase"]
 
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
   constructor (private cropsApi : CropsService, private router: Router){
     this.dataSource = new MatTableDataSource<Crop>();
+    this.paginator = {} as MatPaginator;
   }
 
   getCrops(){
@@ -31,5 +35,9 @@ export class HarvestingInProgressComponent implements OnInit {
 
   ngOnInit() {
     this.getCrops();
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
   }
 }
