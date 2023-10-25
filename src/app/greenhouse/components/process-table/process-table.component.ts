@@ -1,15 +1,17 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core';
 import {ProcessEntry} from "../../model/process-entry";
 import {ProcessEntriesService} from "../../services/process-entries.service";
 import {MatTableDataSource} from "@angular/material/table";
+import {MatPaginator} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-process-table',
   templateUrl: './process-table.component.html',
   styleUrls: ['./process-table.component.css']
 })
-export class ProcessTableComponent implements OnInit {
+export class ProcessTableComponent implements OnInit, AfterViewInit {
     dataSource: MatTableDataSource<ProcessEntry>;
+    @ViewChild(MatPaginator) paginator: MatPaginator;
     columns = [
       {
         columnDef: 'author',
@@ -42,6 +44,7 @@ export class ProcessTableComponent implements OnInit {
     constructor(private processApiService: ProcessEntriesService){
       this.processType = '';
       this.dataSource = new MatTableDataSource<ProcessEntry>();
+      this.paginator = {} as MatPaginator;
     }
 
     getAllProcess() {
@@ -80,5 +83,9 @@ export class ProcessTableComponent implements OnInit {
     ngOnInit() {
       this.getAllProcess();
       console.log('Fase',this.phase);
+    }
+
+    ngAfterViewInit() {
+      this.dataSource.paginator = this.paginator;
     }
 }
