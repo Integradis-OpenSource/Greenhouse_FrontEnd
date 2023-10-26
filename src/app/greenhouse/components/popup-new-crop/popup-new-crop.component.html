@@ -23,8 +23,8 @@
                           buttonColor="var(--secondary-green-1)"
                           buttonTextColor="var(--primary-white)"
                           buttonBorderColor="var(--secondary-green-1)"
-                          (click)="closePopUpNewCrop()"
-                          routerLink="/harvest"
+                          (click)="startPopUpNewCrop()"
+                          routerLink="/harvest/{{id}}/Stock"
       ></app-button-primary>
       <app-button-primary style="margin:1.5rem;"
                           text=" Cancel"
