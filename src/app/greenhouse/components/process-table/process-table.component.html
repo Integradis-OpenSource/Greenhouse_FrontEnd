@@ -24,8 +24,8 @@
                       buttonTextColor="var(--primary-green)"
                       buttonBorderColor="var(--primary-green)"
                       (click)="openInputDialog()"></app-button-primary>
-  <app-popup-warning *ngIf="step !== '4.4'" [phase]="phase" [cropId]="cropId"></app-popup-warning>
-  <app-popup-crop-finished *ngIf="step === '4.4'" [cropId]="cropId"></app-popup-crop-finished>
+  <app-popup-warning *ngIf="stepNumber !== '4.4'" [phase]="phase" [cropId]="cropId"></app-popup-warning>
+  <app-popup-crop-finished *ngIf="stepNumber === '4.4'" [cropId]="cropId"></app-popup-crop-finished>
 </div>
 
 <!-- Cuadro de diálogo oculto -->

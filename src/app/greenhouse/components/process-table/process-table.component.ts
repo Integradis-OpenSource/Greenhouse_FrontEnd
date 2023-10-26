@@ -43,6 +43,7 @@ export class ProcessTableComponent implements OnInit {
     @Input() processType :string;
     @Input() phase: string = '';
     @Input() step: string = '';
+    @Input() stepNumber: string = '';
 
     constructor(private processApiService: ProcessEntriesService){
       this.processType = '';
