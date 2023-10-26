@@ -10,7 +10,7 @@
       <ng-template matStepLabel><span class="stepper-label">{{ phase.message }}</span></ng-template>
       <h2>Records of harvest {{ cropId }}, started on {{ date }}</h2>
       <div>
-        <app-process-table [processType]="phase.endpoint" [phase]="nextStep" [cropId]="cropId" [step]="phase.label"></app-process-table>
+        <app-process-table [processType]="phase.endpoint" [phase]="nextStep" [cropId]="cropId" [step]="phase.message"></app-process-table>
       </div>
     </mat-step>
   </mat-horizontal-stepper>

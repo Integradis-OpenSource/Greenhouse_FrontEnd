@@ -35,7 +35,7 @@
       <div mat-dialog-content *ngFor="let field of dialogFields">
         <mat-form-field>
         <mat-label>{{field}}</mat-label>
-        <input matInput [placeholder]="field" [(ngModel)]="inputField" #input/>
+        <input matInput [placeholder]="field" [(ngModel)]="inputFields[field]" #input/>
         </mat-form-field>
       </div>
       <button mat-button style="color: var(--primary-green);" class="flex-shrink-0 border-transparent border-4 hover:text-teal-800 text-sm py-3 px-2 rounded" type="button" (click)="cancelDialog()">Cancel</button>
