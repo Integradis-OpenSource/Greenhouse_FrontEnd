@@ -11,9 +11,4 @@ export class CropsService extends BaseService<Crop> {
     super(http)
     this.resourceEndpoint = "/crops";
   }
-
-  setResourceEndpoint(endpoint: string) {
-    const cropString = "/crops";
-    this.resourceEndpoint = `${cropString}/${endpoint}`;
-  }
 }

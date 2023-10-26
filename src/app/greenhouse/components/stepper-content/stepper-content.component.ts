@@ -39,7 +39,6 @@ export class StepperContentComponent implements OnInit{
     this.route.params.subscribe(params => {
       this.phase = params['phase'];
       this.cropId = params['id'];
-      console.log(this.cropId);
       this.setCurrentStep();
       this.phases[0].endpoint = `stock?crop_id=${this.cropId}`;
       this.phases[1].endpoint = `preparation_area?crop_id=${this.cropId}`;
@@ -50,10 +49,9 @@ export class StepperContentComponent implements OnInit{
       this.phases[6].endpoint = `grow_room_record?processType=Induction&&crop_id=${this.cropId}`;
       this.phases[7].endpoint = `grow_room_record?processType=Harvest&&crop_id=${this.cropId}`;
     });
-    this.cropService.setResourceEndpoint(this.cropId.toString());
-    this.cropService.getList().subscribe((response: any) => {
+    //this.cropService.setResourceEndpoint(this.cropId.toString());
+    this.cropService.getById(this.cropId).subscribe((response: any) => {
       this.date = response.start_date;
-      console.log(response);
     });
   }
 
