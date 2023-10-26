@@ -34,7 +34,6 @@ export class ProcessTableComponent implements OnInit {
       },
 
     ];
-  record: string = '';
   showDialog: boolean = false;
   dialogFields: Array<string> = [];
   inputFields: { [key: string]: string } = {};
@@ -84,12 +83,28 @@ export class ProcessTableComponent implements OnInit {
   }
 
   openInputDialog(): void {
-    this.dialogFields = this.columns.map(column => column.columnDef);
-    const fieldsToExclude = ['crop_id', 'author', 'date', 'time', 'processType'];
-    this.dialogFields = this.dialogFields.filter(field => !fieldsToExclude.includes(field));
-    this.inputFields = {};
+    const stepInputs = {
+      'Stock': ['day', 'hay', 'corn', 'guano', 'cottonSeedCake', 'soybeanMeal', 'gypsum', 'urea', 'ammoniumSulphate'],
+      'Preparation area': ['day', 'activities', 'temperature', 'comment'],
+      'Bunker': ['day', 't1', 't2', 't3', 'tp', 'frequency', 'comment'],
+      'Tunnel': ['day', 'growRoom', 't1', 't2', 't3', 'tp', 'ta', 'comment'],
+      'Incubation': ['day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
+      'Casing': ['day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
+      'Induction': ['day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
+      'Harvest': ['day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
+    };
+    if(this.dataSource.data.length > 0){
+      this.dialogFields = this.columns.map(column => column.header);
+      const fieldsToExclude = ['crop_id', 'author', 'date', 'time', 'processType'];
+      this.dialogFields = this.dialogFields.filter(field => !fieldsToExclude.includes(field));
+    }
+    else {
+      if (stepInputs[this.step as keyof typeof stepInputs]) { // Use a type assertion
+        this.dialogFields = stepInputs[this.step as keyof typeof stepInputs];
+      }
+    }
     this.dialogFields.forEach(field => {
-      this.inputFields[field] = ''; // Initialize with empty values
+      this.inputFields[field] = '';
     });
     this.showDialog = true;
   }
@@ -129,6 +144,7 @@ export class ProcessTableComponent implements OnInit {
     const currentData = this.dataSource.data;
     currentData.push(dataToSave);
     this.dataSource.data = currentData;
+    if (currentData.length <= 1) this.getAllProcess();
     this.showDialog = false;
   }
 
