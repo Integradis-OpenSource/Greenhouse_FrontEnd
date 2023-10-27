@@ -206,6 +206,17 @@
       "activities": "Premezcla de insumos",
       "temperature": 30,
       "comment": ""
+    },
+    {
+      "crop_id": "4",
+      "author": "Winston Smith",
+      "date": "2023-10-27",
+      "time": "17:24:08",
+      "day": "",
+      "activities": "",
+      "temperature": "",
+      "comment": "",
+      "id": 3
     }
   ],
   "bunker": [

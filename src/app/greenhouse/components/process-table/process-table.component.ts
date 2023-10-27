@@ -95,7 +95,7 @@ export class ProcessTableComponent implements OnInit {
       'Harvest': ['day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
     };
     if(this.dataSource.data.length > 0){
-      this.dialogFields = this.columns.map(column => column.header);
+      this.dialogFields = this.columns.map(column => column.columnDef);
       const fieldsToExclude = ['crop_id', 'author', 'date', 'time', 'processType'];
       this.dialogFields = this.dialogFields.filter(field => !fieldsToExclude.includes(field));
     }
