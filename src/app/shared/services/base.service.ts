@@ -1,8 +1,10 @@
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {catchError, Observable, retry, throwError} from "rxjs";
+import {User} from "../../profiles/model/user";
 
 export class BaseService<T> {
-  basePath: string = 'https://my-json-server.typicode.com/Integradis-OpenSource/Greenhouse';
+  //basePath: string = 'https://my-json-server.typicode.com/Integradis-OpenSource/Greenhouse';
+  basePath: string = 'http://localhost:3000/api/v1';
   resourceEndpoint: string = '/resources';
 
   httpOptions = {
@@ -13,6 +15,8 @@ export class BaseService<T> {
 
   constructor(private http: HttpClient) {
   }
+
+
 
   handleError(error: HttpErrorResponse) {
     //Default error handling
@@ -42,10 +46,28 @@ export class BaseService<T> {
     return this.http.put<T>(`${this.resourcePath()}/${id}`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
-
+  //Get Resource By Id
+  getById(id: any): Observable<T> {
+    return this.http.get<T>(`${this.resourcePath()}/${id}`, this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
   //Get All Resources
   getAll(): Observable<T> {
     return this.http.get<T>(this.resourcePath(), this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  getList(): Observable<T[]> {
+    return this.http.get<T[]>(this.resourcePath(), this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError))
+  }
+  getEmployeesByCompany(companyId: number): Observable<User[]> {
+    return this.http.get<User[]>(`${this.resourcePath()}?company_id=${companyId}`)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  patch(id: any, item: any): Observable<T> {
+    return this.http.patch<T>(`${this.resourcePath()}/${id}`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 

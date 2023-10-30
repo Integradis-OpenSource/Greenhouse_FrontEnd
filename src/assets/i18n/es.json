@@ -1,0 +1,77 @@
+{
+  "login-signup": {
+    "welcome": "Bienvenido a Greenhouse",
+    "welcome_description": "Para disfrutar de la aplicación, por favor inicia sesión o registra una empresa",
+    "login": "Iniciar sesión",
+    "signup": "Registrar empresa",
+    "company_name": "Razón social de la empresa",
+    "ruc": "RUC",
+    "first_name": "Nombre del registrante",
+    "last_name": "Apellido del registrante",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "password_confirm": "Confirmar contraseña",
+    "remember_me": "Recuérdame",
+    "forgot_my_password": "Olvidé mi contraseña",
+    "agree_with_terms": "He leído y acepto los ",
+    "terms_and_conditions": "Términos y Condiciones",
+    "and": "y",
+    "privacy_policy": "Política de Privacidad"
+  },
+  "page-not-found": {
+    "page_not_found": "Página No Encontrada",
+    "the_path": "La ruta",
+    "is_not_valid": "no es válida",
+    "return": "Volver"
+  },
+  "dashboard": {
+    "dashboard": "Panel de control",
+    "crops_in_progress": "Cultivos en progreso",
+    "my_company": "Mi empresa",
+    "statistical_reports": "Reportes estadísticos",
+    "crops_archive": "Archivo de cultivos",
+    "recent_records": "Registros recientes",
+    "crop_id": "ID del cultivo",
+    "author": "Autor",
+    "start_date": "Fecha de inicio del cultivo",
+    "phase": "Fase actual",
+    "record_date": "Fecha de publicación del registro",
+    "record_time": "Hora de publicación del registro",
+    "comment": "Observación"
+  },
+  "pop-up": {
+    "warning": "Atención"
+  },
+  "crops-in-progress": {
+    "process_log": "Registro de procesos",
+    "crops_in_progress": "Cultivos en progreso",
+    "start_new_crop": "Comenzar nuevo cultivo",
+    "search_crop": "Buscar cultivo"
+  },
+  "user-profile": {
+    "my_profile": "Mi perfil",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "account": "Cuenta",
+    "change_name": "Cambiar nombre",
+    "change_email": "Cambiar correo electrónico",
+    "change_password": "Cambiar contraseña",
+    "delete_account": "Borrar cuenta",
+    "change_profile_picture": "Cambiar foto de perfil"
+  },
+  "company_profile": {
+    "my_company": "Mi empresa",
+    "company_name": "Razón social",
+    "ruc": "RUC",
+    "company": "Empresa",
+    "change_company_name": "Cambiar razón social",
+    "change_ruc": "Cambiar RUC",
+    "delete_company": "Borrar empresa",
+    "change_profile_picture": "Cambiar foto de la empresa",
+    "employees": "Trabajadores",
+    "invite_employee": "Invitar a un trabajador",
+    "view_more": "Ver más",
+    "search": "Buscar trabajador"
+  }
+}

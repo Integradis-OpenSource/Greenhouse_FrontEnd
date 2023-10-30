@@ -1,5 +1,6 @@
 export interface ProcessEntry {
   author: string;
+  crop_id: number;
   day: number;
   date:  string;
   time: string;
@@ -14,10 +15,11 @@ export interface ProcessEntry {
   activities?: string;
   temperature?: number;
   comment?: string;
-  thermocoupleOne?: number;
-  thermocoupleTwo?: number;
-  thermocoupleThree?: number;
-  averageThermocouple?: number;
+  t1?: number;
+  t2?: number;
+  t3?: number;
+  tp?: number;
+  ta?: number;
   growRoom?: number;
   frequency?: number;
   freshAir?: number;
@@ -28,4 +30,5 @@ export interface ProcessEntry {
   airHydrogen?: number;
   setting?: number;
   processType?: string;
+  [key: string]: any;
 }

@@ -1,0 +1,42 @@
+* {
+  font-family: var(--font-primary);
+  font-size: var(--normal-text-regular-size);
+}
+
+.card {
+  border-radius: 20px;
+}
+
+h2 {
+  color: var(--primary-green);
+  font-size: var(--heading-2-size);
+  font-weight: bold;
+  font-family: var(--font-primary);
+}
+
+p {
+  color: var(--black);
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.state-color{
+  color: var(--gray-2);
+  border-bottom: 2px solid var(--gray-2);
+}
+
+.active-label {
+  color: var(--primary-green);
+  font-weight: bold;
+  border-bottom: 2px solid var(--primary-green);
+}
+
+.active-label p {
+  color: var(--primary-green);
+}
+
+.example-full-width {
+  width: 100%;
+}

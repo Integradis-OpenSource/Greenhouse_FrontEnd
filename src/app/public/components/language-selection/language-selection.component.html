@@ -1,0 +1,5 @@
+<mat-form-field class="bg-transparent">
+  <mat-select [(value)]="currentLang" (selectionChange)="useLanguage(currentLang)">
+    <mat-option *ngFor="let language of languages" [value]="language">{{ language.toUpperCase() }}</mat-option>
+  </mat-select>
+</mat-form-field>

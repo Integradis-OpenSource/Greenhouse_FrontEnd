@@ -1,0 +1,38 @@
+<nav class="header relative flex flex-wrap items-center justify-between pt-3 mb-3">
+  <div class="container mx-auto flex flex-wrap items-center justify-between">
+    <div class="w-full relative flex justify-between lg:w-auto px-4 lg:static lg:block lg:justify-start">
+      <a class="font-bold leading-relaxed flex mr-4 py-2 whitespace-nowrap" routerLink="/">
+        <mat-icon class="mr-1"><img alt="greenhouse" src="../../../../assets/logo-white.png" height="40" width="40"></mat-icon>
+        <p>Greenhouse</p>
+      </a>
+      <button class="cursor-pointer leading-none rounded block lg:hidden outline-none focus:outline-none" type="button"
+              (click)="toggleNavbar()">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+    <div [ngClass]="{'hidden': !showMenu, 'flex': showMenu}" class="lg:flex lg:flex-grow items-center">
+      <ul class="flex flex-col lg:flex-row list-none ml-auto">
+        <li class="nav-item cursor-pointer">
+          <a class="px-3 py-2 flex items-center leading-snug">
+            <app-language-selection></app-language-selection>
+          </a>
+        </li>
+        <li class="nav-item cursor-pointer">
+          <a class="px-3 py-2 flex items-center font-bold leading-snug">
+            <span class="ml-2 flex" routerLink="/company">
+              <img class="w-7 h-7 rounded-full border-2 border-b-white mr-2" [src]="company.image"
+                   alt="Organization avatar">
+              {{company.company_name}}</span>
+          </a>
+        </li>
+        <li class="nav-item cursor-pointer">
+          <a class="px-3 py-2 flex items-center font-bold leading-snug">
+            <span class="ml-2 flex" routerLink="/profile">
+              <img class="w-7 h-7 rounded-full border-2 border-b-white mr-2" [src]="user.image"
+                   alt="Profile avatar">{{user.first_name}} {{user.last_name}}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

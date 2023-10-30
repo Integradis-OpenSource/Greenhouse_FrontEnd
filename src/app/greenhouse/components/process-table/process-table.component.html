@@ -1,18 +1,51 @@
-<mat-form-field>
-  <mat-label>Filter records</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Search entry" #input>
-</mat-form-field>
+<div class="overflow-scroll">
+  <mat-form-field>
+    <mat-label>Filter records</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search entry" #input>
+  </mat-form-field>
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table mb-5">
-  <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
-    <th mat-header-cell *matHeaderCellDef>
-      {{column.header}}
-    </th>
-    <td mat-cell *matCellDef="let row">
-      {{column.cell(row)}}
-    </td>
-  </ng-container>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table mb-5">
+    <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
+      <th mat-header-cell *matHeaderCellDef>
+        {{column.header}}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{column.cell(row)}}
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
+
+<div class="button-group">
+  <app-button-primary text=" + Create new record"
+                      buttonColor="#F4F5F9"
+                      buttonTextColor="var(--primary-green)"
+                      buttonBorderColor="var(--primary-green)"
+                      (click)="openInputDialog()"></app-button-primary>
+  <app-popup-warning *ngIf="stepNumber !== '4.4'" [phase]="phase" [cropId]="cropId"></app-popup-warning>
+  <app-popup-crop-finished *ngIf="stepNumber === '4.4'" [cropId]="cropId"></app-popup-crop-finished>
+</div>
+
+<!-- Cuadro de diálogo oculto -->
+<div class="dialog-overlay overflow-scroll" [ngClass]="{ 'show-dialog': showDialog }">
+  <div class="dialog-box my-auto">
+    <h3 mat-dialog-title style="background-color: var(--primary-green); color: var(--white);">Record</h3>
+      <div mat-dialog-content *ngFor="let field of dialogFields">
+        <mat-form-field>
+        <mat-label>{{field}}</mat-label>
+        <input matInput [placeholder]="field" [(ngModel)]="inputFields[field]" #input/>
+        </mat-form-field>
+      </div>
+      <button mat-button style="color: var(--primary-green);" class="flex-shrink-0 border-transparent border-4 hover:text-teal-800 text-sm py-3 px-2 rounded" type="button" (click)="cancelDialog()">Cancel</button>
+      <button mat-button style="background-color: var(--primary-green); color: var(--white);" class="flex-shrink-0 border-transparent border-4 hover:text-teal-800 text-sm py-1 px-2 rounded" type="button" (click)="saveRecord()">Save</button>
+  </div>
+</div>
+
+

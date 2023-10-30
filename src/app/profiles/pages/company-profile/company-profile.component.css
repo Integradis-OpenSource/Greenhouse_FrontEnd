@@ -1,0 +1,15 @@
+img {
+  border: solid 7px var(--primary-green);
+}
+
+.overflow-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.division{
+  border-top: 1px solid var(--primary-green);
+  margin-bottom: 8px;
+  margin-top: 8px;
+}

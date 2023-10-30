@@ -1,0 +1,77 @@
+{
+  "login-signup": {
+    "welcome": "Welcome to Greenhouse",
+    "welcome_description": "To use the application, please login or register a company",
+    "login": "Login",
+    "signup": "Register company",
+    "company_name": "Company name",
+    "ruc": "TIN",
+    "first_name": "Name of the registrant",
+    "last_name": "Last name of the registrant",
+    "email": "Email",
+    "password": "Password",
+    "password_confirm": "Confirm password",
+    "remember_me": "Remember me",
+    "forgot_my_password": "Forgot my password",
+    "agree_with_terms": "I've read and accept the ",
+    "terms_and_conditions": "Terms and Conditions",
+    "and": "and",
+    "privacy_policy": "Privacy Policy"
+  },
+  "page-not-found": {
+    "page_not_found": "Page Not Found",
+    "the_path": "The path",
+    "is_not_valid": "is not valid",
+    "return": "Return"
+  },
+  "dashboard": {
+    "dashboard": "Dashboard",
+    "crops_in_progress": "Crops in progress",
+    "my_company": "My company",
+    "statistical_reports": "Statistical reports",
+    "crops_archive": "Crops archive",
+    "recent_records": "Recent records",
+    "crop_id": "Crop ID",
+    "author": "Author",
+    "start_date": "Crop start date",
+    "phase": "Current phase",
+    "record_date": "Record date",
+    "record_time": "Record time",
+    "comment": "Comment"
+  },
+  "pop-up": {
+    "warning": "Warning"
+  },
+  "crops-in-progress": {
+    "process_log": "Process log",
+    "crops_in_progress": "Crops in progress",
+    "start_new_crop": "Start new crop",
+    "search_crop": "Search crop"
+  },
+  "user-profile": {
+    "my_profile": "My profile",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "account": "Account",
+    "change_name": "Change name",
+    "change_email": "Change email",
+    "change_password": "Change password",
+    "delete_account": "Delete account",
+    "change_profile_picture": "Change profile picture"
+  },
+  "company_profile": {
+    "my_company": "My company",
+    "company_name": "Company name",
+    "ruc": "TIN",
+    "company": "Company",
+    "change_company_name": "Change company name",
+    "change_ruc": "Change TIN",
+    "delete_company": "Delete company",
+    "change_profile_picture": "Change company picture",
+    "employees": "Employees",
+    "invite_employee": "Invite employee",
+    "view_more": "View more",
+    "search": "Search employee"
+  }
+}

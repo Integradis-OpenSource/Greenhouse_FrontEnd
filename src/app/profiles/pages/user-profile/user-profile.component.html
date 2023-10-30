@@ -1,0 +1,49 @@
+<div class="max-w-5xl mx-auto">
+  <mat-card class="card md:px-5">
+    <mat-card-content>
+      <div class="lg:flex">
+        <div class="lg:w-1/2 text-center align-content-center mb-5 md:mr-5">
+          <p class="font-bold text-4xl mb-4">{{ 'user-profile.my_profile' | translate }}</p>
+          <div class="flex items-center justify-center mb-2">
+            <img class="rounded-full w-56 h-56" alt="avatar" src="{{user.image}}">
+          </div>
+          <a class="text-blue-500 text-sm underline">{{ 'user-profile.change_profile_picture' | translate }}</a>
+        </div>
+        <div class="lg:w-1/2 p-1 md:pt-6">
+          <div>
+            <div class="mb-5">
+              <div class="flex justify-between items-center">
+                <p class="text-xl font-bold mr-2">{{ 'user-profile.name' | translate }}:</p>
+                <p class="text-sm overflow-ellipsis">{{ user.first_name + ' ' + user.last_name }}</p>
+              </div>
+              <a class="text-blue-500 text-sm underline">{{ 'user-profile.change_name' | translate }}</a>
+              <hr class="division">
+            </div>
+            <div class="mb-5">
+              <div class="flex justify-between items-center">
+                <p class="text-xl font-bold mr-2">{{ 'user-profile.email' | translate }}:</p>
+                <p class="text-sm overflow-ellipsis">{{ user.email }}</p>
+              </div>
+              <a class="text-blue-500 text-sm underline">{{ 'user-profile.change_email' | translate }}</a>
+              <hr class="division">
+            </div>
+            <div class="mb-5">
+              <div class="flex justify-between items-center">
+                <p class="text-xl font-bold mr-2">{{ 'user-profile.password' | translate}}</p>
+                <p class="text-sm overflow-ellipsis">●●●●●●●●</p>
+              </div>
+              <a class="text-blue-500 text-sm underline">{{ 'user-profile.change_password' | translate }}</a>
+              <hr class="division">
+            </div>
+            <div class="mb-5">
+              <div class="flex justify-between items-center">
+                <p class="text-xl font-bold mr-2">{{ 'user-profile.account' | translate }}:</p>
+              </div>
+              <a class="text-red-500 text-sm underline">{{ 'user-profile.delete_account' | translate }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

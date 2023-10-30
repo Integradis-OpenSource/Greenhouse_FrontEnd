@@ -1,5 +1,6 @@
 import { Component,Input } from '@angular/core';
 import {EventServiceService} from "../../services/event.service";
+import {CropsService} from "../../services/crops.service";
 
 @Component({
   selector: 'app-popup-crop-finished',
@@ -13,10 +14,11 @@ export class PopupCropFinishedComponent {
   @Input() popupText3= '"Control Panel", Crop History"'
   popupVisible = false;
   notificationVisible = false;
+  @Input() cropId: number;
 
 
-  constructor(private interactionService: EventServiceService) {
-
+  constructor(private interactionService: EventServiceService, private cropService: CropsService) {
+    this.cropId = 0;
   }
 
   activeObjectPopUpCropFinished() {
@@ -31,6 +33,9 @@ export class PopupCropFinishedComponent {
   }
   closePopUpCropFinished() {
     this.popupVisible = false;
+    this.cropService.patch(this.cropId, {state: "finished"}).subscribe((response: any) => {
+      console.log('Response',response)
+    });
   }
 }
 
