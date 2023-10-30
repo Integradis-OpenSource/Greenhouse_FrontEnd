@@ -21,6 +21,8 @@ import {  MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import {MatDialogModule} from "@angular/material/dialog";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatSortModule} from "@angular/material/sort";
 
 
 import { DashboardCardComponent } from './greenhouse/components/dashboard-card/dashboard-card.component';
@@ -98,7 +100,9 @@ export function createTranslateLoader(http: HttpClient) {
     FormsModule,
     MatCheckboxModule,
     MatButtonToggleModule,
-    MatSelectModule
+    MatSelectModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
