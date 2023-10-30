@@ -12,6 +12,7 @@ export class UserService extends BaseService<User> {
 
   constructor(http: HttpClient) {
     super(http);
+    this.basePath = "https://my-json-server.typicode.com/CarloLSG/GreenhouseFakeAPI1"
     this.resourceEndpoint = "/users";
   }
 
