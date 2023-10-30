@@ -4,6 +4,7 @@ import {ProcessEntriesService} from "../../services/process-entries.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 
+
 @Component({
   selector: 'app-process-table',
   templateUrl: './process-table.component.html',
@@ -35,20 +36,26 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
       },
 
     ];
+  showDialog: boolean = false;
+  dialogFields: Array<string> = [];
+  inputFields: { [key: string]: string } = {};
+  dialogFieldValues: { [key: string]: string } = {};
     displayedColumns: Array<String> = [];
     @Input( ) cropId: number = 0;
     @Input() processType :string;
     @Input() phase: string = '';
     @Input() step: string = '';
+    @Input() stepNumber: string = '';
 
     constructor(private processApiService: ProcessEntriesService){
       this.processType = '';
       this.dataSource = new MatTableDataSource<ProcessEntry>();
+      this.dialogFields = [];
+      this.dialogFieldValues = {};
       this.paginator = {} as MatPaginator;
     }
 
     getAllProcess() {
-      console.log('Process type',this.processType);
       this.processApiService.setResourceEndpoint(this.processType);
       this.processApiService.getAll().subscribe((response: any) => {
         this.dataSource.data = response;
@@ -79,10 +86,77 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
     this.displayedColumns = this.columns.map(c => c.columnDef);
   }
 
+  openInputDialog(): void {
+    const stepInputs = {
+      'Stock': ['day', 'hay', 'corn', 'guano', 'cottonSeedCake', 'soybeanMeal', 'gypsum', 'urea', 'ammoniumSulphate'],
+      'Preparation area': ['day', 'activities', 'temperature', 'comment'],
+      'Bunker': ['day', 't1', 't2', 't3', 'tp', 'frequency', 'comment'],
+      'Tunnel': ['day', 'growRoom', 't1', 't2', 't3', 'tp', 'ta', 'comment'],
+      'Incubation': ['day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
+      'Casing': ['day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
+      'Induction': ['day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
+      'Harvest': ['day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
+    };
+    if(this.dataSource.data.length > 0){
+      this.dialogFields = this.columns.map(column => column.columnDef);
+      const fieldsToExclude = ['crop_id', 'author', 'date', 'time', 'processType'];
+      this.dialogFields = this.dialogFields.filter(field => !fieldsToExclude.includes(field));
+    }
+    else {
+      if (stepInputs[this.step as keyof typeof stepInputs]) { // Use a type assertion
+        this.dialogFields = stepInputs[this.step as keyof typeof stepInputs];
+      }
+    }
+    this.dialogFields.forEach(field => {
+      this.inputFields[field] = '';
+    });
+    this.showDialog = true;
+  }
+  generateDataToSave(): any {
+    const currentDateTime = new Date();
+    const currentDate = currentDateTime.toISOString().split('T')[0];
+    const currentTime = currentDateTime.toTimeString().split(' ')[0];
+    let commonData:{
+      author: string,
+      date: string,
+      time: string,
+      crop_id: number,
+      processType?: string;
+    } = {
+      crop_id: this.cropId,
+      author: 'Winston Smith',
+      date: currentDate,
+      time: currentTime,
+    }
+    if (this.step === 'Incubation' || this.step === 'Casing' || this.step === 'Induction' || this.step === 'Harvest') {
+      commonData.processType = this.step;
+    }
+    return {
+      ...commonData, ...this.inputFields
+    };
+  }
+  saveRecord() {
+      const dataToSave = this.generateDataToSave();
+    this.processApiService.setResourceEndpoint(this.processType);
+    this.processApiService.create(dataToSave).subscribe((response: any) => {
+      console.log('Response', response);
+    });
+    // If you want to reset the input fields after saving
+    this.dialogFields.forEach(field => {
+      this.inputFields[field] = '';
+    });
+    const currentData = this.dataSource.data;
+    currentData.push(dataToSave);
+    this.dataSource.data = currentData;
+    if (currentData.length <= 1) this.getAllProcess();
+    this.showDialog = false;
+  }
 
+  cancelDialog() {
+    this.showDialog = false;
+  }
     ngOnInit() {
       this.getAllProcess();
-      console.log('Fase',this.phase);
     }
 
     ngAfterViewInit() {

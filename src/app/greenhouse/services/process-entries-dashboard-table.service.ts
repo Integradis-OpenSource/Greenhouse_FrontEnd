@@ -13,4 +13,9 @@ export class ProcessEntriesDashboardTableService extends BaseService<ProcessEntr
   setResourceEndpoint(endpoint: string) {
     this.resourceEndpoint = `/${endpoint}`;
   }
+
+  getMostRecentRecord(type: String, cropId: number) {
+    this.setResourceEndpoint(`${type}&&crop_id=${cropId}&&_sort=date&_order=desc&_limit=1`);
+    return this.getAll();
+  }
 }
