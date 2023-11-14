@@ -29,7 +29,7 @@ import { DashboardCardComponent } from './greenhouse/components/dashboard-card/d
 import { DashboardComponent } from './greenhouse/pages/dashboard/dashboard.component';
 import {InformationComponent} from "./greenhouse/components/information/information.component";
 import { ProcessTableComponent } from './greenhouse/components/process-table/process-table.component';
-import { HarvestingInProgressComponent } from './greenhouse/pages/harvesting-in-progress/harvesting-in-progress.component';
+import { CropsInProgressComponent } from './greenhouse/pages/crops-in-progress/crops-in-progress.component';
 import { PopupWarningComponent } from './greenhouse/components/popup-warning/popup-warning.component';
 import { PopupNewCropComponent } from './greenhouse/components/popup-new-crop/popup-new-crop.component';
 import { PopupCropFinishedComponent } from './greenhouse/components/popup-crop-finished/popup-crop-finished.component';
@@ -63,7 +63,7 @@ export function createTranslateLoader(http: HttpClient) {
     StepperContentComponent,
     ButtonPrimaryComponent,
     ProcessTableComponent,
-    HarvestingInProgressComponent,
+    CropsInProgressComponent,
     PopupWarningComponent,
     PopupNewCropComponent,
     PopupCropFinishedComponent,

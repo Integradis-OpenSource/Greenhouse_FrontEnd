@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HarvestingInProgressComponent } from './harvesting-in-progress.component';
+import { CropsInProgressComponent } from './crops-in-progress.component';
 
 describe('ProcessLogComponent', () => {
-  let component: HarvestingInProgressComponent;
-  let fixture: ComponentFixture<HarvestingInProgressComponent>;
+  let component: CropsInProgressComponent;
+  let fixture: ComponentFixture<CropsInProgressComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HarvestingInProgressComponent]
+      declarations: [CropsInProgressComponent]
     });
-    fixture = TestBed.createComponent(HarvestingInProgressComponent);
+    fixture = TestBed.createComponent(CropsInProgressComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,10 +1,10 @@
 <div>
-  <mat-card class="card">
+  <mat-card class="card cursor-pointer" routerLink="{{link}}">
     <mat-card-header>
       <img [ngSrc]="image" width="220" height="214" alt="dashboard-icon">
     </mat-card-header>
     <mat-card-title>
-      <button mat-button class="w-full" routerLink="{{link}}">{{buttonText}}<i class="material-icons">keyboard_arrow_right</i></button>
+      <button mat-button class="w-full">{{buttonText}}<i class="material-icons">keyboard_arrow_right</i></button>
     </mat-card-title>
   </mat-card>
 </div>
