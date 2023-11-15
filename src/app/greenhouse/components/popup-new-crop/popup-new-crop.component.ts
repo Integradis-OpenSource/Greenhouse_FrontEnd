@@ -8,7 +8,7 @@ import {CropsService} from "../../services/crops.service";
   styleUrls: ['./popup-new-crop.component.css']
 })
 export class PopupNewCropComponent {
-  @Input() popupText = 'Do you want to start a new harvest? It will be recorded as start date ';
+  @Input() popupText = 'Do you want to start a new crop? It will be recorded as start date ';
   date= Date.now()
   id = 0;
   currentDateTime = new Date();

@@ -33,7 +33,7 @@ import { CropsInProgressComponent } from './greenhouse/pages/crops-in-progress/c
 import { PopupWarningComponent } from './greenhouse/components/popup-warning/popup-warning.component';
 import { PopupNewCropComponent } from './greenhouse/components/popup-new-crop/popup-new-crop.component';
 import { PopupCropFinishedComponent } from './greenhouse/components/popup-crop-finished/popup-crop-finished.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { PageNotFoundComponent } from './public/pages/page-not-found/page-not-found.component';
 import { LoginComponent } from './public/pages/login/login.component';
 import { SignupComponent } from './public/pages/signup/signup.component';
@@ -48,6 +48,7 @@ import {MatSelectModule} from "@angular/material/select";
 import { UserProfileComponent } from './profiles/pages/user-profile/user-profile.component';
 import { CompanyProfileComponent } from './profiles/pages/company-profile/company-profile.component';
 import {DashboardTableComponent} from "./greenhouse/components/dashboard-table/dashboard-table.component";
+import { InviteEmployeeDialogComponent } from './profiles/components/invite-employee-dialog/invite-employee-dialog.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -74,6 +75,7 @@ export function createTranslateLoader(http: HttpClient) {
     UserProfileComponent,
     CompanyProfileComponent,
     DashboardTableComponent,
+    InviteEmployeeDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,7 +104,8 @@ export function createTranslateLoader(http: HttpClient) {
     MatButtonToggleModule,
     MatSelectModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
