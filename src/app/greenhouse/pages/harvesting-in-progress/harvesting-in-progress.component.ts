@@ -14,6 +14,7 @@ import {MatSort} from "@angular/material/sort";
 export class HarvestingInProgressComponent implements AfterViewInit, OnInit {
   dataSource: MatTableDataSource<Crop>;
   displayedColumns: string[] = ["id","start_date","phase"]
+  companyId: number = 1;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort:MatSort;
@@ -24,15 +25,45 @@ export class HarvestingInProgressComponent implements AfterViewInit, OnInit {
     this.sort = {} as MatSort;
   }
 
+  formatCropPhase(cropPhase: string): string {
+    switch (cropPhase) {
+      case 'FORMULA':
+        return 'formulas';
+      case 'PREPARATION_AREA':
+        return 'preparation Area';
+      case 'BUNKER':
+        return 'bunker';
+      case 'TUNNEL':
+        return 'tunnel';
+      case 'INCUBATION':
+        return 'incubation';
+      case 'CASING':
+        return 'casing';
+      case 'INDUCTION':
+        return 'induction';
+      case 'HARVEST':
+        return 'harvest';
+      default:
+        return cropPhase; // Return the original value if not found in the mapping
+    }
+  }
+
   getCrops(){
+    this.cropsApi.setResourceEndpoint(`company/${this.companyId}`)
     this.cropsApi.getList().subscribe((response : any) => {
       this.dataSource.data = response;
-      this.dataSource.data = this.dataSource.data.filter((crop) => crop.state == "active")
+      console.log(this.dataSource.data)
+
+      this.dataSource.data.forEach((crop) => {
+        crop.cropPhase = this.formatCropPhase(crop.cropPhase);
+      });
+
+      this.dataSource.data = this.dataSource.data.filter((crop) => crop.state)
     })
   }
 
   onRowSelect(selectedRow: Crop){
-    const routeUrl = `/harvest/${selectedRow.id}/${selectedRow.phase}`;
+    const routeUrl = `/harvest/${selectedRow.cropId}/${selectedRow.cropPhase}`;
     this.router.navigate([routeUrl]);
   }
 
