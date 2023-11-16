@@ -10,12 +10,12 @@ import {CropsService} from "../../services/crops.service";
 })
 export class DashboardTableComponent implements OnInit {
   dataSource: MatTableDataSource<ProcessEntryDashboardTable>;
-
+  companyId: number = 1;
   columns = [
     {
       columnDef: 'cropId',
       header: 'Crop ID',
-      cell: (element: ProcessEntryDashboardTable) => `${element.crop_id}`,
+      cell: (element: ProcessEntryDashboardTable) => `${element.cropId}`,
     },
     {
       columnDef: 'author',
@@ -94,34 +94,93 @@ export class DashboardTableComponent implements OnInit {
     });
   }
 
+  formatCropPhase(cropPhase: string): string {
+    switch (cropPhase) {
+      case 'FORMULA':
+        return 'formulas';
+      case 'PREPARATION_AREA':
+        return 'preparation Area';
+      case 'BUNKER':
+        return 'bunker';
+      case 'TUNNEL':
+        return 'tunnel';
+      case 'INCUBATION':
+        return 'incubation';
+      case 'CASING':
+        return 'casing';
+      case 'INDUCTION':
+        return 'induction';
+      case 'HARVEST':
+        return 'harvest';
+      default:
+        return cropPhase; // Return the original value if not found in the mapping
+    }
+  }
+
+  unformatCropPhase(formattedCropPhase: string): string {
+    switch (formattedCropPhase) {
+      case 'formulas':
+        return 'Formula';
+      case 'preparation-areas':
+        return 'Preparation Area';
+      case 'bunker':
+        return 'Bunker';
+      case 'tunnels':
+        return 'Tunnel';
+      case 'incubation':
+        return 'Incubation';
+      case 'casing':
+        return 'Casing';
+      case 'induction':
+        return 'Induction';
+      case 'harvest':
+        return 'Harvest';
+      default:
+        return formattedCropPhase; // Return the original value if not found in the mapping
+    }
+  }
+
   ngOnInit() {
+    this.cropApiService.setResourceEndpoint(`company/${this.companyId}`);
     this.cropApiService.getAll().subscribe((response: any) => {
       this.crops = response;
+      //this.crops = this.crops.filter((crop: any) => crop.state);
+      this.crops.forEach((crop:any)=>{
+        crop.cropPhase = this.formatCropPhase(crop.cropPhase);
+      })
+      console.log("Response Crop: ", response)
       for (let crop of this.crops) {
-        if (crop.state === 'active') {
-          if (crop.phase === 'Casing' || crop.phase === 'Incubation' || crop.phase === 'Induction' || crop.phase === 'Harvest') {
-            this.processApiService.setResourceEndpoint(`grow_room_record?processType=${crop.phase}&crop_id=${crop.id}`);
-          } else if (crop.phase === 'Preparation area') {
+        if (crop.state === true) {
+          if (crop.cropPhase === 'CASING' || crop.cropPhase === 'INCUBATION' || crop.cropPhase === 'INDUCTION' || crop.cropPhase === 'HARVEST') {
+            this.processApiService.setResourceEndpoint(`${crop.cropId}/grow-rooms/${crop.cropPhase}`);
+          } /*else if (crop.phase === 'PREPARATION_AREA') {
             this.processApiService.setResourceEndpoint(`preparation_area?crop_id=${crop.id}`);
-          } else {
-            this.processApiService.setResourceEndpoint(`${crop.phase}?crop_id=${crop.id}`);
+          }*/ else {
+            this.processApiService.setResourceEndpoint(`${crop.cropId}/${crop.cropPhase}`);
           }
           this.processApiService.getAll().subscribe((response: any) => {
-            let mostRecentRecords = this.sortByDateAndTime(response);
-            let mostRecentRecord = mostRecentRecords[0];
+            console.log("Response Process: ", response)
+            //let mostRecentRecords = this.sortByDateAndTime(response);
+            //let mostRecentRecord = mostRecentRecords[0];
+            let mostRecentRecord = response[0]; //TODO change this to the above line after fixing the backend
+            crop.cropPhase = this.unformatCropPhase(crop.cropPhase)
+            console.log("Most Recent Record: ", mostRecentRecord)
             if(mostRecentRecord === undefined){
               console.error('Faltan datos requeridos. No se ha agregado el registro a la tabla.');
             }else{
+
               let extraData: {}
               extraData = {
-                start_date: crop.start_date,
-                phase: crop.phase
+                cropId: crop.cropId,
+                start_date: crop.startDate,
+                phase: crop.cropPhase,
               }
               mostRecentRecord = {...mostRecentRecord, ...extraData};
               //fake comment
-              if (crop.phase === 'Stock') {
+              if (crop.cropPhase === 'Formula') {
                 mostRecentRecord.comment = ''
               }
+
               // add the data to the table
               let dataCopy = [];
               dataCopy = this.dataSource.data;
