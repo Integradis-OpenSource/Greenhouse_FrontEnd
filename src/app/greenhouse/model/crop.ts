@@ -1,8 +1,8 @@
 export interface Crop {
-  id: number;
+  cropId: number;
   organization_id: number;
-  start_date: string;
-  end_date: string;
-  phase: string;
-  state: string;
+  startDate: string;
+  endDate: string;
+  cropPhase: string;
+  state: boolean;
 }

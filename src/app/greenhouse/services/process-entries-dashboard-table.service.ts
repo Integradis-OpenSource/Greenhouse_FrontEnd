@@ -9,7 +9,8 @@ import {HttpClient} from "@angular/common/http";
 export class ProcessEntriesDashboardTableService extends BaseService<ProcessEntryDashboardTable>{
   constructor(http: HttpClient) {
     super(http)
-    this.basePath = "https://my-json-server.typicode.com/CarloLSG/GreenhouseFakeAPI2"
+    //this.basePath = "https://my-json-server.typicode.com/CarloLSG/GreenhouseFakeAPI2"
+    this.basePath = "https://greenhouse.zeabur.app/api/v1/crops"
   }
   setResourceEndpoint(endpoint: string) {
     this.resourceEndpoint = `/${endpoint}`;

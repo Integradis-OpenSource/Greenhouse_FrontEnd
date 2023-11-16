@@ -14,14 +14,14 @@ export class StepperContentComponent implements OnInit{
   phase: string = '';
   date: string = '';
   phases = [
-    { label: '0', message: 'Stock', endpoint: '' },
-    { label: '1', message: 'Preparation area', endpoint: '' },
-    { label: '2', message: 'Bunker', endpoint: '' },
-    { label: '3', message: 'Tunnel', endpoint: '' },
-    { label: '4.1', message: 'Incubation', endpoint: '' },
-    { label: '4.2', message: 'Casing', endpoint: '' },
-    { label: '4.3', message: 'Induction', endpoint: '' },
-    { label: '4.4', message: 'Harvest', endpoint: '' },
+    { label: '0', message: 'FORMULA', endpoint: '' },
+    { label: '1', message: 'PREPARATION_AREA', endpoint: '' },
+    { label: '2', message: 'BUNKER', endpoint: '' },
+    { label: '3', message: 'TUNNEL', endpoint: '' },
+    { label: '4.1', message: 'INCUBATION', endpoint: '' },
+    { label: '4.2', message: 'CASING', endpoint: '' },
+    { label: '4.3', message: 'INDUCTION', endpoint: '' },
+    { label: '4.4', message: 'HARVEST', endpoint: '' },
   ];
   calculateStepperLabel(index: number): string {
     if (index === 0) {
@@ -40,14 +40,14 @@ export class StepperContentComponent implements OnInit{
       this.phase = params['phase'];
       this.cropId = params['id'];
       this.setCurrentStep();
-      this.phases[0].endpoint = `stock?crop_id=${this.cropId}`;
-      this.phases[1].endpoint = `preparation_area?crop_id=${this.cropId}`;
-      this.phases[2].endpoint = `bunker?crop_id=${this.cropId}`;
-      this.phases[3].endpoint = `tunnel?crop_id=${this.cropId}`;
-      this.phases[4].endpoint = `grow_room_record?processType=Incubation&crop_id=${this.cropId}`;
-      this.phases[5].endpoint = `grow_room_record?processType=Casing&&crop_id=${this.cropId}`;
-      this.phases[6].endpoint = `grow_room_record?processType=Induction&&crop_id=${this.cropId}`;
-      this.phases[7].endpoint = `grow_room_record?processType=Harvest&&crop_id=${this.cropId}`;
+      this.phases[0].endpoint = `${this.cropId}/formulas`;
+      this.phases[1].endpoint = `${this.cropId}/preparation-areas`;
+      this.phases[2].endpoint = `${this.cropId}/bunker`;
+      this.phases[3].endpoint = `${this.cropId}/tunnels`;
+      this.phases[4].endpoint = `${this.cropId}/grow-rooms/INCUBATION`;
+      this.phases[5].endpoint = `${this.cropId}/grow-rooms/CASING`;
+      this.phases[6].endpoint = `${this.cropId}/grow-rooms/INDUCTION`;
+      this.phases[7].endpoint = `${this.cropId}/grow-rooms/HARVEST`;
     });
     //this.cropService.setResourceEndpoint(this.cropId.toString());
     this.cropService.getById(this.cropId).subscribe((response: any) => {
@@ -57,7 +57,7 @@ export class StepperContentComponent implements OnInit{
 
   setCurrentStep(): void {
     const data: { [key: string]: number } = {
-      'Stock': 0,
+      'Formula': 0,
       'Preparation area': 1,
       'Bunker': 2,
       'Tunnel': 3,
@@ -78,7 +78,7 @@ export class StepperContentComponent implements OnInit{
   setNextStep(): void {
     this.nextStep = this.activeStep + 1;
     const data: { [key: number]: string } = {
-      0: 'Stock',
+      0: 'Formula',
       1: 'Preparation area',
       2: 'Bunker',
       3: 'Tunnel',
