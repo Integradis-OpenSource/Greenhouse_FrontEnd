@@ -1,6 +1,6 @@
 export interface ProcessEntryDashboardTable {
   author: string;
-  crop_id: number;
+  cropId: number;
   date: string;
   time: string;
   comment?: string;

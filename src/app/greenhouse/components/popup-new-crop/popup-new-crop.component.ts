@@ -13,6 +13,7 @@ export class PopupNewCropComponent {
   id = 0;
   currentDateTime = new Date();
   currentDate = this.currentDateTime.toISOString().split('T')[0];
+  companyId = 1;
 
   popupVisible = false;
   isButtonDisabled = false;
@@ -31,7 +32,13 @@ export class PopupNewCropComponent {
   }
 
   startPopUpNewCrop() {
-    this.cropService.create({organization_id: 1, start_date: this.currentDate, end_date: '', phase: 'Stock', state: 'active'}).subscribe((response: any) => {
+   /* this.cropService.create({organization_id: 1, start_date: this.currentDate, end_date: '', phase: 'Stock', state: 'active'}).subscribe((response: any) => {
+      console.log('Response',response)
+    });*/
+    this.cropService.setBasePath('https://greenhouse.zeabur.app/api/v1/crops')
+    this.cropService.setResourceEndpoint('')
+    console.log("Endpoint", this.cropService.getEndpoint())
+    this.cropService.create({companyId: this.companyId}).subscribe((response: any) => {
       console.log('Response',response)
     });
     this.popupVisible = false;
