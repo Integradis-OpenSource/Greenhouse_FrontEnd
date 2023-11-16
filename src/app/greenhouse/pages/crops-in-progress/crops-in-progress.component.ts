@@ -7,11 +7,11 @@ import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 
 @Component({
-  selector: 'app-harvesting-in-progress',
-  templateUrl: './harvesting-in-progress.component.html',
-  styleUrls: ['./harvesting-in-progress.component.css']
+  selector: 'app-crops-in-progress',
+  templateUrl: './crops-in-progress.component.html',
+  styleUrls: ['./crops-in-progress.component.css']
 })
-export class HarvestingInProgressComponent implements AfterViewInit, OnInit {
+export class CropsInProgressComponent implements AfterViewInit, OnInit {
   dataSource: MatTableDataSource<Crop>;
   displayedColumns: string[] = ["id","start_date","phase"]
   companyId: number = 1;

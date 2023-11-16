@@ -73,5 +73,24 @@
     "invite_employee": "Invite employee",
     "view_more": "View more",
     "search": "Search employee"
+  },
+  "crop-history": {
+    "control_panel": "Control panel",
+    "crop_history": "Crop archive",
+    "search_crop": "Search crop",
+    "crop_id": "Crop ID",
+    "crop_start_date": "Crop start date",
+    "crop_end_date": "Crop end date",
+    "crop_view_logs": "View logs"
+  },
+  "crop": {
+    "formula": "Formula",
+    "preparation_area": "Preparation area",
+    "bunker": "Bunker",
+    "tunnel": "Tunnel",
+    "incubation": "Incubation",
+    "casing": "Casing",
+    "induction": "Induction",
+    "harvest": "Harvest"
   }
 }

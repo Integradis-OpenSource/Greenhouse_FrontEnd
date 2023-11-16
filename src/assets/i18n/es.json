@@ -73,5 +73,24 @@
     "invite_employee": "Invitar a un trabajador",
     "view_more": "Ver más",
     "search": "Buscar trabajador"
+  },
+  "crop-history": {
+    "control_panel": "Panel de control",
+    "crop_history": "Archivo de cultivos",
+    "search_crop": "Buscar cultivo",
+    "crop_id": "ID del cultivo",
+    "crop_start_date": "Fecha de inicio del cultivo",
+    "crop_end_date": "Fecha de finalización del cultivo",
+    "crop_view_logs": "Ver registros"
+  },
+  "crop": {
+    "formula": "Formula",
+    "preparation_area": "Preparation area",
+    "bunker": "Bunker",
+    "tunnel": "Tunnel",
+    "incubation": "Incubation",
+    "casing": "Casing",
+    "induction": "Induction",
+    "harvest": "Harvest"
   }
 }
