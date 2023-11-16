@@ -3,9 +3,3 @@ h2{
   font-weight: 700;
   line-height: 49px;
 }
-
-
-h4 {
-  color: var(--secondary-green-1);
-  font-size: var(--heading-4-size);
-}

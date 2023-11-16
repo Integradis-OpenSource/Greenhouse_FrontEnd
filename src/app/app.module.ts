@@ -48,6 +48,9 @@ import {MatSelectModule} from "@angular/material/select";
 import { UserProfileComponent } from './profiles/pages/user-profile/user-profile.component';
 import { CompanyProfileComponent } from './profiles/pages/company-profile/company-profile.component';
 import {DashboardTableComponent} from "./greenhouse/components/dashboard-table/dashboard-table.component";
+import { StatisticalReportsComponent } from './greenhouse/pages/statistical-reports/statistical-reports.component';
+import { LineChartComponent } from './greenhouse/components/line-chart/line-chart.component';
+import { AgChartsAngularModule } from 'ag-charts-angular';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -74,6 +77,8 @@ export function createTranslateLoader(http: HttpClient) {
     UserProfileComponent,
     CompanyProfileComponent,
     DashboardTableComponent,
+    StatisticalReportsComponent,
+    LineChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,7 +107,8 @@ export function createTranslateLoader(http: HttpClient) {
     MatButtonToggleModule,
     MatSelectModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    AgChartsAngularModule
   ],
   providers: [],
   bootstrap: [AppComponent]
