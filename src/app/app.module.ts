@@ -48,6 +48,7 @@ import {MatSelectModule} from "@angular/material/select";
 import { UserProfileComponent } from './profiles/pages/user-profile/user-profile.component';
 import { CompanyProfileComponent } from './profiles/pages/company-profile/company-profile.component';
 import {DashboardTableComponent} from "./greenhouse/components/dashboard-table/dashboard-table.component";
+import {authInterceptorProviders} from "./shared/services/auth-interceptor.service";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -104,7 +105,7 @@ export function createTranslateLoader(http: HttpClient) {
     MatPaginatorModule,
     MatSortModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule {
