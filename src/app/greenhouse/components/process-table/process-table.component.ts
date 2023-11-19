@@ -11,61 +11,62 @@ import {MatPaginator} from "@angular/material/paginator";
   styleUrls: ['./process-table.component.css']
 })
 export class ProcessTableComponent implements OnInit, AfterViewInit {
-    dataSource: MatTableDataSource<ProcessEntry>;
-    @ViewChild(MatPaginator) paginator: MatPaginator;
-    columns = [
-      {
-        columnDef: 'author',
-        header: 'Author',
-        cell: (element: ProcessEntry) => `${element.author}`,
-      },
-      {
-        columnDef: 'day',
-        header: 'Day',
-        cell: (element: ProcessEntry) => `${element.day}`,
-      },
-      {
-        columnDef: 'date',
-        header: 'Date',
-        cell: (element: ProcessEntry) => `${element.date}`,
-      },
-      {
-        columnDef: 'time',
-        header: 'Time',
-        cell: (element: ProcessEntry) => `${element.time}`,
-      },
+  dataSource: MatTableDataSource<ProcessEntry>;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  columns = [
+    {
+      columnDef: 'author',
+      header: 'Author',
+      cell: (element: ProcessEntry) => `${element.author}`,
+    },
+    {
+      columnDef: 'day',
+      header: 'Day',
+      cell: (element: ProcessEntry) => `${element.day}`,
+    },
+    {
+      columnDef: 'date',
+      header: 'Date',
+      cell: (element: ProcessEntry) => `${element.date}`,
+    },
+    {
+      columnDef: 'time',
+      header: 'Time',
+      cell: (element: ProcessEntry) => `${element.time}`,
+    },
 
-    ];
+  ];
   showDialog: boolean = false;
   dialogFields: Array<string> = [];
   inputFields: { [key: string]: string } = {};
   dialogFieldValues: { [key: string]: string } = {};
-    displayedColumns: Array<String> = [];
-    @Input( ) cropId: number = 0;
-    @Input() processType :string;
-    @Input() phase: string = '';
-    @Input() step: string = '';
-    @Input() stepNumber: string = '';
+  displayedColumns: Array<String> = [];
+  @Input() cropId: number = 0;
+  @Input() processType: string;
+  @Input() phase: string = '';
+  @Input() step: string = '';
+  @Input() stepNumber: string = '';
 
-    constructor(private processApiService: ProcessEntriesService){
-      this.processType = '';
-      this.dataSource = new MatTableDataSource<ProcessEntry>();
-      this.dialogFields = [];
-      this.dialogFieldValues = {};
-      this.paginator = {} as MatPaginator;
-    }
+  constructor(private processApiService: ProcessEntriesService) {
+    this.processType = '';
+    this.dataSource = new MatTableDataSource<ProcessEntry>();
+    this.dialogFields = [];
+    this.dialogFieldValues = {};
+    this.paginator = {} as MatPaginator;
+  }
 
-    getAllProcess() {
-      this.processApiService.setResourceEndpoint(this.processType);
-      this.processApiService.getAll().subscribe((response: any) => {
-        this.dataSource.data = response;
-        this.addColumns(this.dataSource.data)
-      });
-    }
-    applyFilter(event: Event) {
-      const filterValue = (event.target as HTMLInputElement).value;
-      this.dataSource.filter = filterValue.trim().toLowerCase();
-    }
+  getAllProcess() {
+    this.processApiService.setResourceEndpoint(this.processType);
+    this.processApiService.getAll().subscribe((response: any) => {
+      this.dataSource.data = response;
+      this.addColumns(this.dataSource.data)
+    });
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 
   addColumns(response: any) {
     let processEntry = response[0];
@@ -75,7 +76,8 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
     };
 
     keys.forEach((key) => {
-      if (key !== 'id' && key !== '__v' && key !== 'processType' && key !== 'apiId' && key !== 'crop_id' && key !== 'author' && key !== 'day' && key !== 'date' && key !== 'time') {
+      if (key !== 'id' && key !== '__v' && key !== 'processType' && key !== 'apiId' && key !== 'crop_id' && key !== 'author' && key !== 'day' && key !== 'date' && key !== 'time'
+      && key !== 'formulaId' && key !== 'preparationAreaId' && key !== 'bunkerId' && key !== 'tunnelId' && key != 'growRoomId') {
         this.columns.push({
           columnDef: key,
           header: formatHeader(key),
@@ -88,21 +90,20 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
 
   openInputDialog(): void {
     const stepInputs = {
-      'Stock': ['day', 'hay', 'corn', 'guano', 'cottonSeedCake', 'soybeanMeal', 'gypsum', 'urea', 'ammoniumSulphate'],
-      'Preparation area': ['day', 'activities', 'temperature', 'comment'],
-      'Bunker': ['day', 't1', 't2', 't3', 'tp', 'frequency', 'comment'],
-      'Tunnel': ['day', 'growRoom', 't1', 't2', 't3', 'tp', 'ta', 'comment'],
-      'Incubation': ['day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
-      'Casing': ['day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
-      'Induction': ['day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
-      'Harvest': ['day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
+      'Stock': ['author','day', 'hay', 'corn', 'guano', 'cottonSeedCake', 'soybeanMeal', 'gypsum', 'urea', 'ammoniumSulphate'],
+      'Preparation area': ['author','day', 'activities', 'temperature', 'comment'],
+      'Bunker': ['author','day', 't1', 't2', 't3', 'tp', 'frequency', 'comment'],
+      'Tunnel': ['author','day', 'growRoom', 't1', 't2', 't3', 'tp', 'ta', 'comment'],
+      'Incubation': ['author','day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
+      'Casing': ['author','day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
+      'Induction': ['author','day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
+      'Harvest': ['author','day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
     };
-    if(this.dataSource.data.length > 0){
+    if (this.dataSource.data.length > 0) {
       this.dialogFields = this.columns.map(column => column.columnDef);
-      const fieldsToExclude = ['crop_id', 'author', 'date', 'time', 'processType'];
+      const fieldsToExclude = ['formulaId', 'date', 'time', 'processType'];
       this.dialogFields = this.dialogFields.filter(field => !fieldsToExclude.includes(field));
-    }
-    else {
+    } else {
       if (stepInputs[this.step as keyof typeof stepInputs]) { // Use a type assertion
         this.dialogFields = stepInputs[this.step as keyof typeof stepInputs];
       }
@@ -112,19 +113,20 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
     });
     this.showDialog = true;
   }
+
   generateDataToSave(): any {
     const currentDateTime = new Date();
     const currentDate = currentDateTime.toISOString().split('T')[0];
     const currentTime = currentDateTime.toTimeString().split(' ')[0];
     let commonData:{
-      author: string,
+      //author: string,
       date: string,
       time: string,
       crop_id: number,
       processType?: string;
     } = {
       crop_id: this.cropId,
-      author: 'Winston Smith',
+      //author: 'Winston Smith',
       date: currentDate,
       time: currentTime,
     }
@@ -135,13 +137,13 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
       ...commonData, ...this.inputFields
     };
   }
+
   saveRecord() {
-      const dataToSave = this.generateDataToSave();
+    const dataToSave = this.generateDataToSave();
     this.processApiService.setResourceEndpoint(this.processType);
     this.processApiService.create(dataToSave).subscribe((response: any) => {
       console.log('Response', response);
     });
-    // If you want to reset the input fields after saving
     this.dialogFields.forEach(field => {
       this.inputFields[field] = '';
     });
@@ -155,11 +157,12 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
   cancelDialog() {
     this.showDialog = false;
   }
-    ngOnInit() {
-      this.getAllProcess();
-    }
 
-    ngAfterViewInit() {
-      this.dataSource.paginator = this.paginator;
-    }
+  ngOnInit() {
+    this.getAllProcess();
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 }

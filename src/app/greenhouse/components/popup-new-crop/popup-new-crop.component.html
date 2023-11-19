@@ -2,7 +2,7 @@
                     buttonColor="var(--primary-green)"
                     buttonTextColor="var(--primary-white)"
                     buttonBorderColor="var(--primary-green"
-                    disabled = "isButtonDisabled"
+                    [disabled] = "isButtonDisabled"
                     (click)="activeObjectPopUpNewCrop()"
                     >
 
@@ -24,7 +24,7 @@
                           buttonTextColor="var(--primary-white)"
                           buttonBorderColor="var(--secondary-green-1)"
                           (click)="startPopUpNewCrop()"
-                          routerLink="/harvest/{{id}}/Stock"
+                          routerLink="/harvest/{{id}}/formulas"
       ></app-button-primary>
       <app-button-primary style="margin:1.5rem;"
                           text=" Cancel"

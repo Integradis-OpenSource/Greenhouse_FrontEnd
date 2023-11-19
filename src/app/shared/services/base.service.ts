@@ -4,7 +4,8 @@ import {User} from "../../profiles/model/user";
 
 export class BaseService<T> {
   //basePath: string = 'https://my-json-server.typicode.com/Integradis-OpenSource/Greenhouse';
-  basePath: string = 'http://localhost:3000/api/v1';
+  //basePath: string = 'http://localhost:3000/api/v1';
+  basePath: string = 'https://greenhouse.zeabur.app/api/v1';
   resourceEndpoint: string = '/resources';
 
   httpOptions = {

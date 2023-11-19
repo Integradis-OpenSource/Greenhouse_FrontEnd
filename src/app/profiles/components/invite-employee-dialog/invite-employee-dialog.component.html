@@ -1,0 +1,78 @@
+<div class="popup-container">
+  <div class="popup-content m-6">
+    <div class="popup-header mb-3">
+      <h2 class="text-white">Invite employee</h2>
+    </div>
+
+    <form action="javascript:void(0)" (submit)="sendInvitation()" class="mx-3" [formGroup]="form">
+      <div class="mb-3">
+        <mat-form-field>
+          <mat-label>Employee's first name</mat-label>
+          <input
+            matInput
+            type="text"
+            name="newEmployeeFirstName"
+            id="newEmployeeFirstName"
+            formControlName="newEmployeeFirstName"
+            required>
+        </mat-form-field>
+      </div>
+      <div class="mb-3">
+        <mat-form-field>
+          <mat-label>Employee's last name</mat-label>
+          <input
+            matInput
+            type="text"
+            name="newEmployeeLastName"
+            id="newEmployeeLastName"
+            formControlName="newEmployeeLastName"
+            required>
+        </mat-form-field>
+      </div>
+      <div class="mb-3">
+        <mat-form-field>
+          <mat-label>Employee's email</mat-label>
+          <input
+            matInput
+            type="text"
+            name="newEmployeeEmail"
+            id="newEmployeeEmail"
+            formControlName="newEmployeeEmail"
+            required>
+        </mat-form-field>
+      </div>
+      <div class="mb-3">
+        <mat-form-field>
+          <mat-label>Employee's temporal password</mat-label>
+          <input
+            matInput
+            type="text"
+            name="newEmployeePassword"
+            id="newEmployeePassword"
+            formControlName="newEmployeePassword"
+            required>
+        </mat-form-field>
+      </div>
+      <div class="popup-footer">
+        <app-button-primary
+          class="md:ml-5"
+          text="Invite"
+          buttonColor="var(--secondary-green-1)"
+          buttonTextColor="var(--primary-white)"
+          buttonBorderColor="var(--secondary-green-1)"
+          type="submit"
+          [disabled]="isInviteButtonDisabled">
+        </app-button-primary>
+
+        <app-button-primary
+          class="md:ml-5"
+          text="Cancel"
+          buttonColor="var(--gray-2)"
+          buttonTextColor="var(--primary-white)"
+          buttonBorderColor="var(--gray-2)"
+          (click)="cancelInvitation()">
+        </app-button-primary>
+      </div>
+    </form>
+  </div>
+</div>
