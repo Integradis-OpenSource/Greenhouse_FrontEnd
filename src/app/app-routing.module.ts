@@ -8,12 +8,14 @@ import {LoginComponent} from "./public/pages/login/login.component";
 import {SignupComponent} from "./public/pages/signup/signup.component";
 import {UserProfileComponent} from "./profiles/pages/user-profile/user-profile.component";
 import {CompanyProfileComponent} from "./profiles/pages/company-profile/company-profile.component";
+import {StatisticalReportsComponent} from "./greenhouse/pages/statistical-reports/statistical-reports.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login',  component: LoginComponent },
   { path: 'signup',  component: SignupComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'statistical-reports', component: StatisticalReportsComponent },
   { path: 'crops-in-progress', component: CropsInProgressComponent },
   { path: 'harvest/:id/:phase', component: StepperContentComponent },
   { path: 'profile', component: UserProfileComponent },

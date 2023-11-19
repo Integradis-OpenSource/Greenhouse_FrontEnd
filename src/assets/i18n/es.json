@@ -46,7 +46,9 @@
     "process_log": "Registro de procesos",
     "crops_in_progress": "Cultivos en progreso",
     "start_new_crop": "Comenzar nuevo cultivo",
-    "search_crop": "Buscar cultivo"
+    "search_crop": "Buscar cultivo",
+    "phase": "Fase actual",
+    "start_date": "Fecha de inicio"
   },
   "user-profile": {
     "my_profile": "Mi perfil",
@@ -75,7 +77,6 @@
     "search": "Buscar trabajador"
   },
   "crop-history": {
-    "control_panel": "Panel de control",
     "crop_history": "Archivo de cultivos",
     "search_crop": "Buscar cultivo",
     "crop_id": "ID del cultivo",
@@ -84,13 +85,36 @@
     "crop_view_logs": "Ver registros"
   },
   "crop": {
-    "formula": "Formula",
-    "preparation_area": "Preparation area",
-    "bunker": "Bunker",
-    "tunnel": "Tunnel",
-    "incubation": "Incubation",
-    "casing": "Casing",
-    "induction": "Induction",
-    "harvest": "Harvest"
+    "formula": "Fórmula",
+    "preparation_area": "Patio",
+    "bunker": "Búnker",
+    "tunnel": "Túnel",
+    "incubation": "Incubación",
+    "casing": "Cobertura",
+    "induction": "Inducción",
+    "harvest": "Cosecha",
+    "author": "Autor",
+    "day": "Día",
+    "date": "Fecha",
+    "time": "Hora",
+    "hay": "Paja",
+    "corn": "Coronta",
+    "guano": "Guano",
+    "cottonSeedCake": "Pasta de algodón",
+    "soybeanMeal": "Torta de soya",
+    "gypsum": "Sulfato de calcio",
+    "urea": "Urea",
+    "ammoniumSulfate": "Sulfato de amonio",
+    "activities": "Actividades",
+    "frequency": "Frecuencia",
+    "growRoom": "Nave",
+    "airTemperature": "Temperatura del aire",
+    "compostTemperature": "Temperatura del compost",
+    "carbonDioxide": "Dióxido de carbono",
+    "airHumidity": "Humedad",
+    "comment": "Observación"
+  },
+  "statistical_reports": {
+    "statistical_reports": "Reportes estadísticos"
   }
 }
