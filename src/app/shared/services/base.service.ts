@@ -7,6 +7,7 @@ export class BaseService<T> {
   //basePath: string = 'http://localhost:3000/api/v1';
   basePath: string = 'https://greenhouse.zeabur.app/api/v1';
   resourceEndpoint: string = '/resources';
+  resourceModifier: string = '';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -69,6 +70,11 @@ export class BaseService<T> {
 
   patch(id: any, item: any): Observable<T> {
     return this.http.patch<T>(`${this.resourcePath()}/${id}`, JSON.stringify(item), this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  post(id: any) : Observable<T> {
+    return this.http.patch<T>(`${this.resourcePath()}/${id}/${this.resourceModifier}`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
