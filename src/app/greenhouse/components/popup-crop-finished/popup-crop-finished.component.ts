@@ -8,10 +8,7 @@ import {CropsService} from "../../services/crops.service";
   styleUrls: ['./popup-crop-finished.component.css']
 })
 export class PopupCropFinishedComponent {
-  @Input() popupText = 'The cultivation started on '
   date_start= Date.now()
-  @Input() popupText2= `has successfully completed all stages, the records were filed in the section `;
-  @Input() popupText3= '"Control Panel", Crop History"'
   popupVisible = false;
   notificationVisible = false;
   @Input() cropId: number;
