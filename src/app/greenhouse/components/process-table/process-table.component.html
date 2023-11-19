@@ -1,6 +1,6 @@
 <div class="overflow-scroll">
   <mat-form-field>
-    <mat-label>Filter records</mat-label>
+    <mat-label>{{'crop.filter' | translate}}</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Search entry" #input>
   </mat-form-field>
 
@@ -19,12 +19,12 @@
 
   <mat-paginator [pageSizeOptions]="[5, 10, 20]"
                  showFirstLastButtons
-                 aria-label="Select page of periodic elements">
+                 aria-label="Select page">
   </mat-paginator>
 </div>
 
 <div class="button-group">
-  <app-button-primary text=" + Create new record"
+  <app-button-primary [text]="'crop.create_new_record' | translate"
                       buttonColor="#F4F5F9"
                       buttonTextColor="var(--primary-green)"
                       buttonBorderColor="var(--primary-green)"
@@ -36,15 +36,15 @@
 <!-- Cuadro de diálogo oculto -->
 <div class="dialog-overlay overflow-scroll" [ngClass]="{ 'show-dialog': showDialog }">
   <div class="dialog-box my-auto">
-    <h3 mat-dialog-title style="background-color: var(--primary-green); color: var(--white);">Record</h3>
+    <h3 mat-dialog-title style="background-color: var(--primary-green); color: var(--white);">{{'crop.create_new_record' |translate}}</h3>
       <div mat-dialog-content *ngFor="let field of dialogFields">
         <mat-form-field>
-        <mat-label>{{field}}</mat-label>
+          <mat-label class="text-black">{{ 'crop.' + toSnakeCase(field) | translate }}</mat-label>
         <input matInput [placeholder]="field" [(ngModel)]="inputFields[field]" #input/>
         </mat-form-field>
       </div>
-      <button mat-button style="color: var(--primary-green);" class="flex-shrink-0 border-transparent border-4 hover:text-teal-800 text-sm py-3 px-2 rounded" type="button" (click)="cancelDialog()">Cancel</button>
-      <button mat-button style="background-color: var(--primary-green); color: var(--white);" class="flex-shrink-0 border-transparent border-4 hover:text-teal-800 text-sm py-1 px-2 rounded" type="button" (click)="saveRecord()">Save</button>
+      <button mat-button style="background-color: var(--primary-green); color: var(--white);" class="flex-shrink-0 border-transparent border-4 hover:text-teal-800 text-sm py-1 px-2 rounded" type="button" (click)="saveRecord()">{{'pop-up.confirm' |translate}}</button>
+    <button mat-button style="color: var(--primary-green);" class="flex-shrink-0 border-transparent border-4 hover:text-teal-800 text-sm py-3 px-2 rounded" type="button" (click)="cancelDialog()">{{'pop-up.cancel' |translate}}</button>
   </div>
 </div>
 

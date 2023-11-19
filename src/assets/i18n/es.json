@@ -40,7 +40,15 @@
     "comment": "Observación"
   },
   "pop-up": {
-    "warning": "Atención"
+    "warning": "Atención",
+    "start_new_crop": "¿Desea comenzar un nuevo cultivo? La fecha de inicio será registrada como",
+    "confirm": "Confirmar",
+    "cancel": "Cancelar",
+    "confirm_end_phase": "Una vez que de por finalizada la fase, no podrá realizar más registros en ella. ¿Está seguro de que desea continuar?",
+    "irreversible": "Esta operación es irreversible",
+    "crop_finished": "Cultivo terminado",
+    "the_crop_started_on": "El cultivo comenzado el",
+    "has_completed_all_phases": "ha terminado satisfactoriamente todas las etapas, los registros fueron archivados en la sección de Archivo de Cultivos"
   },
   "crops-in-progress": {
     "process_log": "Registro de procesos",
@@ -85,6 +93,8 @@
     "crop_view_logs": "Ver registros"
   },
   "crop": {
+    "end_phase": "Finalizar fase",
+    "create_new_record": "Crear nuevo registro",
     "formula": "Fórmula",
     "preparation_area": "Patio",
     "bunker": "Búnker",
@@ -93,6 +103,9 @@
     "casing": "Cobertura",
     "induction": "Inducción",
     "harvest": "Cosecha",
+    "records_of_crop": "Registros del cultivo",
+    "started_on": "comenzado el",
+    "filter": "Filtrar registros...",
     "author": "Autor",
     "day": "Día",
     "date": "Fecha",
@@ -100,19 +113,27 @@
     "hay": "Paja",
     "corn": "Coronta",
     "guano": "Guano",
-    "cottonSeedCake": "Pasta de algodón",
-    "soybeanMeal": "Torta de soya",
+    "cotton_seed_cake": "Pasta de algodón",
+    "soybean_meal": "Torta de soya",
     "gypsum": "Sulfato de calcio",
     "urea": "Urea",
-    "ammoniumSulfate": "Sulfato de amonio",
+    "ammonium_sulphate": "Sulfato de amonio",
     "activities": "Actividades",
     "frequency": "Frecuencia",
-    "growRoom": "Nave",
-    "airTemperature": "Temperatura del aire",
-    "compostTemperature": "Temperatura del compost",
-    "carbonDioxide": "Dióxido de carbono",
-    "airHumidity": "Humedad",
-    "comment": "Observación"
+    "grow_room": "Nave",
+    "air_temperature": "Temperatura del aire",
+    "compost_temperature": "Temperatura del compost",
+    "carbon_dioxide": "Dióxido de carbono",
+    "air_humidity": "Humedad",
+    "setting": "Setting",
+    "comment": "Observación",
+    "t1": "T1",
+    "t2": "T2",
+    "t3": "T3",
+    "tp": "TP",
+    "ta": "TA",
+    "fresh_air": "Aire fresco",
+    "recirculation": "Recirculación"
   },
   "statistical_reports": {
     "statistical_reports": "Reportes estadísticos"

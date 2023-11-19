@@ -40,7 +40,15 @@
     "comment": "Comment"
   },
   "pop-up": {
-    "warning": "Warning"
+    "warning": "Warning",
+    "start_new_crop": "Would you like to start a new crop? The starting date will be registered as",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "confirm_end_phase": "Once this phase is over, you will not be able to add new records. Are you sure you want to continue?",
+    "irreversible": "This operation is irreversible",
+    "crop_finished": "Crop finished",
+    "the_crop_started_on": "The crop started on",
+    "has_completed_all_phases": "has completed all phases successfully, the records have been archived in the Crops Archive section"
   },
   "crops-in-progress": {
     "process_log": "Process log",
@@ -85,6 +93,8 @@
     "crop_view_logs": "View logs"
   },
   "crop": {
+    "end_phase": "End phase",
+    "create_new_record": "Create new record",
     "formula": "Formula",
     "preparation_area": "Preparation area",
     "bunker": "Bunker",
@@ -92,7 +102,38 @@
     "incubation": "Incubation",
     "casing": "Casing",
     "induction": "Induction",
-    "harvest": "Harvest"
+    "harvest": "Harvest",
+    "records_of_crop": "Records of crop",
+    "started_on": "started on",
+    "filter": "Filter records...",
+    "author": "Author",
+    "day": "Day",
+    "date": "Date",
+    "time": "Time",
+    "hay": "Hay",
+    "corn": "Corn",
+    "guano": "Guano",
+    "cotton_seed_cake": "Cotton seed cake",
+    "soybean_meal": "Soybean meal",
+    "gypsum": "Gypsum",
+    "urea": "Urea",
+    "ammonium_sulphate": "Ammonium sulfate",
+    "activities": "Activities",
+    "frequency": "Frequency",
+    "grow_room": "Grow room",
+    "air_temperature": "Air temperature",
+    "compost_temperature": "Compost temperature",
+    "carbon_dioxide": "Carbon dioxide",
+    "air_humidity": "Air humidity",
+    "setting": "Setting",
+    "comment": "Comment",
+    "t1": "T1",
+    "t2": "T2",
+    "t3": "T3",
+    "tp": "TP",
+    "ta": "TA",
+    "fresh_air": "Fresh air",
+    "recirculation": "Recirculation"
   },
   "statistical_reports": {
     "statistical_reports": "Statistical reports"
