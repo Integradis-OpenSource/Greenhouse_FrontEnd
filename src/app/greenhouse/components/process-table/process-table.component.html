@@ -1,13 +1,13 @@
 <div class="overflow-scroll">
   <mat-form-field>
-    <mat-label>{{'crop.filter' | translate}}</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Search entry" #input>
+    <mat-label class="text-black">{{'crop.filter' | translate}}</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="{{'crop.filter' | translate}}" #input>
   </mat-form-field>
 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table mb-5">
     <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
       <th mat-header-cell *matHeaderCellDef>
-        {{column.header}}
+        {{'crop.' + toSnakeCase(column.columnDef)| translate}}
       </th>
       <td mat-cell *matCellDef="let row">
         {{column.cell(row)}}

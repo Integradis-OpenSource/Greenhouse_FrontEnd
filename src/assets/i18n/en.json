@@ -37,7 +37,8 @@
     "phase": "Current phase",
     "record_date": "Record date",
     "record_time": "Record time",
-    "comment": "Comment"
+    "comment": "Comment",
+    "current_phase": "Current phase"
   },
   "pop-up": {
     "warning": "Warning",

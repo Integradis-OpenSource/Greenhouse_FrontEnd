@@ -37,7 +37,8 @@
     "phase": "Fase actual",
     "record_date": "Fecha de publicación del registro",
     "record_time": "Hora de publicación del registro",
-    "comment": "Observación"
+    "comment": "Observación",
+    "current_phase": "Fase actual"
   },
   "pop-up": {
     "warning": "Atención",
