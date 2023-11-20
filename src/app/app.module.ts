@@ -111,7 +111,7 @@ export function createTranslateLoader(http: HttpClient) {
     MatSelectModule,
     MatPaginatorModule,
     MatSortModule,
-    AgChartsAngularModule
+    AgChartsAngularModule,
     ReactiveFormsModule,
   ],
   providers: [authInterceptorProviders],
