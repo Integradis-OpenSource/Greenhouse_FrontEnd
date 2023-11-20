@@ -1,24 +1,24 @@
-<app-button-primary text="End phase"
+<app-button-primary [text]="'crop.end_phase' | translate"
                     style="margin-right:1rem;"
                     buttonColor="var(--red)"
                     buttonTextColor="var(--white)"
                     buttonBorderColor="var(--red)"
-                    disabled="isButtonDisabled"
+                    [disabled]="isButtonDisabled"
                     (click)="activeObject()">
 </app-button-primary>
 
 <div class="popup-container" *ngIf="popupVisible">
   <div class="popup-content">
     <div class="popup-header">
-      <h2>WARNING</h2>
+      <h2 class="uppercase">{{'pop-up.warning' | translate}}</h2>
     </div>
     <div class="popup-body">
       <br>
-      <p style="text-align: center;">{{ popupText }}</p>
-      <h5>This operation is irreversible</h5>
+      <p class="text-center;">{{ 'pop-up.confirm_end_phase' | translate }}</p>
+      <h5>{{'pop-up.irreversible' | translate}}</h5>
     </div>
     <div class="popup-footer">
-      <app-button-primary text="Yes, finish it"
+      <app-button-primary [text]="'pop-up.confirm' | translate"
                           buttonColor="var(--red)"
                           buttonTextColor="var(--white)"
                           buttonBorderColor="var(--red)"
@@ -27,7 +27,7 @@
       >
       </app-button-primary>
       <app-button-primary style="margin:1.5rem;"
-                          text=" Cancel"
+                          [text]="'pop-up.cancel' | translate"
                           buttonColor="var(--gray-2)"
                           buttonTextColor="var(--primary-white)"
                           buttonBorderColor="var(--gray-2)"

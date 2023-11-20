@@ -8,10 +8,7 @@ import {CropsService} from "../../services/crops.service";
   styleUrls: ['./popup-crop-finished.component.css']
 })
 export class PopupCropFinishedComponent {
-  @Input() popupText = 'The cultivation started on '
   date_start= Date.now()
-  @Input() popupText2= `has successfully completed all stages, the records were filed in the section `;
-  @Input() popupText3= '"Control Panel", Crop History"'
   popupVisible = false;
   notificationVisible = false;
   @Input() cropId: number;
@@ -28,14 +25,18 @@ export class PopupCropFinishedComponent {
 
   activeObjectNotificationFinished() {
     this.interactionService.activeObjectPopUpCropFinished();
+    this.cropService.post(this.cropId).subscribe((response: any) => {
+      console.log('Response', response)
+    });
     this.popupVisible = false;
     this.notificationVisible = true;
+
   }
   closePopUpCropFinished() {
     this.popupVisible = false;
-    this.cropService.patch(this.cropId, {state: "finished"}).subscribe((response: any) => {
-      console.log('Response',response)
-    });
+    // this.cropService.patch(this.cropId, {state: "finished"}).subscribe((response: any) => {
+    //   console.log('Response',response)
+    // });
   }
 }
 

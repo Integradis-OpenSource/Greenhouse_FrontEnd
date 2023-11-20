@@ -10,7 +10,7 @@ import {TokenStorageService} from "../../shared/services/tokenStorage.service";
   providedIn: 'root'
 })
 export class UserService extends BaseService<User> {
-  private searchTerm$ = new Subject<string>(); // Subject para el término de búsqueda
+  private searchTerm$ = new Subject<string>();
 
   constructor(http: HttpClient, tokenStorageService: TokenStorageService) {
     super(http, tokenStorageService);
@@ -18,12 +18,10 @@ export class UserService extends BaseService<User> {
     this.resourceEndpoint = "/users";
   }
 
-  // Método para establecer el término de búsqueda
   setSearchTerm(term: string) {
     this.searchTerm$.next(term);
   }
 
-  // Observable para escuchar cambios en el término de búsqueda
   getSearchTerm(): Observable<string> {
     return this.searchTerm$.asObservable();
   }

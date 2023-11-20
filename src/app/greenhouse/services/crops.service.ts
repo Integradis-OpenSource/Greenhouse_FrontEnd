@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Crop} from "../model/crop";
-import {BaseService} from "../../shared/services/base.service";
 import {AuthService} from "../../shared/services/auth.service";
 import {TokenStorageService} from "../../shared/services/tokenStorage.service";
+import {catchError, Observable, retry} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,7 @@ export class CropsService extends BaseService<Crop> {
     //this.basePath = "https://my-json-server.typicode.com/CarloLSG/GreenhouseFakeAPI1"
     this.basePath = "https://greenhouse.zeabur.app/api/v1/crops/"
     //this.basePath = 'http://localhost:8080/api/v1/crops/';
+    this.resourceModifier = "end_phase";
   }
 
   setResourceEndpoint(endpoint: string) {
@@ -27,4 +28,5 @@ export class CropsService extends BaseService<Crop> {
   getEndpoint() {
     return this.basePath+ this.resourceEndpoint;
   }
+
 }

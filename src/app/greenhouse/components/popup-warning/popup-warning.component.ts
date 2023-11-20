@@ -10,7 +10,6 @@ import {CropsService} from "../../services/crops.service";
   styleUrls: ['./popup-warning.component.css']
 })
 export class PopupWarningComponent {
-  @Input() popupText = 'This phase is completed, you will not be able to make any more records at this stage. Are you sure you want to continue?';
   @Input() cropId: number;
   @Input() phase: string;
   popupVisible = false;
@@ -35,9 +34,14 @@ export class PopupWarningComponent {
 
   closePopupEnd() {
     this.popupVisible = false;
-    this.cropService.patch(this.cropId, {phase: this.phase}).subscribe((response: any) => {
-      console.log('Response',response)
+    this.cropService.post(this.cropId).subscribe((response: any) => {
+      console.log('Response', response)
     });
+
+    // this.cropService.patch(this.cropId, {phase: this.phase}).subscribe((response: any) => {
+    //   console.log('Response',response)
+    // });
+
     this.router.navigate([`/harvest/${this.cropId}/${this.phase}`]);
   }
 
