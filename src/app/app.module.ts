@@ -52,6 +52,7 @@ import { StatisticalReportsComponent } from './greenhouse/pages/statistical-repo
 import { LineChartComponent } from './greenhouse/components/line-chart/line-chart.component';
 import { AgChartsAngularModule } from 'ag-charts-angular';
 import { InviteEmployeeDialogComponent } from './profiles/components/invite-employee-dialog/invite-employee-dialog.component';
+import {authInterceptorProviders} from "./shared/services/auth-interceptor.service";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -113,7 +114,7 @@ export function createTranslateLoader(http: HttpClient) {
     AgChartsAngularModule
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule {
