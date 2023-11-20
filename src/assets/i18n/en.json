@@ -46,7 +46,9 @@
     "process_log": "Process log",
     "crops_in_progress": "Crops in progress",
     "start_new_crop": "Start new crop",
-    "search_crop": "Search crop"
+    "search_crop": "Search crop",
+    "phase": "Current phase",
+    "start_date": "Start date"
   },
   "user-profile": {
     "my_profile": "My profile",
@@ -75,8 +77,7 @@
     "search": "Search employee"
   },
   "crop-history": {
-    "control_panel": "Control panel",
-    "crop_history": "Crop archive",
+    "crop_history": "Crops archive",
     "search_crop": "Search crop",
     "crop_id": "Crop ID",
     "crop_start_date": "Crop start date",
@@ -92,5 +93,8 @@
     "casing": "Casing",
     "induction": "Induction",
     "harvest": "Harvest"
+  },
+  "statistical_reports": {
+    "statistical_reports": "Statistical reports"
   }
 }
