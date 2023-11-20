@@ -25,18 +25,14 @@ export class PopupCropFinishedComponent {
 
   activeObjectNotificationFinished() {
     this.interactionService.activeObjectPopUpCropFinished();
-    this.cropService.post(this.cropId).subscribe((response: any) => {
-      console.log('Response', response)
-    });
     this.popupVisible = false;
     this.notificationVisible = true;
-
   }
   closePopUpCropFinished() {
     this.popupVisible = false;
-    // this.cropService.patch(this.cropId, {state: "finished"}).subscribe((response: any) => {
-    //   console.log('Response',response)
-    // });
+    this.cropService.patch(this.cropId, {state: "finished"}).subscribe((response: any) => {
+      console.log('Response',response)
+    });
   }
 }
 

@@ -34,14 +34,9 @@ export class PopupWarningComponent {
 
   closePopupEnd() {
     this.popupVisible = false;
-    this.cropService.post(this.cropId).subscribe((response: any) => {
-      console.log('Response', response)
+    this.cropService.patch(this.cropId, {phase: this.phase}).subscribe((response: any) => {
+      console.log('Response',response)
     });
-
-    // this.cropService.patch(this.cropId, {phase: this.phase}).subscribe((response: any) => {
-    //   console.log('Response',response)
-    // });
-
     this.router.navigate([`/harvest/${this.cropId}/${this.phase}`]);
   }
 
