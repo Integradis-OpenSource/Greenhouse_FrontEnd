@@ -54,6 +54,11 @@ export class DashboardTableComponent implements OnInit {
   constructor(private processApiService: ProcessEntriesDashboardTableService, private cropApiService: CropsService) {
     this.dataSource = new MatTableDataSource<ProcessEntryDashboardTable>();
   }
+
+  toSnakeCase(str: string): string {
+    return str.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase();
+  }
+
   sortByDateAndTime(array: any[]) {
     return array.sort((a, b) => {
       const dateA = new Date(`${a.date}T${a.time}`);
