@@ -25,12 +25,12 @@ export class DashboardTableComponent implements OnInit {
     {
       columnDef: 'startDate',
       header: 'Crop Start Date',
-      cell: (element: ProcessEntryDashboardTable) => `${element.start_date}`,
+      cell: (element: ProcessEntryDashboardTable) => `${element.startDate}`,
     },
     {
       columnDef: 'currentPhase',
       header: 'Current Phase',
-      cell: (element: ProcessEntryDashboardTable) => `${element.phase}`,
+      cell: (element: ProcessEntryDashboardTable) => `${element.cropPhase}`,
     },
     {
       columnDef: 'recordDate',

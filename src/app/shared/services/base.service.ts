@@ -8,8 +8,8 @@ import {TokenStorageService} from "./tokenStorage.service";
 export class BaseService<T> {
   // basePath: string = 'https://my-json-server.typicode.com/Integradis-OpenSource/Greenhouse';
   // basePath: string = 'http://localhost:3000/api/v1';
-  basePath: string = 'https://greenhouse.zeabur.app/api/v1';
-  //basePath: string = 'http://localhost:8080/api/v1';
+  //basePath: string = 'https://greenhouse.zeabur.app/api/v1';
+  basePath: string = 'http://localhost:8080/api/v1';
   resourceEndpoint: string = '/resources';
 
 
@@ -56,7 +56,7 @@ export class BaseService<T> {
   // Get Resource By Id
   getById(id: any): Observable<T> {
     const httpOptions = this.getHttpOptions();
-    return this.http.get<T>(`${this.resourcePath()}/${id}`, httpOptions).pipe(
+    return this.http.get<T>(`${this.resourcePath()}${id}`, httpOptions).pipe(
       retry(2),
       catchError(this.handleError)
     );
@@ -90,9 +90,9 @@ export class BaseService<T> {
     );
   }
 
-  patch(id: any, item: any): Observable<T> {
+  patch(id: any): Observable<T> {
     const httpOptions = this.getHttpOptions();
-    return this.http.patch<T>(`${this.resourcePath()}/${id}`, JSON.stringify(item), httpOptions).pipe(
+    return this.http.post<T>(`${this.basePath}${id}/${this.resourceEndpoint}`, httpOptions).pipe(
       retry(2),
       catchError(this.handleError)
     );

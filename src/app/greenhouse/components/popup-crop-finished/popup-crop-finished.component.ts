@@ -33,7 +33,7 @@ export class PopupCropFinishedComponent {
   }
   closePopUpCropFinished() {
     this.popupVisible = false;
-    this.cropService.patch(this.cropId, {state: "finished"}).subscribe((response: any) => {
+    this.cropService.patch(this.cropId).subscribe((response: any) => {
       console.log('Response',response)
     });
   }

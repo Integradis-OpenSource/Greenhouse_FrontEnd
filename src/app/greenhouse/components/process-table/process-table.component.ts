@@ -90,18 +90,18 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
 
   openInputDialog(): void {
     const stepInputs = {
-      'Stock': ['author','day', 'hay', 'corn', 'guano', 'cottonSeedCake', 'soybeanMeal', 'gypsum', 'urea', 'ammoniumSulphate'],
-      'Preparation area': ['author','day', 'activities', 'temperature', 'comment'],
-      'Bunker': ['author','day', 't1', 't2', 't3', 'tp', 'frequency', 'comment'],
-      'Tunnel': ['author','day', 'growRoom', 't1', 't2', 't3', 'tp', 'ta', 'comment'],
-      'Incubation': ['author','day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
-      'Casing': ['author','day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
-      'Induction': ['author','day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
-      'Harvest': ['author','day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
+      'Formula': ['author','hay', 'corn', 'guano', 'cottonSeedCake', 'soybeanMeal', 'gypsum', 'urea', 'ammoniumSulphate'],
+      'Preparation Area': ['author', 'activities', 'temperature', 'comment'],
+      'Bunker': ['author', 'thermocoupleOne', 'thermocoupleTwo', 'thermocoupleThree', 'frequency', 'comment'],
+      'Tunnel': ['author', 'thermocoupleOne', 'thermocoupleTwo', 'thermocoupleThree', 'motorFrequency', 'roomTemperature', 'freshAir', 'recirculation', 'comment'],
+      'Incubation': ['author', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHumidity', 'setting', 'comment'],
+      'Casing': ['author', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHumidity', 'setting', 'comment'],
+      'Induction': ['author', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHumidity', 'setting', 'comment'],
+      'Harvest': ['author', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHumidity', 'setting', 'comment'],
     };
     if (this.dataSource.data.length > 0) {
       this.dialogFields = this.columns.map(column => column.columnDef);
-      const fieldsToExclude = ['formulaId', 'date', 'time', 'processType'];
+      const fieldsToExclude = ['formulaId', "preparationAreaId", "bunkerId", "tunnelId", "incubationId", "casingId", "inductionId", "harvestId","day", 'date', 'time', 'cropPhase'];
       this.dialogFields = this.dialogFields.filter(field => !fieldsToExclude.includes(field));
     } else {
       if (stepInputs[this.step as keyof typeof stepInputs]) { // Use a type assertion
@@ -114,32 +114,8 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
     this.showDialog = true;
   }
 
-  generateDataToSave(): any {
-    const currentDateTime = new Date();
-    const currentDate = currentDateTime.toISOString().split('T')[0];
-    const currentTime = currentDateTime.toTimeString().split(' ')[0];
-    let commonData:{
-      //author: string,
-      date: string,
-      time: string,
-      crop_id: number,
-      processType?: string;
-    } = {
-      crop_id: this.cropId,
-      //author: 'Winston Smith',
-      date: currentDate,
-      time: currentTime,
-    }
-    if (this.step === 'Incubation' || this.step === 'Casing' || this.step === 'Induction' || this.step === 'Harvest') {
-      commonData.processType = this.step;
-    }
-    return {
-      ...commonData, ...this.inputFields
-    };
-  }
-
   saveRecord() {
-    const dataToSave = this.generateDataToSave();
+    const dataToSave = this.inputFields;
     this.processApiService.setResourceEndpoint(this.processType);
     this.processApiService.create(dataToSave).subscribe((response: any) => {
       console.log('Response', response);
@@ -148,7 +124,7 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
       this.inputFields[field] = '';
     });
     const currentData = this.dataSource.data;
-    currentData.push(dataToSave);
+    currentData.push(<ProcessEntry>dataToSave);
     this.dataSource.data = currentData;
     if (currentData.length <= 1) this.getAllProcess();
     this.showDialog = false;

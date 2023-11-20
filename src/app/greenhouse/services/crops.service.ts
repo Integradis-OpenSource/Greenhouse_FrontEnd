@@ -12,8 +12,8 @@ export class CropsService extends BaseService<Crop> {
   constructor(http: HttpClient, tokenStorageService: TokenStorageService) {
     super(http, tokenStorageService)
     //this.basePath = "https://my-json-server.typicode.com/CarloLSG/GreenhouseFakeAPI1"
-    this.basePath = "https://greenhouse.zeabur.app/api/v1/crops/"
-    //this.basePath = 'http://localhost:8080/api/v1/crops/';
+    //this.basePath = "https://greenhouse.zeabur.app/api/v1/crops/"
+    this.basePath = 'http://localhost:8080/api/v1/crops/';
   }
 
   setResourceEndpoint(endpoint: string) {
