@@ -117,26 +117,26 @@ export class DashboardTableComponent implements OnInit {
     }
   }
 
-  unformatCropPhase(formattedCropPhase: string): string {
-    switch (formattedCropPhase) {
-      case 'formulas':
+  unformatCropPhase(cropPhase: string): string {
+    switch (cropPhase) {
+      case 'FORMULA':
         return 'Formula';
-      case 'preparation-areas':
+      case 'PREPARATION_AREA':
         return 'Preparation Area';
-      case 'bunker':
+      case 'BUNKER':
         return 'Bunker';
-      case 'tunnels':
+      case 'TUNNEL':
         return 'Tunnel';
-      case 'incubation':
+      case 'INCUBATION':
         return 'Incubation';
-      case 'casing':
+      case 'CASING':
         return 'Casing';
-      case 'induction':
+      case 'INDUCTION':
         return 'Induction';
-      case 'harvest':
+      case 'HARVEST':
         return 'Harvest';
       default:
-        return formattedCropPhase; // Return the original value if not found in the mapping
+        return cropPhase; // Return the original value if not found in the mapping
     }
   }
 
@@ -167,7 +167,8 @@ export class DashboardTableComponent implements OnInit {
       console.log("Response Crop: ", response)
       for (let crop of this.crops) {
         if (crop.state === true) {
-          if (crop.cropPhase === 'CASING' || crop.cropPhase === 'INCUBATION' || crop.cropPhase === 'INDUCTION' || crop.cropPhase === 'HARVEST') {
+          if (crop.cropPhase === 'casing' || crop.cropPhase === 'incubation' || crop.cropPhase === 'induction' || crop.cropPhase === 'harvest') {
+            crop.cropPhase = crop.cropPhase.toUpperCase();
             this.processApiService.setResourceEndpoint(`${crop.cropId}/grow-rooms/${crop.cropPhase}`);
           } /*else if (crop.phase === 'PREPARATION_AREA') {
             this.processApiService.setResourceEndpoint(`preparation_area?crop_id=${crop.id}`);

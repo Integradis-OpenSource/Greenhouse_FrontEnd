@@ -55,9 +55,40 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
     this.paginator = {} as MatPaginator;
   }
 
+  formatCropPhase(cropPhase: string): string {
+    switch (cropPhase) {
+      case 'formulas':
+        return 'Formula';
+      case 'preparation-areas':
+        return 'Preparation Area';
+      case 'bunkers':
+        return 'Bunker';
+      case 'tunnels':
+        return 'Tunnel';
+      case 'incubation':
+        return 'Incubation';
+      case 'casing':
+        return 'Casing';
+      case 'induction':
+        return 'Induction';
+      case 'harvest':
+        return 'Harvest';
+      default:
+        return cropPhase; // Return the original value if not found in the mapping
+    }
+  }
+
   getAllProcess() {
     this.processApiService.setResourceEndpoint(this.processType);
     this.processApiService.getList().subscribe((response: any) => {
+      // for each response.time format it to HH:MM:SS
+      response.forEach((processEntry: any) => {
+        processEntry.time = processEntry.time.split('.')[0];
+        processEntry.date = processEntry.date.split('T')[0];
+        if(processEntry.cropPhase === 'Incubation' || processEntry.cropPhase === 'Casing' || processEntry.cropPhase === 'Induction' || processEntry.cropPhase === 'Harvest')
+        processEntry.cropPhase = processEntry.cropPhase ? this.formatCropPhase(processEntry.cropPhase) : '';
+      });
+
       this.dataSource.data = response;
       this.addColumns(this.dataSource.data)
     });
@@ -119,23 +150,54 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
     this.showDialog = true;
   }
 
+  generateDataToSave(): any {
+    const currentDateTime = new Date();
+    const currentDate = currentDateTime.toISOString().split('T')[0];
+    const currentTime = currentDateTime.toTimeString().split(' ')[0];
+    // Array of day names
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+    // Get current Day of Week in string format
+    const currentDayOfWeek = daysOfWeek[currentDateTime.getDay()];
+
+    let commonData:{
+      date: string,
+      time: string,
+      day: string,
+      crop_id: number,
+      cropPhase?: string;
+    } = {
+      crop_id: this.cropId,
+      date: currentDate,
+      day: currentDayOfWeek,
+      time: currentTime,
+    }
+    if (this.step === 'Incubation' || this.step === 'Casing' || this.step === 'Induction' || this.step === 'Harvest') {
+      commonData.cropPhase = this.step;
+    }
+    return {
+      ...commonData, ...this.inputFields
+    };
+  }
+
   saveRecord() {
-    const dataToSave = this.inputFields;
+    const dataToSave = this.generateDataToSave();
+    //const dataToSave = this.inputFields;
     console.log('Data to save', this.inputFields);
+    console.log('Data to save', dataToSave);
+    console.log('Process Type', this.processType);
     this.processApiService.setResourceEndpoint(this.processType);
+
     this.processApiService.create(dataToSave).subscribe((response: any) => {
       console.log('Response', response);
     });
     this.dialogFields.forEach(field => {
       this.inputFields[field] = '';
     });
-    window.location.reload();//TODO change so it doesn't need to reload
+    //window.location.reload();//TODO change so it doesn't need to reload
     let currentData = this.dataSource.data;
-    /*console.log('Current data', currentData);
     currentData.push(<ProcessEntry>dataToSave);
-    console.log('Current data 2', currentData);
-    console.log('Current data 3', this.dataSource.data)
-    this.dataSource.data = currentData;*/
+    this.dataSource.data = currentData;
     if (currentData.length <= 1)
       this.getAllProcess();
 
