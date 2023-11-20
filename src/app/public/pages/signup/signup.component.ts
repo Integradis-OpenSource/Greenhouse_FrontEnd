@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
+import {CompanyService} from "../../../profiles/services/company.service";
+import {UserService} from "../../../profiles/services/user.service";
+import {AuthService} from "../../../shared/services/auth.service";
 
 @Component({
   selector: 'app-signup',
@@ -14,4 +18,35 @@ export class SignupComponent {
   password: string = '';
   passwordConfirm: string = '';
   acceptedPrivacyPolicy: boolean = false;
+  companyForm: any = {};
+  employeeForm: any = {};
+  form: any = {};
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
+  roles = ["ROLE_COMPANY_ADMIN"]
+
+  constructor(private authService: AuthService, private router: Router, private companyService: CompanyService, private userService: UserService) {}
+
+  onSubmit(): void{
+    this.form = {username: this.email, password: this.password, roles: this.roles}
+    this.authService.register(this.form).subscribe(
+      data => {
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
+      }
+    );
+    this.companyForm = {companyName: this.company, tin: this.ruc};
+    this.employeeForm = {firstName: this.firstName, lastName: this.lastName, email: this.email};
+    this.companyService.create(this.companyForm).subscribe((response: any) => {
+      this.userService.create(this.employeeForm).subscribe((response: any) => {
+        this.router.navigate(['/login']);
+      });
+    });
+  }
+
 }
