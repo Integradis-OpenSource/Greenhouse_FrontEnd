@@ -57,7 +57,7 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
 
   getAllProcess() {
     this.processApiService.setResourceEndpoint(this.processType);
-    this.processApiService.getAll().subscribe((response: any) => {
+    this.processApiService.getList().subscribe((response: any) => {
       this.dataSource.data = response;
       this.addColumns(this.dataSource.data)
     });
@@ -74,7 +74,12 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
     const formatHeader = (key: string) => {
       return key.replace(/([A-Z])/g, ' $1').trim().replace(/^\w/, (c) => c.toUpperCase());
     };
-
+    // validate if the key already exists
+    this.columns.forEach((column) => {
+      if (keys.includes(column.columnDef)) {
+        keys = keys.filter((key) => key !== column.columnDef);
+      }
+    });
     keys.forEach((key) => {
       if (key !== 'id' && key !== '__v' && key !== 'processType' && key !== 'apiId' && key !== 'crop_id' && key !== 'author' && key !== 'day' && key !== 'date' && key !== 'time'
       && key !== 'formulaId' && key !== 'preparationAreaId' && key !== 'bunkerId' && key !== 'tunnelId' && key != 'growRoomId') {
@@ -101,7 +106,7 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
     };
     if (this.dataSource.data.length > 0) {
       this.dialogFields = this.columns.map(column => column.columnDef);
-      const fieldsToExclude = ['formulaId', "preparationAreaId", "bunkerId", "tunnelId", "incubationId", "casingId", "inductionId", "harvestId","day", 'date', 'time', 'cropPhase'];
+      const fieldsToExclude = ['formulaId', "preparationAreaId", "bunkerId", "tunnelId", "incubationId", "casingId", "inductionId", "harvestId","day", 'date', 'time', 'cropPhase', "averageThermocouple"];
       this.dialogFields = this.dialogFields.filter(field => !fieldsToExclude.includes(field));
     } else {
       if (stepInputs[this.step as keyof typeof stepInputs]) { // Use a type assertion
@@ -116,6 +121,7 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
 
   saveRecord() {
     const dataToSave = this.inputFields;
+    console.log('Data to save', this.inputFields);
     this.processApiService.setResourceEndpoint(this.processType);
     this.processApiService.create(dataToSave).subscribe((response: any) => {
       console.log('Response', response);
@@ -123,10 +129,17 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
     this.dialogFields.forEach(field => {
       this.inputFields[field] = '';
     });
-    const currentData = this.dataSource.data;
+    window.location.reload();//TODO change so it doesn't need to reload
+    let currentData = this.dataSource.data;
+    /*console.log('Current data', currentData);
     currentData.push(<ProcessEntry>dataToSave);
-    this.dataSource.data = currentData;
-    if (currentData.length <= 1) this.getAllProcess();
+    console.log('Current data 2', currentData);
+    console.log('Current data 3', this.dataSource.data)
+    this.dataSource.data = currentData;*/
+    if (currentData.length <= 1)
+      this.getAllProcess();
+
+
     this.showDialog = false;
   }
 

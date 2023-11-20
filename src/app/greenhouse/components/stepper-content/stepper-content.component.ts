@@ -52,7 +52,7 @@ export class StepperContentComponent implements OnInit{
     //this.cropService.setResourceEndpoint(this.cropId.toString());
     this.cropService.setResourceEndpoint('')
     this.cropService.getById(this.cropId).subscribe((response: any) => {
-      this.date = response.startDate;
+      this.date = response.startDate.split('T')[0];
     });
   }
 

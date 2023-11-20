@@ -140,6 +140,22 @@ export class DashboardTableComponent implements OnInit {
     }
   }
 
+  formatTime(time: string) {
+    const timeArray = time.split(':');
+    const hours = timeArray[0];
+    const minutes = timeArray[1];
+    const seconds = timeArray[2].split('.')[0];
+    console.log("Seconds: ", seconds)
+    return `${hours}:${minutes}:${seconds}`;
+  }
+  formatDate(date: string) {
+    const dateObject = new Date(date);
+    const year = dateObject.getUTCFullYear();
+    const month = (dateObject.getUTCMonth() + 1).toString().padStart(2, '0');
+    const day = dateObject.getUTCDate().toString().padStart(2, '0');
+    return `${day}-${month}-${year}`;
+  }
+
   ngOnInit() {
     this.cropApiService.setResourceEndpoint(`company/${this.companyId}`);
     this.cropApiService.getAll().subscribe((response: any) => {
@@ -160,9 +176,8 @@ export class DashboardTableComponent implements OnInit {
           }
           this.processApiService.getAll().subscribe((response: any) => {
             console.log("Response Process: ", response)
-            //let mostRecentRecords = this.sortByDateAndTime(response);
-            //let mostRecentRecord = mostRecentRecords[0];
-            let mostRecentRecord = response[0]; //TODO change this to the above line after fixing the backend
+            let mostRecentRecords = this.sortByDateAndTime(response);
+            let mostRecentRecord = mostRecentRecords[0];
             crop.cropPhase = this.unformatCropPhase(crop.cropPhase)
             console.log("Most Recent Record: ", mostRecentRecord)
             if(mostRecentRecord === undefined){
@@ -172,9 +187,10 @@ export class DashboardTableComponent implements OnInit {
               let extraData: {}
               extraData = {
                 cropId: crop.cropId,
-                start_date: crop.startDate,
-                phase: crop.cropPhase,
+                startDate: crop.startDate,
+                cropPhase: crop.cropPhase,
               }
+              console.log("Extra Data: ", extraData)
               mostRecentRecord = {...mostRecentRecord, ...extraData};
               //fake comment
               if (crop.cropPhase === 'Formula') {
@@ -184,6 +200,15 @@ export class DashboardTableComponent implements OnInit {
               // add the data to the table
               let dataCopy = [];
               dataCopy = this.dataSource.data;
+
+              // format date and time for each record
+              for (let record of dataCopy) {
+                record.startDate = this.formatDate(record.startDate);
+                record.time = this.formatTime(record.time);
+              }
+              mostRecentRecord.startDate = this.formatDate(mostRecentRecord.startDate);
+              mostRecentRecord.time = this.formatTime(mostRecentRecord.time);
+
               dataCopy.push(mostRecentRecord);
               this.dataSource.data = dataCopy;
             }

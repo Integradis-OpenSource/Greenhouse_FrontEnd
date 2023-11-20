@@ -53,7 +53,7 @@ export class PopupWarningComponent {
       case 'FORMULA':
         return 'Formula';
       case 'PREPARATION_AREA':
-        return 'Preparation Area';
+        return 'Preparation area';
       case 'BUNKER':
         return 'Bunker';
       case 'TUNNEL':
