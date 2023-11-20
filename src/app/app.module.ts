@@ -48,7 +48,6 @@ import {MatSelectModule} from "@angular/material/select";
 import { UserProfileComponent } from './profiles/pages/user-profile/user-profile.component';
 import { CompanyProfileComponent } from './profiles/pages/company-profile/company-profile.component';
 import {DashboardTableComponent} from "./greenhouse/components/dashboard-table/dashboard-table.component";
-import {authInterceptorProviders} from "./shared/services/auth-interceptor.service";
 import { StatisticalReportsComponent } from './greenhouse/pages/statistical-reports/statistical-reports.component';
 import { LineChartComponent } from './greenhouse/components/line-chart/line-chart.component';
 import { AgChartsAngularModule } from 'ag-charts-angular';
@@ -114,7 +113,7 @@ export function createTranslateLoader(http: HttpClient) {
     AgChartsAngularModule,
     ReactiveFormsModule,
   ],
-  providers: [authInterceptorProviders],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
