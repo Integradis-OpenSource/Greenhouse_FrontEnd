@@ -11,6 +11,7 @@ export class BaseService<T> {
   basePath: string = 'https://greenhouse.zeabur.app/api/v1';
   //basePath: string = 'http://localhost:8080/api/v1';
   resourceEndpoint: string = '/resources';
+  resourceModifier: string = '';
 
 
   constructor(private http: HttpClient, private tokenService: TokenStorageService) {}
@@ -96,6 +97,11 @@ export class BaseService<T> {
       retry(2),
       catchError(this.handleError)
     );
+  }
+
+  post(id: any) : Observable<T> {
+    return this.http.patch<T>(`${this.resourcePath()}/${id}/${this.resourceModifier}`, this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
   }
 
   private resourcePath(): string {
