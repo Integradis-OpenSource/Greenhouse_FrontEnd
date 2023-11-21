@@ -57,7 +57,7 @@ export class BaseService<T> {
   // Get Resource By Id
   getById(id: any): Observable<T> {
     const httpOptions = this.getHttpOptions();
-    return this.http.get<T>(`${this.resourcePath()}/${id}`, httpOptions).pipe(
+    return this.http.get<T>(`${this.resourcePath()}${id}`, httpOptions).pipe(
       retry(2),
       catchError(this.handleError)
     );
@@ -91,9 +91,9 @@ export class BaseService<T> {
     );
   }
 
-  patch(id: any, item: any): Observable<T> {
+  patch(id: any): Observable<T> {
     const httpOptions = this.getHttpOptions();
-    return this.http.patch<T>(`${this.resourcePath()}/${id}`, JSON.stringify(item), httpOptions).pipe(
+    return this.http.post<T>(`${this.basePath}${id}/${this.resourceEndpoint}`, httpOptions).pipe(
       retry(2),
       catchError(this.handleError)
     );

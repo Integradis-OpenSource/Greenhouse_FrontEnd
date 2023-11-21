@@ -25,12 +25,12 @@ export class DashboardTableComponent implements OnInit {
     {
       columnDef: 'startDate',
       header: 'Crop Start Date',
-      cell: (element: ProcessEntryDashboardTable) => `${element.start_date}`,
+      cell: (element: ProcessEntryDashboardTable) => `${element.startDate}`,
     },
     {
       columnDef: 'currentPhase',
       header: 'Current Phase',
-      cell: (element: ProcessEntryDashboardTable) => `${element.phase}`,
+      cell: (element: ProcessEntryDashboardTable) => `${element.cropPhase}`,
     },
     {
       columnDef: 'recordDate',
@@ -122,27 +122,43 @@ export class DashboardTableComponent implements OnInit {
     }
   }
 
-  unformatCropPhase(formattedCropPhase: string): string {
-    switch (formattedCropPhase) {
+  unformatCropPhase(cropPhase: string): string {
+    switch (cropPhase) {
       case 'formulas':
         return 'Formula';
       case 'preparation-areas':
         return 'Preparation Area';
-      case 'bunker':
+      case 'bunkers':
         return 'Bunker';
       case 'tunnels':
         return 'Tunnel';
-      case 'incubation':
+      case 'INCUBATION':
         return 'Incubation';
-      case 'casing':
+      case 'CASING':
         return 'Casing';
-      case 'induction':
+      case 'INDUCTION':
         return 'Induction';
-      case 'harvest':
+      case 'HARVEST':
         return 'Harvest';
       default:
-        return formattedCropPhase; // Return the original value if not found in the mapping
+        return cropPhase; // Return the original value if not found in the mapping
     }
+  }
+
+  formatTime(time: string) {
+    const timeArray = time.split(':');
+    const hours = timeArray[0];
+    const minutes = timeArray[1];
+    const seconds = timeArray[2].split('.')[0];
+    console.log("Seconds: ", seconds)
+    return `${hours}:${minutes}:${seconds}`;
+  }
+  formatDate(date: string) {
+    const dateObject = new Date(date);
+    const year = dateObject.getUTCFullYear();
+    const month = (dateObject.getUTCMonth() + 1).toString().padStart(2, '0');
+    const day = dateObject.getUTCDate().toString().padStart(2, '0');
+    return `${day}-${month}-${year}`;
   }
 
   ngOnInit() {
@@ -156,7 +172,8 @@ export class DashboardTableComponent implements OnInit {
       console.log("Response Crop: ", response)
       for (let crop of this.crops) {
         if (crop.state === true) {
-          if (crop.cropPhase === 'CASING' || crop.cropPhase === 'INCUBATION' || crop.cropPhase === 'INDUCTION' || crop.cropPhase === 'HARVEST') {
+          if (crop.cropPhase === 'casing' || crop.cropPhase === 'incubation' || crop.cropPhase === 'induction' || crop.cropPhase === 'harvest') {
+            crop.cropPhase = crop.cropPhase.toUpperCase();
             this.processApiService.setResourceEndpoint(`${crop.cropId}/grow-rooms/${crop.cropPhase}`);
           } /*else if (crop.phase === 'PREPARATION_AREA') {
             this.processApiService.setResourceEndpoint(`preparation_area?crop_id=${crop.id}`);
@@ -165,9 +182,8 @@ export class DashboardTableComponent implements OnInit {
           }
           this.processApiService.getAll().subscribe((response: any) => {
             console.log("Response Process: ", response)
-            //let mostRecentRecords = this.sortByDateAndTime(response);
-            //let mostRecentRecord = mostRecentRecords[0];
-            let mostRecentRecord = response[0]; //TODO change this to the above line after fixing the backend
+            let mostRecentRecords = this.sortByDateAndTime(response);
+            let mostRecentRecord = mostRecentRecords[0];
             crop.cropPhase = this.unformatCropPhase(crop.cropPhase)
             console.log("Most Recent Record: ", mostRecentRecord)
             if(mostRecentRecord === undefined){
@@ -177,9 +193,10 @@ export class DashboardTableComponent implements OnInit {
               let extraData: {}
               extraData = {
                 cropId: crop.cropId,
-                start_date: crop.startDate,
-                phase: crop.cropPhase,
+                startDate: crop.startDate,
+                cropPhase: crop.cropPhase,
               }
+              console.log("Extra Data: ", extraData)
               mostRecentRecord = {...mostRecentRecord, ...extraData};
               //fake comment
               if (crop.cropPhase === 'Formula') {
@@ -189,6 +206,15 @@ export class DashboardTableComponent implements OnInit {
               // add the data to the table
               let dataCopy = [];
               dataCopy = this.dataSource.data;
+
+              // format date and time for each record
+              for (let record of dataCopy) {
+                record.startDate = this.formatDate(record.startDate);
+                record.time = this.formatTime(record.time);
+              }
+              mostRecentRecord.startDate = this.formatDate(mostRecentRecord.startDate);
+              mostRecentRecord.time = this.formatTime(mostRecentRecord.time);
+
               dataCopy.push(mostRecentRecord);
               this.dataSource.data = dataCopy;
             }

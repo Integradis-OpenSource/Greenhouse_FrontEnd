@@ -34,15 +34,40 @@ export class PopupWarningComponent {
 
   closePopupEnd() {
     this.popupVisible = false;
-    this.cropService.post(this.cropId).subscribe((response: any) => {
-      console.log('Response', response)
+    this.cropService.setResourceEndpoint('end_phase')
+    this.cropService.patch(this.cropId).subscribe((response: any) => {
+      console.log('Response',response)
     });
+    this.cropService.setResourceEndpoint('')
+    this.cropService.getById(this.cropId).subscribe((response: any) => {
+      console.log('Response',response)
+      const phase = this.formatCropPhase(response.cropPhase);
+      this.router.navigate([`/harvest/${this.cropId}/${phase}`]);
+    });
+    //this.router.navigate([`/harvest/${this.cropId}/${this.phase}`]);
+  }
 
-    // this.cropService.patch(this.cropId, {phase: this.phase}).subscribe((response: any) => {
-    //   console.log('Response',response)
-    // });
-
-    this.router.navigate([`/harvest/${this.cropId}/${this.phase}`]);
+  formatCropPhase(phase: string) {
+    switch (phase) {
+      case 'FORMULA':
+        return 'Formula';
+      case 'PREPARATION_AREA':
+        return 'Preparation area';
+      case 'BUNKER':
+        return 'Bunker';
+      case 'TUNNEL':
+        return 'Tunnel';
+      case 'INCUBATION':
+        return 'Incubation';
+      case 'CASING':
+        return 'Casing';
+      case 'INDUCTION':
+        return 'Induction';
+      case 'HARVEST':
+        return 'Harvest';
+      default:
+        return '';
+    }
   }
 
   closePopup() {

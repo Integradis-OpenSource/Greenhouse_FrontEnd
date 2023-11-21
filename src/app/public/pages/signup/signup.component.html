@@ -2,8 +2,8 @@
   <mat-card class="card py-5 px-2 md:px-5">
     <mat-card-content>
       <div class="mb-5 text-center md:text-left">
-        <h2>Welcome to Greenhouse</h2>
-        <p>To use the application, please login or register a company</p>
+        <h2>{{ 'login-signup.welcome' | translate }}</h2>
+        <p>{{ 'login-signup.welcome_description' | translate }}</p>
       </div>
       <div class="flex mb-5 justify-content-center md:justify-content-start">
         <div class="state-color">
@@ -83,7 +83,8 @@
             [buttonColor]="'var(--primary-green)'"
             [buttonTextColor]="'var(--primary-white)'"
             [buttonBorderColor]="'var(--primary-green)'"
-            [type]="'submit'">
+            [type]="'button'"
+            (click)="onSubmit()">
           </app-button-primary>
         </div>
       </form>

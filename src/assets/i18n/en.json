@@ -120,7 +120,7 @@
     "urea": "Urea",
     "ammonium_sulphate": "Ammonium sulfate",
     "activities": "Activities",
-    "frequency": "Frequency",
+    "motor_frequency": "Frequency",
     "grow_room": "Grow room",
     "air_temperature": "Air temperature",
     "compost_temperature": "Compost temperature",
@@ -128,13 +128,14 @@
     "air_humidity": "Air humidity",
     "setting": "Setting",
     "comment": "Comment",
-    "t1": "T1",
-    "t2": "T2",
-    "t3": "T3",
-    "tp": "TP",
-    "ta": "TA",
+    "thermocouple_one": "T1",
+    "thermocouple_two": "T2",
+    "thermocouple_three": "T3",
+    "average_thermocouple": "AT",
+    "room_temperature": "RT",
     "fresh_air": "Fresh air",
-    "recirculation": "Recirculation"
+    "recirculation": "Recirculation",
+    "temperature": "Temperature"
   },
   "statistical_reports": {
     "statistical_reports": "Statistical reports"

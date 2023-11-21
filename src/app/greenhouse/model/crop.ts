@@ -1,6 +1,6 @@
 export interface Crop {
   cropId: number;
-  organization_id: number;
+  companyId: number;
   startDate: string;
   endDate: string;
   cropPhase: string;

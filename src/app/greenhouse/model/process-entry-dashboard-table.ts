@@ -4,7 +4,7 @@ export interface ProcessEntryDashboardTable {
   date: string;
   time: string;
   comment?: string;
-  start_date: string;
-  phase: string;
+  startDate: string;
+  cropPhase: string;
   [key: string]: any;
 }

@@ -120,7 +120,7 @@
     "urea": "Urea",
     "ammonium_sulphate": "Sulfato de amonio",
     "activities": "Actividades",
-    "frequency": "Frecuencia",
+    "motor_frequency": "Frecuencia",
     "grow_room": "Nave",
     "air_temperature": "Temperatura del aire",
     "compost_temperature": "Temperatura del compost",
@@ -128,13 +128,14 @@
     "air_humidity": "Humedad",
     "setting": "Setting",
     "comment": "Observación",
-    "t1": "T1",
-    "t2": "T2",
-    "t3": "T3",
-    "tp": "TP",
-    "ta": "TA",
+    "thermocouple_one": "T1",
+    "thermocouple_two": "T2",
+    "thermocouple_three": "T3",
+    "average_thermocouple": "TP",
+    "room_temperature": "TA",
     "fresh_air": "Aire fresco",
-    "recirculation": "Recirculación"
+    "recirculation": "Recirculación",
+    "temperature": "Temperatura"
   },
   "statistical_reports": {
     "statistical_reports": "Reportes estadísticos"
