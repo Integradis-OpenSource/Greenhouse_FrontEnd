@@ -99,6 +99,10 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  toSnakeCase(str: string): string {
+    return str.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase();
+  }
+
   addColumns(response: any) {
     let processEntry = response[0];
     let keys = Object.keys(processEntry);

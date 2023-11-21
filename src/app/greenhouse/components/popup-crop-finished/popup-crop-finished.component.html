@@ -1,4 +1,4 @@
-<app-button-primary text="End phase"
+<app-button-primary [text]="'crop.end_phase' | translate"
                     style="margin-right:1rem;"
                     buttonColor="var(--red)"
                     buttonTextColor="var(--white)"
@@ -9,25 +9,23 @@
 <div class="popup-container-2" *ngIf="popupVisible">
   <div class="popup-content-2">
     <div class="popup-header-2">
-      <h2>WARNING</h2>
+      <h2 class="uppercase">{{'pop-up.warning' | translate}}</h2>
     </div>
     <div class="popup-body-2">
       <br>
-      <p style="text-align: center;">This phase is completed, you will not be able to make any more records at this
-        stage. Are you sure you want to continue?</p>
-      <h5>This operation is irreversible</h5>
+      <p class="text-center;">{{'pop-up.confirm_end_phase' | translate}}</p>
+      <h5 class="text-gray-600">{{'pop-up.irreversible' | translate}}</h5>
     </div>
     <div class="popup-footer-2">
-      <app-button-primary text="Yes, finish it"
+      <app-button-primary [text]="'pop-up.confirm' | translate"
                           buttonColor="var(--red)"
                           buttonTextColor="var(--white)"
                           buttonBorderColor="var(--red)"
                           (click)="activeObjectNotificationFinished()"
-                          [useStepperNext]="true"
-      >
+                          [useStepperNext]="true">
       </app-button-primary>
       <app-button-primary style="margin:1.5rem;"
-                          text=" Cancel"
+                          [text]="'pop-up.cancel' | translate"
                           buttonColor="var(--gray-2)"
                           buttonTextColor="var(--primary-white)"
                           buttonBorderColor="var(--gray-2)"
@@ -41,15 +39,15 @@
 <div class="popup-container" *ngIf="notificationVisible">
   <div class="popup-content">
     <div class="popup-header">
-      <h2>CROP COMPLETED</h2>
+      <h2>{{'pop-up.crop_finished'}}</h2>
     </div>
     <div class="popup-body">
       <br>
-      <p style="text-align: center;">{{popupText}}{{date_start | date:'medium'}} {{popupText2}}   <span style="font-weight: bold;">{{ popupText3 }}</span></p>
+      <p class="text-center;">{{'pop-up.the_crop_started_on'}}{{date_start | date:'medium'}} {{'pop-up.has_completed_all_phases' | translate}}</p>
     </div>
     <div class="popup-footer">
       <app-button-primary style="margin:1.5rem;"
-                          text=" Accept and return to main menu"
+                          [text]="'pop-up.confirm' | translate"
                           buttonColor="var(--secondary-green-1)"
                           buttonTextColor="var(--primary-white)"
                           buttonBorderColor="var(--secondary-green-1)"
