@@ -14,14 +14,14 @@ export class StepperContentComponent implements OnInit{
   phase: string = '';
   date: string = '';
   phases = [
-    { label: '0', message: 'Formula', endpoint: '' },
-    { label: '1', message: 'Preparation Area', endpoint: '' },
-    { label: '2', message: 'Bunker', endpoint: '' },
-    { label: '3', message: 'Tunnel', endpoint: '' },
-    { label: '4.1', message: 'Incubation', endpoint: '' },
-    { label: '4.2', message: 'Casing', endpoint: '' },
-    { label: '4.3', message: 'Induction', endpoint: '' },
-    { label: '4.4', message: 'Harvest', endpoint: '' },
+    { label: '0', message: 'Formula', endpoint: '' , translate: 'FORMULA'},
+    { label: '1', message: 'Preparation Area', endpoint: '' , translate: 'PREPARATION_AREA'},
+    { label: '2', message: 'Bunker', endpoint: '' , translate: 'BUNKER'},
+    { label: '3', message: 'Tunnel', endpoint: '' , translate: 'TUNNEL'},
+    { label: '4.1', message: 'Incubation', endpoint: '' , translate: 'INCUBATION'},
+    { label: '4.2', message: 'Casing', endpoint: '' , translate: 'CASING'},
+    { label: '4.3', message: 'Induction', endpoint: '' , translate: 'INDUCTION'},
+    { label: '4.4', message: 'Harvest', endpoint: '' , translate: 'HARVEST'},
   ];
   calculateStepperLabel(index: number): string {
     if (index === 0) {

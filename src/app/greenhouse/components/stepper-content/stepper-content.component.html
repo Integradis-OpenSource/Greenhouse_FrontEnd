@@ -7,7 +7,7 @@
       {{ calculateStepperLabel(index) }}
     </ng-template>
     <mat-step *ngFor="let phase of phases; let index = index" [editable]="false">
-      <ng-template matStepLabel><span class="stepper-label">{{ 'crop.' + phase.message.toLowerCase() | translate }}</span></ng-template>
+      <ng-template matStepLabel><span class="stepper-label">{{ 'crop.' + phase.translate.toLowerCase() | translate }}</span></ng-template>
       <h2>{{'crop.records_of_crop' | translate}} {{ cropId }}, {{'crop.started_on' | translate}} {{ date }}</h2>
       <div>
         <app-process-table [processType]="phase.endpoint" [phase]="nextStep" [cropId]="cropId" [step]="phase.message" [stepNumber]="phase.label"></app-process-table>

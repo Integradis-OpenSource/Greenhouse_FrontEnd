@@ -132,7 +132,7 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
     const stepInputs = {
       'Formula': ['author','hay', 'corn', 'guano', 'cottonSeedCake', 'soybeanMeal', 'gypsum', 'urea', 'ammoniumSulphate'],
       'Preparation Area': ['author', 'activities', 'temperature', 'comment'],
-      'Bunker': ['author', 'thermocoupleOne', 'thermocoupleTwo', 'thermocoupleThree', 'frequency', 'comment'],
+      'Bunker': ['author', 'thermocoupleOne', 'thermocoupleTwo', 'thermocoupleThree', 'motorFrequency', 'comment'],
       'Tunnel': ['author', 'thermocoupleOne', 'thermocoupleTwo', 'thermocoupleThree', 'motorFrequency', 'roomTemperature', 'freshAir', 'recirculation', 'comment'],
       'Incubation': ['author', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHumidity', 'setting', 'comment'],
       'Casing': ['author', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHumidity', 'setting', 'comment'],
