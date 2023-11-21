@@ -58,7 +58,7 @@ export class CropsInProgressComponent implements AfterViewInit, OnInit {
         crop.cropPhase = this.formatCropPhase(crop.cropPhase);
         crop.startDate = crop.startDate.split('T')[0];
       });
-
+      console.log(this.dataSource.data)
       this.dataSource.data = this.dataSource.data.filter((crop) => crop.state)
     })
   }

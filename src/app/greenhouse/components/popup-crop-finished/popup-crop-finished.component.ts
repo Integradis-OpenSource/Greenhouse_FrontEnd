@@ -33,6 +33,7 @@ export class PopupCropFinishedComponent {
   }
   closePopUpCropFinished() {
     this.popupVisible = false;
+    this.cropService.setResourceEndpoint('end_phase')
     this.cropService.patch(this.cropId).subscribe((response: any) => {
       console.log('Response',response)
     });

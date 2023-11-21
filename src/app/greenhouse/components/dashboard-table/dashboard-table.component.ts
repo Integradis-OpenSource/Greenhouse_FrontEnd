@@ -119,13 +119,13 @@ export class DashboardTableComponent implements OnInit {
 
   unformatCropPhase(cropPhase: string): string {
     switch (cropPhase) {
-      case 'FORMULA':
+      case 'formulas':
         return 'Formula';
-      case 'PREPARATION_AREA':
+      case 'preparation-areas':
         return 'Preparation Area';
-      case 'BUNKER':
+      case 'bunkers':
         return 'Bunker';
-      case 'TUNNEL':
+      case 'tunnels':
         return 'Tunnel';
       case 'INCUBATION':
         return 'Incubation';

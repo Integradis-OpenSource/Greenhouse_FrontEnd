@@ -8,8 +8,8 @@ import {TokenStorageService} from "./tokenStorage.service";
 export class BaseService<T> {
   // basePath: string = 'https://my-json-server.typicode.com/Integradis-OpenSource/Greenhouse';
   // basePath: string = 'http://localhost:3000/api/v1';
-  //basePath: string = 'https://greenhouse.zeabur.app/api/v1';
-  basePath: string = 'http://localhost:8080/api/v1';
+  basePath: string = 'https://greenhouse.zeabur.app/api/v1';
+  //basePath: string = 'http://localhost:8080/api/v1';
   resourceEndpoint: string = '/resources';
 
 
