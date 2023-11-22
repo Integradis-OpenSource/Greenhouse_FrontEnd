@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, retry, throwError } from 'rxjs';
-import { User } from '../../profiles/model/user';
+import { Employee } from '../../profiles/model/employee';
 import {TokenStorageService} from "./tokenStorage.service";
 
 
@@ -84,8 +84,8 @@ export class BaseService<T> {
     );
   }
 
-  getEmployeesByCompany(companyId: number): Observable<User[]> {
-    return this.http.get<User[]>(`${this.resourcePath()}?company_id=${companyId}`).pipe(
+  getEmployeesByCompany(companyId: number): Observable<Employee[]> {
+    return this.http.get<Employee[]>(`${this.resourcePath()}?company_id=${companyId}`).pipe(
       retry(2),
       catchError(this.handleError)
     );

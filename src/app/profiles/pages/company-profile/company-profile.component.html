@@ -5,7 +5,7 @@
         <div class="lg:w-1/2 text-center align-content-center mb-5 md:mr-5">
           <p class="font-bold text-4xl mb-4">{{ 'company_profile.my_company' | translate }}</p>
           <div class="flex items-center justify-center mb-2">
-            <img class="rounded-full w-56 h-56" alt="avatar" src="{{company.image}}">
+            <img class="rounded-full w-56 h-56" alt="avatar" src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png">
           </div>
           <a class="text-blue-500 text-sm underline">{{ 'company_profile.change_profile_picture' | translate }}</a>
         </div>
@@ -14,7 +14,7 @@
             <div class="mb-5">
               <div class="flex items-baseline">
                 <p class="text-xl font-bold pr-4">{{ 'company_profile.company_name' | translate }}:</p>
-                <p class="text-sm overflow-ellipsis">{{ company.company_name }}</p>
+                <p class="text-sm overflow-ellipsis">{{ company.name }}</p>
               </div>
               <a class="text-blue-500 text-sm underline">{{ 'company_profile.change_company_name' | translate }}</a>
               <hr class="division">
@@ -22,7 +22,7 @@
             <div class="mb-5">
               <div class="flex items-baseline">
                 <p class="text-xl font-bold pr-4">{{ 'company_profile.ruc' | translate }}:</p>
-                <p class="text-sm overflow-ellipsis">{{ company.ruc }}</p>
+                <p class="text-sm overflow-ellipsis">{{ company.Tin }}</p>
               </div>
               <a class="text-blue-500 text-sm underline">{{ 'company_profile.change_ruc' | translate }}</a>
               <hr class="division">
@@ -62,8 +62,8 @@
       <div class="text-center flex justify-center flex-wrap">
         <div *ngFor="let employee of employees" class="flex flex-column text-center mx-2">
           <div class="items-center flex-grow mx-4 my-5">
-            <img class="flex-grow rounded-full w-36 h-36" alt="avatar" src="{{employee.image}}">
-            <p>{{employee.first_name}} {{employee.last_name}}</p>
+            <img class="flex-grow rounded-full w-36 h-36" alt="avatar" src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png">
+            <p>{{employee.fullName}}</p>
             <a class="underline" routerLink="/profile">{{ 'company_profile.view_more' | translate }}</a>
           </div>
         </div>

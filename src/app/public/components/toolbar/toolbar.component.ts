@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {User} from "../../../profiles/model/user";
+import {Employee} from "../../../profiles/model/employee";
 import {UserService} from "../../../profiles/services/user.service";
 import {Company} from "../../../profiles/model/company";
 import {CompanyService} from "../../../profiles/services/company.service";
@@ -12,23 +12,27 @@ import { Router } from '@angular/router';
 })
 export class ToolbarComponent implements OnInit {
   showMenu = false;
-  user: User;
+  user: Employee;
   company: Company;
 
   constructor(private userService: UserService, private companyService: CompanyService, private router: Router) {
-    this.user = {} as User;
-    this.company = {} as Company;
+    this.user = new Employee;
+    this.company = new Company;
   }
 
-  getUser(): void {
-    this.userService.getList().subscribe((response: any) => {
-      this.user = response[0];
+  getUser() :void {
+    this.userService.setResourceEndpoint('');
+    this.userService.getById(1).subscribe((response: any) => {
+      this.user = response;
+      console.log(response);
     });
   }
 
   getCompany(): void {
-    this.companyService.getList().subscribe((response: any) => {
-      this.company = response[0];
+    this.companyService.setResourceEndpoint('');
+    this.companyService.getById(1).subscribe((response: any) => {
+      this.company = response;
+      console.log(response);
     });
   }
 

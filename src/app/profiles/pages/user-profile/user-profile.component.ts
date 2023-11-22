@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../services/user.service";
-import {User} from "../../model/user";
+import {Employee} from "../../model/employee";
 
 @Component({
   selector: 'app-user-profile',
@@ -8,13 +8,15 @@ import {User} from "../../model/user";
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  user: User;
+  user: Employee;
   constructor(private userService: UserService) {
-    this.user = {} as User;
+    this.user = new Employee();
   }
   getUser() :void {
-    this.userService.getList().subscribe((response: any) => {
-      this.user = response[0];
+    this.userService.setResourceEndpoint('');
+    this.userService.getById(1).subscribe((response: any) => {
+      this.user = response;
+      console.log(response);
     });
   }
   ngOnInit(): void {

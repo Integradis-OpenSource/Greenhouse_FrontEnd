@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Company } from "../../model/company";
 import { CompanyService } from "../../services/company.service";
 import { UserService } from "../../services/user.service";
-import { User } from "../../model/user";
+import { Employee } from "../../model/employee";
 import {InviteEmployeeDialogComponent} from "../../components/invite-employee-dialog/invite-employee-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 
@@ -13,24 +13,32 @@ import {MatDialog} from "@angular/material/dialog";
 })
 export class CompanyProfileComponent implements OnInit {
   company: Company;
-  employees: User[] = [];
+  employees: Employee[] = [];
 
   constructor(private companyService: CompanyService, private userService: UserService, private dialog: MatDialog) {
-    this.company = {} as Company;
+    this.company = new Company;
   }
-
   getCompany(): void {
-    this.companyService.getList().subscribe((response: any) => {
-      this.company = response[0];
-      this.getEmployees();
+    this.companyService.setResourceEndpoint('');
+    this.userService.setResourceEndpoint('company/');
+    this.companyService.getById(1).subscribe((response: any) => {
+      this.userService.getById(response.id).subscribe((response: any) => {
+        this.employees = response;
+      });
+      this.company = response;
     });
   }
 
+  /*
   getEmployees(): void {
-    this.userService.getEmployeesByCompany(this.company.id).subscribe((response: User[]) => {
+    console.log(this.companyId);
+    this.userService.setResourceEndpoint('company/');
+    this.userService.getById(this.companyId).subscribe((response: any) => {
       this.employees = response;
+
     });
   }
+  */
 
   openInviteEmployeeForm(): void {
     const dialogRef = this.dialog.open(InviteEmployeeDialogComponent, {
@@ -42,5 +50,6 @@ export class CompanyProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCompany();
+    //this.getEmployees();
   }
 }
