@@ -63,7 +63,7 @@ export class CropsInProgressComponent implements AfterViewInit, OnInit {
     })
   }
 
-  onRowSelect(selectedRow: Crop){
+  onRowSelected(selectedRow: Crop){
 
     const routeUrl = `/harvest/${selectedRow.cropId}/${selectedRow.cropPhase}`;
     this.router.navigate([routeUrl]);
