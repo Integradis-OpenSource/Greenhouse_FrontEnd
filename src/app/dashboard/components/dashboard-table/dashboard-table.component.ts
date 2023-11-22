@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ProcessEntryDashboardTable} from "../../model/process-entry-dashboard-table";
 import {ProcessEntriesDashboardTableService} from "../../services/process-entries-dashboard-table.service";
 import {MatTableDataSource} from "@angular/material/table";
-import {CropsService} from "../../services/crops.service";
+import {CropsService} from "../../../crops/services/crops.service";
 @Component({
   selector: 'app-dashboard-table',
   templateUrl: './dashboard-table.component.html',

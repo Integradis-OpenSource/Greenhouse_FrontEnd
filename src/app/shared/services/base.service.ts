@@ -100,7 +100,8 @@ export class BaseService<T> {
   }
 
   post(id: any) : Observable<T> {
-    return this.http.patch<T>(`${this.resourcePath()}/${id}/${this.resourceModifier}`, this.httpOptions)
+    const httpOptions = this.getHttpOptions();
+    return this.http.patch<T>(`${this.resourcePath()}/${id}/${this.resourceModifier}`, httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
