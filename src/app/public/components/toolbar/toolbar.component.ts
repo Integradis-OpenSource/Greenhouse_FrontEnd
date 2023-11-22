@@ -20,11 +20,14 @@ export class ToolbarComponent implements OnInit {
     this.company = new Company;
   }
 
-  getUser() :void {
+  getUserAndCompany() :void {
+    this.companyService.setResourceEndpoint('');
     this.userService.setResourceEndpoint('');
-    this.userService.getById(1).subscribe((response: any) => {
+    this.userService.getById(this.userService.getEmployeeId()).subscribe((response: any) => {
       this.user = response;
-      console.log(response);
+      this.companyService.getById(response.companyId).subscribe((response: any) => {
+        this.company = response;
+      });
     });
   }
 
@@ -54,7 +57,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUser();
-    this.getCompany();
+    this.getUserAndCompany();
+    //this.getCompany();
   }
 }

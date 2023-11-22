@@ -18,15 +18,18 @@ export class CompanyProfileComponent implements OnInit {
   constructor(private companyService: CompanyService, private userService: UserService, private dialog: MatDialog) {
     this.company = new Company;
   }
-  getCompany(): void {
+  getCompanyAndEmployees(): void {
     this.companyService.setResourceEndpoint('');
-    this.userService.setResourceEndpoint('company/');
-    this.companyService.getById(1).subscribe((response: any) => {
-      this.userService.getById(response.id).subscribe((response: any) => {
-        this.employees = response;
+    this.userService.setResourceEndpoint('');
+    this.userService.getById(this.userService.getEmployeeId()).subscribe((response: any) => {
+      this.companyService.getById(response.companyId).subscribe((response: any) => {
+        this.userService.setResourceEndpoint('company/');
+        this.userService.getById(response.id).subscribe((response: any) => {
+          this.employees = response;
+        });
+        this.company = response;
       });
-      this.company = response;
-    });
+    })
   }
 
   /*
@@ -49,7 +52,7 @@ export class CompanyProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getCompany();
+    this.getCompanyAndEmployees();
     //this.getEmployees();
   }
 }

@@ -14,7 +14,7 @@ export class UserProfileComponent implements OnInit {
   }
   getUser() :void {
     this.userService.setResourceEndpoint('');
-    this.userService.getById(1).subscribe((response: any) => {
+    this.userService.getById(this.userService.getEmployeeId()).subscribe((response: any) => {
       this.user = response;
       console.log(response);
     });

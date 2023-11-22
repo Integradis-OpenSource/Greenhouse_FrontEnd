@@ -9,15 +9,24 @@ import {ProcessEntryDashboardTable} from "../../dashboard/model/process-entry-da
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class UserService extends BaseService<Employee> {
+  userId: number = 0;
   constructor(http: HttpClient, tokenStorageService: TokenStorageService) {
     super(http, tokenStorageService);
+    this.userId = tokenStorageService.getUser();
+    console.log('UserService.constructor()', this.userId);
     //this.basePath = "https://my-json-server.typicode.com/CarloLSG/GreenhouseFakeAPI1"
-    this.basePath = "https://greenhouse.zeabur.app/api/v1/employees/";
+    this.basePath = `https://greenhouse.zeabur.app/api/v1/employees/`;
     //this.resourceEndpoint = "/employees";
   }
 
   setResourceEndpoint(endpoint: string) {
     this.resourceEndpoint = `${endpoint}`;
+  }
+
+  getEmployeeId(): number {
+    return this.userId
   }
 }
