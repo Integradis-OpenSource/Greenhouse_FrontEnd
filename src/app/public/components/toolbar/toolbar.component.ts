@@ -45,6 +45,10 @@ export class ToolbarComponent implements OnInit {
     }
   }
 
+  displayMenu() {
+    this.showMenu = !this.showMenu;
+  }
+
   ngOnInit(): void {
     this.getUser();
     this.getCompany();
