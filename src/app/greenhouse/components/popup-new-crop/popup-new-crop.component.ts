@@ -36,6 +36,7 @@ export class PopupNewCropComponent {
       console.log('Response',response)
     });*/
     this.cropService.setBasePath('https://greenhouse.zeabur.app/api/v1/crops')
+    //this.cropService.setBasePath('http://localhost:8080/api/v1/crops')
     this.cropService.setResourceEndpoint('')
     console.log("Endpoint", this.cropService.getEndpoint())
     this.cropService.create({companyId: this.companyId}).subscribe((response: any) => {

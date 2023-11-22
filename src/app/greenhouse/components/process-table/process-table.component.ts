@@ -55,9 +55,40 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
     this.paginator = {} as MatPaginator;
   }
 
+  formatCropPhase(cropPhase: string): string {
+    switch (cropPhase) {
+      case 'formulas':
+        return 'Formula';
+      case 'preparation-areas':
+        return 'Preparation Area';
+      case 'bunkers':
+        return 'Bunker';
+      case 'tunnels':
+        return 'Tunnel';
+      case 'incubation':
+        return 'Incubation';
+      case 'casing':
+        return 'Casing';
+      case 'induction':
+        return 'Induction';
+      case 'harvest':
+        return 'Harvest';
+      default:
+        return cropPhase; // Return the original value if not found in the mapping
+    }
+  }
+
   getAllProcess() {
     this.processApiService.setResourceEndpoint(this.processType);
-    this.processApiService.getAll().subscribe((response: any) => {
+    this.processApiService.getList().subscribe((response: any) => {
+      // for each response.time format it to HH:MM:SS
+      response.forEach((processEntry: any) => {
+        processEntry.time = processEntry.time.split('.')[0];
+        processEntry.date = processEntry.date.split('T')[0];
+        if(processEntry.cropPhase === 'Incubation' || processEntry.cropPhase === 'Casing' || processEntry.cropPhase === 'Induction' || processEntry.cropPhase === 'Harvest')
+        processEntry.cropPhase = processEntry.cropPhase ? this.formatCropPhase(processEntry.cropPhase) : '';
+      });
+
       this.dataSource.data = response;
       this.addColumns(this.dataSource.data)
     });
@@ -78,7 +109,12 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
     const formatHeader = (key: string) => {
       return key.replace(/([A-Z])/g, ' $1').trim().replace(/^\w/, (c) => c.toUpperCase());
     };
-
+    // validate if the key already exists
+    this.columns.forEach((column) => {
+      if (keys.includes(column.columnDef)) {
+        keys = keys.filter((key) => key !== column.columnDef);
+      }
+    });
     keys.forEach((key) => {
       if (key !== 'id' && key !== '__v' && key !== 'processType' && key !== 'apiId' && key !== 'crop_id' && key !== 'author' && key !== 'day' && key !== 'date' && key !== 'time'
       && key !== 'formulaId' && key !== 'preparationAreaId' && key !== 'bunkerId' && key !== 'tunnelId' && key != 'growRoomId') {
@@ -94,18 +130,18 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
 
   openInputDialog(): void {
     const stepInputs = {
-      'Stock': ['author','day', 'hay', 'corn', 'guano', 'cottonSeedCake', 'soybeanMeal', 'gypsum', 'urea', 'ammoniumSulphate'],
-      'Preparation area': ['author','day', 'activities', 'temperature', 'comment'],
-      'Bunker': ['author','day', 't1', 't2', 't3', 'tp', 'frequency', 'comment'],
-      'Tunnel': ['author','day', 'growRoom', 't1', 't2', 't3', 'tp', 'ta', 'comment'],
-      'Incubation': ['author','day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
-      'Casing': ['author','day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
-      'Induction': ['author','day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
-      'Harvest': ['author','day', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHydrogen', 'setting', 'comment'],
+      'Formula': ['author','hay', 'corn', 'guano', 'cottonSeedCake', 'soybeanMeal', 'gypsum', 'urea', 'ammoniumSulphate'],
+      'Preparation Area': ['author', 'activities', 'temperature', 'comment'],
+      'Bunker': ['author', 'thermocoupleOne', 'thermocoupleTwo', 'thermocoupleThree', 'motorFrequency', 'comment'],
+      'Tunnel': ['author', 'thermocoupleOne', 'thermocoupleTwo', 'thermocoupleThree', 'motorFrequency', 'roomTemperature', 'freshAir', 'recirculation', 'comment'],
+      'Incubation': ['author', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHumidity', 'setting', 'comment'],
+      'Casing': ['author', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHumidity', 'setting', 'comment'],
+      'Induction': ['author', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHumidity', 'setting', 'comment'],
+      'Harvest': ['author', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHumidity', 'setting', 'comment'],
     };
     if (this.dataSource.data.length > 0) {
       this.dialogFields = this.columns.map(column => column.columnDef);
-      const fieldsToExclude = ['formulaId', 'date', 'time', 'processType'];
+      const fieldsToExclude = ['formulaId', "preparationAreaId", "bunkerId", "tunnelId", "incubationId", "casingId", "inductionId", "harvestId","day", 'date', 'time', 'cropPhase', "averageThermocouple"];
       this.dialogFields = this.dialogFields.filter(field => !fieldsToExclude.includes(field));
     } else {
       if (stepInputs[this.step as keyof typeof stepInputs]) { // Use a type assertion
@@ -122,20 +158,26 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
     const currentDateTime = new Date();
     const currentDate = currentDateTime.toISOString().split('T')[0];
     const currentTime = currentDateTime.toTimeString().split(' ')[0];
+    // Array of day names
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+    // Get current Day of Week in string format
+    const currentDayOfWeek = daysOfWeek[currentDateTime.getDay()];
+
     let commonData:{
-      //author: string,
       date: string,
       time: string,
+      day: string,
       crop_id: number,
-      processType?: string;
+      cropPhase?: string;
     } = {
       crop_id: this.cropId,
-      //author: 'Winston Smith',
       date: currentDate,
+      day: currentDayOfWeek,
       time: currentTime,
     }
     if (this.step === 'Incubation' || this.step === 'Casing' || this.step === 'Induction' || this.step === 'Harvest') {
-      commonData.processType = this.step;
+      commonData.cropPhase = this.step;
     }
     return {
       ...commonData, ...this.inputFields
@@ -144,17 +186,26 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
 
   saveRecord() {
     const dataToSave = this.generateDataToSave();
+    //const dataToSave = this.inputFields;
+    console.log('Data to save', this.inputFields);
+    console.log('Data to save', dataToSave);
+    console.log('Process Type', this.processType);
     this.processApiService.setResourceEndpoint(this.processType);
+
     this.processApiService.create(dataToSave).subscribe((response: any) => {
       console.log('Response', response);
     });
     this.dialogFields.forEach(field => {
       this.inputFields[field] = '';
     });
-    const currentData = this.dataSource.data;
-    currentData.push(dataToSave);
+    //window.location.reload();//TODO change so it doesn't need to reload
+    let currentData = this.dataSource.data;
+    currentData.push(<ProcessEntry>dataToSave);
     this.dataSource.data = currentData;
-    if (currentData.length <= 1) this.getAllProcess();
+    if (currentData.length <= 1)
+      this.getAllProcess();
+
+
     this.showDialog = false;
   }
 

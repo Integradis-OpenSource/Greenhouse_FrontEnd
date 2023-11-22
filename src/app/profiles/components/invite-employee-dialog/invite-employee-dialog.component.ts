@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatDialogRef} from "@angular/material/dialog";
 import {EmailJsService} from "../../services/emailjs.service";
 import {UserService} from "../../services/user.service";
+import {AuthService} from "../../../shared/services/auth.service";
 
 @Component({
   selector: 'app-invite-employee-dialog',
@@ -13,11 +14,17 @@ import {UserService} from "../../services/user.service";
 export class InviteEmployeeDialogComponent {
   form: FormGroup;
   isInviteButtonDisabled = true;
+  signUpForm: any = {};
+  roles = ["ROLE_USER"];
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
 
   constructor(private dialogRef: MatDialogRef<InviteEmployeeDialogComponent>,
               private fb: FormBuilder,
               private emailJsService: EmailJsService,
-              private userService: UserService) {
+              private userService: UserService,
+              private authService: AuthService) {
     this.form = this.fb.group({
       newEmployeeFirstName: ['', Validators.required],
       newEmployeeLastName: ['', Validators.required],
@@ -52,6 +59,19 @@ export class InviteEmployeeDialogComponent {
         email: this.form.value.newEmployeeEmail,
         password: this.form.value.newEmployeePassword,
       };
+
+      this.signUpForm = {username: this.form.value.newEmployeeEmail, password: this.form.value.newEmployeePassword, roles: this.roles}
+      this.authService.register(this.signUpForm).subscribe(
+        data => {
+          this.isSuccessful = true;
+          this.isSignUpFailed = false;
+        },
+        err => {
+          this.errorMessage = err.error.message;
+          this.isSignUpFailed = true;
+        }
+      );
+
 
       this.userService.create(newEmployee).subscribe((response: any) => {
         console.log('Response', response);

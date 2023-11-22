@@ -14,14 +14,14 @@ export class StepperContentComponent implements OnInit{
   phase: string = '';
   date: string = '';
   phases = [
-    { label: '0', message: 'FORMULA', endpoint: '' },
-    { label: '1', message: 'PREPARATION_AREA', endpoint: '' },
-    { label: '2', message: 'BUNKER', endpoint: '' },
-    { label: '3', message: 'TUNNEL', endpoint: '' },
-    { label: '4.1', message: 'INCUBATION', endpoint: '' },
-    { label: '4.2', message: 'CASING', endpoint: '' },
-    { label: '4.3', message: 'INDUCTION', endpoint: '' },
-    { label: '4.4', message: 'HARVEST', endpoint: '' },
+    { label: '0', message: 'Formula', endpoint: '' , translate: 'FORMULA'},
+    { label: '1', message: 'Preparation Area', endpoint: '' , translate: 'PREPARATION_AREA'},
+    { label: '2', message: 'Bunker', endpoint: '' , translate: 'BUNKER'},
+    { label: '3', message: 'Tunnel', endpoint: '' , translate: 'TUNNEL'},
+    { label: '4.1', message: 'Incubation', endpoint: '' , translate: 'INCUBATION'},
+    { label: '4.2', message: 'Casing', endpoint: '' , translate: 'CASING'},
+    { label: '4.3', message: 'Induction', endpoint: '' , translate: 'INDUCTION'},
+    { label: '4.4', message: 'Harvest', endpoint: '' , translate: 'HARVEST'},
   ];
   calculateStepperLabel(index: number): string {
     if (index === 0) {
@@ -50,8 +50,9 @@ export class StepperContentComponent implements OnInit{
       this.phases[7].endpoint = `${this.cropId}/grow-rooms/HARVEST`;
     });
     //this.cropService.setResourceEndpoint(this.cropId.toString());
+    this.cropService.setResourceEndpoint('')
     this.cropService.getById(this.cropId).subscribe((response: any) => {
-      this.date = response.start_date;
+      this.date = response.startDate.split('T')[0];
     });
   }
 

@@ -28,21 +28,21 @@ export class CropsInProgressComponent implements AfterViewInit, OnInit {
   formatCropPhase(cropPhase: string): string {
     switch (cropPhase) {
       case 'FORMULA':
-        return 'formulas';
+        return 'Formula';
       case 'PREPARATION_AREA':
-        return 'preparation Area';
+        return 'Preparation area';
       case 'BUNKER':
-        return 'bunker';
+        return 'Bunker';
       case 'TUNNEL':
-        return 'tunnel';
+        return 'Tunnel';
       case 'INCUBATION':
-        return 'incubation';
+        return 'Incubation';
       case 'CASING':
-        return 'casing';
+        return 'Casing';
       case 'INDUCTION':
-        return 'induction';
+        return 'Induction';
       case 'HARVEST':
-        return 'harvest';
+        return 'Harvest';
       default:
         return cropPhase; // Return the original value if not found in the mapping
     }
@@ -56,13 +56,15 @@ export class CropsInProgressComponent implements AfterViewInit, OnInit {
 
       this.dataSource.data.forEach((crop) => {
         crop.cropPhase = this.formatCropPhase(crop.cropPhase);
+        crop.startDate = crop.startDate.split('T')[0];
       });
-
+      console.log(this.dataSource.data)
       this.dataSource.data = this.dataSource.data.filter((crop) => crop.state)
     })
   }
 
   onRowSelect(selectedRow: Crop){
+
     const routeUrl = `/harvest/${selectedRow.cropId}/${selectedRow.cropPhase}`;
     this.router.navigate([routeUrl]);
   }
