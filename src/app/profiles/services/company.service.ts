@@ -21,4 +21,8 @@ export class CompanyService extends BaseService<Company> {
   setResourceEndpoint(endpoint: string) {
     this.resourceEndpoint = `${endpoint}`;
   }
+
+  setBasePath() {
+    this.basePath = "https://greenhouse.zeabur.app/api/v1/companies";
+  }
 }
