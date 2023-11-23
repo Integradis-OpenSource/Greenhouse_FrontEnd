@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, retry, throwError } from 'rxjs';
-import { User } from '../../profiles/model/user';
+import { Employee } from '../../profiles/model/employee';
 import {TokenStorageService} from "./tokenStorage.service";
 
 
@@ -11,6 +11,7 @@ export class BaseService<T> {
   basePath: string = 'https://greenhouse.zeabur.app/api/v1';
   //basePath: string = 'http://localhost:8080/api/v1';
   resourceEndpoint: string = '/resources';
+  resourceModifier: string = '';
 
 
   constructor(private http: HttpClient, private tokenService: TokenStorageService) {}
@@ -83,8 +84,8 @@ export class BaseService<T> {
     );
   }
 
-  getEmployeesByCompany(companyId: number): Observable<User[]> {
-    return this.http.get<User[]>(`${this.resourcePath()}?company_id=${companyId}`).pipe(
+  getEmployeesByCompany(companyId: number): Observable<Employee[]> {
+    return this.http.get<Employee[]>(`${this.resourcePath()}?company_id=${companyId}`).pipe(
       retry(2),
       catchError(this.handleError)
     );
@@ -98,17 +99,30 @@ export class BaseService<T> {
     );
   }
 
+  post(id: any) : Observable<T> {
+    const httpOptions = this.getHttpOptions();
+    return this.http.patch<T>(`${this.resourcePath()}/${id}/${this.resourceModifier}`, httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
   private resourcePath(): string {
     return `${this.basePath}${this.resourceEndpoint}`;
   }
 
   private getHttpOptions():{headers: HttpHeaders}{
     const token = this.tokenService.getToken();
-
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return {headers: headers};
+    console.log('BaseService.getHttpOptions()', token);
+    if(window.sessionStorage.getItem('auth-token') === null){
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+      });
+      return {headers: headers};
+    } else {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      });
+      return {headers: headers};
+    }
   }
 }

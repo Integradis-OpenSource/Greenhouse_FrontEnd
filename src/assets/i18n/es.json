@@ -69,7 +69,8 @@
     "change_email": "Cambiar correo electrónico",
     "change_password": "Cambiar contraseña",
     "delete_account": "Borrar cuenta",
-    "change_profile_picture": "Cambiar foto de perfil"
+    "change_profile_picture": "Cambiar foto de perfil",
+    "sign_out": "Cerrar sesión"
   },
   "company_profile": {
     "my_company": "Mi empresa",
@@ -139,5 +140,9 @@
   },
   "statistical_reports": {
     "statistical_reports": "Reportes estadísticos"
+  },
+  "crops-archive": {
+    "archive_log": "Registro de archivados",
+    "crops_archived": "Cultivos archivados"
   }
 }

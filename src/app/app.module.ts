@@ -12,8 +12,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
 import {NgOptimizedImage} from "@angular/common";
 import {MatStepperModule} from "@angular/material/stepper";
-import {StepperContentComponent} from './greenhouse/components/stepper-content/stepper-content.component';
-import { ButtonPrimaryComponent } from './greenhouse/components/button-primary/button-primary.component';
+import {StepperContentComponent} from './crops/pages/stepper-content/stepper-content.component';
+import { ButtonPrimaryComponent } from './public/components/button-primary/button-primary.component';
 import {  RouterOutlet } from "@angular/router";
 import { ToolbarComponent } from './public/components/toolbar/toolbar.component';
 import {  MatToolbarModule } from "@angular/material/toolbar";
@@ -25,14 +25,13 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
 
 
-import { DashboardCardComponent } from './greenhouse/components/dashboard-card/dashboard-card.component';
-import { DashboardComponent } from './greenhouse/pages/dashboard/dashboard.component';
-import {InformationComponent} from "./greenhouse/components/information/information.component";
-import { ProcessTableComponent } from './greenhouse/components/process-table/process-table.component';
-import { CropsInProgressComponent } from './greenhouse/pages/crops-in-progress/crops-in-progress.component';
-import { PopupWarningComponent } from './greenhouse/components/popup-warning/popup-warning.component';
-import { PopupNewCropComponent } from './greenhouse/components/popup-new-crop/popup-new-crop.component';
-import { PopupCropFinishedComponent } from './greenhouse/components/popup-crop-finished/popup-crop-finished.component';
+import { DashboardCardComponent } from './dashboard/components/dashboard-card/dashboard-card.component';
+import { DashboardComponent } from './dashboard/pages/dashboard/dashboard.component';
+import { ProcessTableComponent } from './crops/components/process-table/process-table.component';
+import { CropsInProgressComponent } from './crops/pages/crops-in-progress/crops-in-progress.component';
+import { PopupWarningComponent } from './crops/components/popup-warning/popup-warning.component';
+import { PopupNewCropComponent } from './crops/components/popup-new-crop/popup-new-crop.component';
+import { PopupCropFinishedComponent } from './crops/components/popup-crop-finished/popup-crop-finished.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { PageNotFoundComponent } from './public/pages/page-not-found/page-not-found.component';
 import { LoginComponent } from './public/pages/login/login.component';
@@ -47,12 +46,13 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatSelectModule} from "@angular/material/select";
 import { UserProfileComponent } from './profiles/pages/user-profile/user-profile.component';
 import { CompanyProfileComponent } from './profiles/pages/company-profile/company-profile.component';
-import {DashboardTableComponent} from "./greenhouse/components/dashboard-table/dashboard-table.component";
-import { StatisticalReportsComponent } from './greenhouse/pages/statistical-reports/statistical-reports.component';
-import { LineChartComponent } from './greenhouse/components/line-chart/line-chart.component';
+import {DashboardTableComponent} from "./dashboard/components/dashboard-table/dashboard-table.component";
+import { StatisticalReportsComponent } from './analytics/pages/statistical-reports/statistical-reports.component';
+import { LineChartComponent } from './analytics/components/line-chart/line-chart.component';
 import { AgChartsAngularModule } from 'ag-charts-angular';
 import { InviteEmployeeDialogComponent } from './profiles/components/invite-employee-dialog/invite-employee-dialog.component';
 import {authInterceptorProviders} from "./shared/services/auth-interceptor.service";
+import { CropsArchiveComponent } from './crops/pages/crops-archive/crops-archive.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -64,7 +64,6 @@ export function createTranslateLoader(http: HttpClient) {
     ToolbarComponent,
     DashboardCardComponent,
     DashboardComponent,
-    InformationComponent,
     StepperContentComponent,
     ButtonPrimaryComponent,
     ProcessTableComponent,
@@ -82,6 +81,7 @@ export function createTranslateLoader(http: HttpClient) {
     StatisticalReportsComponent,
     LineChartComponent,
     InviteEmployeeDialogComponent,
+    CropsArchiveComponent,
   ],
   imports: [
     BrowserModule,

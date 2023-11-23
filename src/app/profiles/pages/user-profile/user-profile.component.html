@@ -5,7 +5,7 @@
         <div class="lg:w-1/2 text-center align-content-center mb-5 md:mr-5">
           <p class="font-bold text-4xl mb-4">{{ 'user-profile.my_profile' | translate }}</p>
           <div class="flex items-center justify-center mb-2">
-            <img class="rounded-full w-56 h-56" alt="avatar" src="{{user.image}}">
+            <img class="rounded-full w-56 h-56" alt="avatar" src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png">
           </div>
           <a class="text-blue-500 text-sm underline">{{ 'user-profile.change_profile_picture' | translate }}</a>
         </div>
@@ -14,7 +14,7 @@
             <div class="mb-5">
               <div class="flex justify-between items-center">
                 <p class="text-xl font-bold mr-2">{{ 'user-profile.name' | translate }}:</p>
-                <p class="text-sm overflow-ellipsis">{{ user.first_name + ' ' + user.last_name }}</p>
+                <p class="text-sm overflow-ellipsis">{{ user.fullName }}</p>
               </div>
               <a class="text-blue-500 text-sm underline">{{ 'user-profile.change_name' | translate }}</a>
               <hr class="division">
@@ -38,6 +38,9 @@
             <div class="mb-5">
               <div class="flex justify-between items-center">
                 <p class="text-xl font-bold mr-2">{{ 'user-profile.account' | translate }}:</p>
+              </div>
+              <div class="mb-3">
+                <a class="text-red-500 text-sm underline cursor-pointer" (click)="signOut()">{{ 'user-profile.sign_out' | translate }}</a>
               </div>
               <a class="text-red-500 text-sm underline">{{ 'user-profile.delete_account' | translate }}</a>
             </div>
