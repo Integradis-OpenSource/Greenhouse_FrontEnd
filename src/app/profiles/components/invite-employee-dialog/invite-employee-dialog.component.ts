@@ -4,6 +4,7 @@ import {MatDialogRef} from "@angular/material/dialog";
 import {EmailJsService} from "../../services/emailjs.service";
 import {UserService} from "../../services/user.service";
 import {AuthService} from "../../../shared/services/auth.service";
+import {TokenStorageService} from "../../../shared/services/tokenStorage.service";
 
 @Component({
   selector: 'app-invite-employee-dialog',
@@ -24,7 +25,8 @@ export class InviteEmployeeDialogComponent {
               private fb: FormBuilder,
               private emailJsService: EmailJsService,
               private userService: UserService,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private tokenStorage: TokenStorageService) {
     this.form = this.fb.group({
       newEmployeeFirstName: ['', Validators.required],
       newEmployeeLastName: ['', Validators.required],
@@ -72,8 +74,10 @@ export class InviteEmployeeDialogComponent {
         }
       );
 
+      const newEmployeeForm = {firstName: this.form.value.newEmployeeFirstName, lastName: this.form.value.newEmployeeLastName, email: this.form.value.newEmployeeEmail, companyId: this.tokenStorage.getCompanyId()};
 
-      this.userService.create(newEmployee).subscribe((response: any) => {
+      this.userService.setBasePath();
+      this.userService.create(newEmployeeForm).subscribe((response: any) => {
         console.log('Response', response);
       });
     } catch (e) {
