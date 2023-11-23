@@ -2,6 +2,7 @@
 import {Component, Input} from '@angular/core';
 import {EventServiceService} from "../../services/event.service";
 import {CropsService} from "../../services/crops.service";
+import {TokenStorageService} from "../../../shared/services/tokenStorage.service";
 @Component({
   selector: 'app-popup-new-crop',
   templateUrl: './popup-new-crop.component.html',
@@ -13,18 +14,21 @@ export class PopupNewCropComponent {
   id = 0;
   currentDateTime = new Date();
   currentDate = this.currentDateTime.toISOString().split('T')[0];
-  companyId = 1;
+  companyId = this.tokenStorageService.getCompanyId();
 
   popupVisible = false;
   isButtonDisabled = false;
 
-  constructor(private interactionService: EventServiceService, private cropService: CropsService) {
+  constructor(private interactionService: EventServiceService, private cropService: CropsService, private tokenStorageService: TokenStorageService) {
 
   }
 
   activeObjectPopUpNewCrop() {
     this.cropService.getList().subscribe((response: any) => {
-      this.id = response.length + 1;
+      if (response.length === 0)
+        this.id = 1;
+      else
+        this.id = response.length + 1;
     });
     this.interactionService.activeObjectPopUpNewCrop();
     this.popupVisible = true;

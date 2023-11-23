@@ -11,7 +11,7 @@ import {AuthService} from "../../../shared/services/auth.service";
 })
 export class SignupComponent {
   company: string = '';
-  ruc: string = '';
+  ruc: any = '';
   firstName: string = '';
   lastName: string = '';
   email: string = '';
@@ -40,9 +40,9 @@ export class SignupComponent {
         this.isSignUpFailed = true;
       }
     );
-    this.companyService.setResourceEndpoint('');
-    this.companyForm = {companyName: this.company, tin: this.ruc};
-    this.userService.setResourceEndpoint('');
+    this.companyService.setBasePath();
+    this.companyForm = {companyName: this.company, Tin: this.ruc};
+    this.userService.setBasePath();
     this.companyService.create(this.companyForm).subscribe((response: any) => {
       this.employeeForm = {firstName: this.firstName, lastName: this.lastName, email: this.email, companyId: response.id};
       this.userService.create(this.employeeForm).subscribe((response: any) => {

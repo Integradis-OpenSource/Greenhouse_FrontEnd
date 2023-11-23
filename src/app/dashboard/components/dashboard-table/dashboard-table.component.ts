@@ -3,6 +3,7 @@ import {ProcessEntryDashboardTable} from "../../model/process-entry-dashboard-ta
 import {ProcessEntriesDashboardTableService} from "../../services/process-entries-dashboard-table.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {CropsService} from "../../../crops/services/crops.service";
+import {TokenStorageService} from "../../../shared/services/tokenStorage.service";
 @Component({
   selector: 'app-dashboard-table',
   templateUrl: './dashboard-table.component.html',
@@ -10,7 +11,7 @@ import {CropsService} from "../../../crops/services/crops.service";
 })
 export class DashboardTableComponent implements OnInit {
   dataSource: MatTableDataSource<ProcessEntryDashboardTable>;
-  companyId: number = 1;
+  companyId: number = this.tokenStorageService.getCompanyId();
   columns = [
     {
       columnDef: 'cropId',
@@ -51,7 +52,7 @@ export class DashboardTableComponent implements OnInit {
   displayedColumns: Array<String> = [];
   crops: any;
 
-  constructor(private processApiService: ProcessEntriesDashboardTableService, private cropApiService: CropsService) {
+  constructor(private processApiService: ProcessEntriesDashboardTableService, private cropApiService: CropsService,private tokenStorageService: TokenStorageService) {
     this.dataSource = new MatTableDataSource<ProcessEntryDashboardTable>();
   }
 

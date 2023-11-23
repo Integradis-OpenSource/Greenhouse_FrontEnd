@@ -111,11 +111,18 @@ export class BaseService<T> {
 
   private getHttpOptions():{headers: HttpHeaders}{
     const token = this.tokenService.getToken();
-
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return {headers: headers};
+    console.log('BaseService.getHttpOptions()', token);
+    if(window.sessionStorage.getItem('auth-token') === null){
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+      });
+      return {headers: headers};
+    } else {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      });
+      return {headers: headers};
+    }
   }
 }

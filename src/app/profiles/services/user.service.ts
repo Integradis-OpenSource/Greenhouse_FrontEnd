@@ -29,4 +29,9 @@ export class UserService extends BaseService<Employee> {
   getEmployeeId(): number {
     return this.userId
   }
+
+  setBasePath() {
+    this.basePath = "https://greenhouse.zeabur.app/api/v1/employees";
+    this.setResourceEndpoint('');
+  }
 }
