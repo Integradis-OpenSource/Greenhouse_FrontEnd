@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {Employee} from "../../model/employee";
+import {TokenStorageService} from "../../../shared/services/tokenStorage.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-profile',
@@ -9,7 +11,7 @@ import {Employee} from "../../model/employee";
 })
 export class UserProfileComponent implements OnInit {
   user: Employee;
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private tokenStorageService: TokenStorageService, private router: Router) {
     this.user = new Employee();
   }
   getUser() :void {
@@ -21,5 +23,10 @@ export class UserProfileComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getUser();
+  }
+
+  signOut(): void {
+    this.tokenStorageService.signOut();
+    this.router.navigate(['/login']);
   }
 }

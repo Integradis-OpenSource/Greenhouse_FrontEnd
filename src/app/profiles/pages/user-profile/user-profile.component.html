@@ -39,6 +39,9 @@
               <div class="flex justify-between items-center">
                 <p class="text-xl font-bold mr-2">{{ 'user-profile.account' | translate }}:</p>
               </div>
+              <div class="mb-3">
+                <a class="text-red-500 text-sm underline cursor-pointer" (click)="signOut()">{{ 'user-profile.sign_out' | translate }}</a>
+              </div>
               <a class="text-red-500 text-sm underline">{{ 'user-profile.delete_account' | translate }}</a>
             </div>
           </div>

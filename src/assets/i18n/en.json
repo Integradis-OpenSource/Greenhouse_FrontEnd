@@ -69,7 +69,8 @@
     "change_email": "Change email",
     "change_password": "Change password",
     "delete_account": "Delete account",
-    "change_profile_picture": "Change profile picture"
+    "change_profile_picture": "Change profile picture",
+    "sign_out": "Sign out"
   },
   "company_profile": {
     "my_company": "My company",

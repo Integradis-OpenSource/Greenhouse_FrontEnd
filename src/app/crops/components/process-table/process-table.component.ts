@@ -3,6 +3,8 @@ import {ProcessEntry} from "../../model/process-entry";
 import {ProcessEntriesService} from "../../services/process-entries.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
+import {TokenStorageService} from "../../../shared/services/tokenStorage.service";
+import {UserService} from "../../../profiles/services/user.service";
 
 
 @Component({
@@ -12,6 +14,7 @@ import {MatPaginator} from "@angular/material/paginator";
 })
 export class ProcessTableComponent implements OnInit, AfterViewInit {
   dataSource: MatTableDataSource<ProcessEntry>;
+  author: string = '';
   @ViewChild(MatPaginator) paginator: MatPaginator;
   columns = [
     {
@@ -47,12 +50,16 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
   @Input() step: string = '';
   @Input() stepNumber: string = '';
 
-  constructor(private processApiService: ProcessEntriesService) {
+  constructor(private processApiService: ProcessEntriesService, private tokenStorageService: TokenStorageService, private userService: UserService) {
     this.processType = '';
     this.dataSource = new MatTableDataSource<ProcessEntry>();
     this.dialogFields = [];
     this.dialogFieldValues = {};
     this.paginator = {} as MatPaginator;
+    this.userService.setResourceEndpoint('');
+    this.userService.getById(this.userService.getEmployeeId()).subscribe((response: any) => {
+      this.author = response.fullName;
+    });
   }
 
   formatCropPhase(cropPhase: string): string {
@@ -130,18 +137,18 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
 
   openInputDialog(): void {
     const stepInputs = {
-      'Formula': ['author','hay', 'corn', 'guano', 'cottonSeedCake', 'soybeanMeal', 'gypsum', 'urea', 'ammoniumSulphate'],
-      'Preparation Area': ['author', 'activities', 'temperature', 'comment'],
-      'Bunker': ['author', 'thermocoupleOne', 'thermocoupleTwo', 'thermocoupleThree', 'motorFrequency', 'comment'],
-      'Tunnel': ['author', 'thermocoupleOne', 'thermocoupleTwo', 'thermocoupleThree', 'motorFrequency', 'roomTemperature', 'freshAir', 'recirculation', 'comment'],
-      'Incubation': ['author', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHumidity', 'setting', 'comment'],
-      'Casing': ['author', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHumidity', 'setting', 'comment'],
-      'Induction': ['author', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHumidity', 'setting', 'comment'],
-      'Harvest': ['author', 'growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHumidity', 'setting', 'comment'],
+      'Formula': ['hay', 'corn', 'guano', 'cottonSeedCake', 'soybeanMeal', 'gypsum', 'urea', 'ammoniumSulphate'],
+      'Preparation Area': ['activities', 'temperature', 'comment'],
+      'Bunker': ['thermocoupleOne', 'thermocoupleTwo', 'thermocoupleThree', 'motorFrequency', 'comment'],
+      'Tunnel': [ 'thermocoupleOne', 'thermocoupleTwo', 'thermocoupleThree', 'motorFrequency', 'roomTemperature', 'freshAir', 'recirculation', 'comment'],
+      'Incubation': ['growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHumidity', 'setting', 'comment'],
+      'Casing': ['growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHumidity', 'setting', 'comment'],
+      'Induction': ['growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHumidity', 'setting', 'comment'],
+      'Harvest': ['growRoom', 'airTemperature', 'compostTemperature', 'carbonDioxide', 'airHumidity', 'setting', 'comment'],
     };
     if (this.dataSource.data.length > 0) {
       this.dialogFields = this.columns.map(column => column.columnDef);
-      const fieldsToExclude = ['formulaId', "preparationAreaId", "bunkerId", "tunnelId", "incubationId", "casingId", "inductionId", "harvestId","day", 'date', 'time', 'cropPhase', "averageThermocouple"];
+      const fieldsToExclude = ['author','formulaId', "preparationAreaId", "bunkerId", "tunnelId", "incubationId", "casingId", "inductionId", "harvestId","day", 'date', 'time', 'cropPhase', "averageThermocouple"];
       this.dialogFields = this.dialogFields.filter(field => !fieldsToExclude.includes(field));
     } else {
       if (stepInputs[this.step as keyof typeof stepInputs]) { // Use a type assertion
@@ -165,12 +172,14 @@ export class ProcessTableComponent implements OnInit, AfterViewInit {
     const currentDayOfWeek = daysOfWeek[currentDateTime.getDay()];
 
     let commonData:{
+      author: string,
       date: string,
       time: string,
       day: string,
       crop_id: number,
       cropPhase?: string;
     } = {
+      author: this.author,
       crop_id: this.cropId,
       date: currentDate,
       day: currentDayOfWeek,

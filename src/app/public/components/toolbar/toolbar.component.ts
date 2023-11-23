@@ -4,6 +4,7 @@ import {UserService} from "../../../profiles/services/user.service";
 import {Company} from "../../../profiles/model/company";
 import {CompanyService} from "../../../profiles/services/company.service";
 import { Router } from '@angular/router';
+import {TokenStorageService} from "../../../shared/services/tokenStorage.service";
 
 @Component({
   selector: 'app-toolbar',
@@ -15,7 +16,7 @@ export class ToolbarComponent implements OnInit {
   user: Employee;
   company: Company;
 
-  constructor(private userService: UserService, private companyService: CompanyService, private router: Router) {
+  constructor(private userService: UserService, private companyService: CompanyService, private router: Router, private tokenStorageService: TokenStorageService) {
     this.user = new Employee;
     this.company = new Company;
   }
@@ -57,7 +58,9 @@ export class ToolbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUserAndCompany();
+    if(this.tokenStorageService.getToken() != null) {
+      this.getUserAndCompany();
+    }
     //this.getCompany();
   }
 }
