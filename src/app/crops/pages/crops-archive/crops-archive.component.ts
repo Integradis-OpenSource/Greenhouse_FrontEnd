@@ -5,6 +5,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {Router} from "@angular/router";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
+import {TokenStorageService} from "../../../shared/services/tokenStorage.service";
 
 @Component({
   selector: 'app-crops-archive',
@@ -14,12 +15,12 @@ import {MatSort} from "@angular/material/sort";
 export class CropsArchiveComponent {
   dataSource: MatTableDataSource<Crop>;
   displayedColumns: string[] = ["id","start_date","phase"]
-  companyId: number = 1;
+  companyId: number = this.tokenStorageService.getCompanyId();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort:MatSort;
 
-  constructor (private cropsApi : CropsService, private router: Router){
+  constructor (private cropsApi : CropsService, private router: Router, private tokenStorageService: TokenStorageService){
     this.dataSource = new MatTableDataSource<Crop>();
     this.paginator = {} as MatPaginator;
     this.sort = {} as MatSort;
