@@ -52,6 +52,7 @@ import { LineChartComponent } from './analytics/components/line-chart/line-chart
 import { AgChartsAngularModule } from 'ag-charts-angular';
 import { InviteEmployeeDialogComponent } from './profiles/components/invite-employee-dialog/invite-employee-dialog.component';
 import {authInterceptorProviders} from "./shared/services/auth-interceptor.service";
+import { CropsArchiveComponent } from './crops/pages/crops-archive/crops-archive.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -80,6 +81,7 @@ export function createTranslateLoader(http: HttpClient) {
     StatisticalReportsComponent,
     LineChartComponent,
     InviteEmployeeDialogComponent,
+    CropsArchiveComponent,
   ],
   imports: [
     BrowserModule,

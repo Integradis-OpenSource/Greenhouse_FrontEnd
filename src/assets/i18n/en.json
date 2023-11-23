@@ -139,5 +139,10 @@
   },
   "statistical_reports": {
     "statistical_reports": "Statistical reports"
+  },
+  "crops-archive": {
+    "archive_log": "Archive Log",
+    "crops_archived": "Crops archive"
+
   }
 }

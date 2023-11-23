@@ -139,5 +139,9 @@
   },
   "statistical_reports": {
     "statistical_reports": "Reportes estadísticos"
+  },
+  "crops-archive": {
+    "archive_log": "Registro de archivados",
+    "crops_archived": "Cultivos archivados"
   }
 }
