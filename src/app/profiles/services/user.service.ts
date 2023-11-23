@@ -15,7 +15,7 @@ export class UserService extends BaseService<Employee> {
   userId: number = 0;
   constructor(http: HttpClient, tokenStorageService: TokenStorageService) {
     super(http, tokenStorageService);
-    this.userId = tokenStorageService.getUser();
+    this.userId = tokenStorageService.getUserId();
     console.log('UserService.constructor()', this.userId);
     //this.basePath = "https://my-json-server.typicode.com/CarloLSG/GreenhouseFakeAPI1"
     this.basePath = `https://greenhouse.zeabur.app/api/v1/employees/`;

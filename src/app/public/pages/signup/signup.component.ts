@@ -40,9 +40,11 @@ export class SignupComponent {
         this.isSignUpFailed = true;
       }
     );
+    this.companyService.setResourceEndpoint('');
     this.companyForm = {companyName: this.company, tin: this.ruc};
-    this.employeeForm = {firstName: this.firstName, lastName: this.lastName, email: this.email};
+    this.userService.setResourceEndpoint('');
     this.companyService.create(this.companyForm).subscribe((response: any) => {
+      this.employeeForm = {firstName: this.firstName, lastName: this.lastName, email: this.email, companyId: response.id};
       this.userService.create(this.employeeForm).subscribe((response: any) => {
         this.router.navigate(['/login']);
       });
